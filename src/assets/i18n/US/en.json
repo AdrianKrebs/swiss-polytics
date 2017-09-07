@@ -57,8 +57,6 @@
     "acquisition_channels": "Acquisition Channels",
     "users_by_country": "Users by Country",
     "revenue": "Revenue",
-    "feed": "Feed",
-    "todo_list": "To Do List",
     "calendar": "Calendar",
     "new_visits": "New Visits",
     "purchases": "Purchases",
@@ -70,9 +68,6 @@
       "total_visits": "Total Visits",
       "new_visits": "New Visits",
       "sales": "Sales"
-    },
-    "todo": {
-      "task_todo": "Task to do.."
     },
     "traffic_chart": {
       "view_total": "Views Total"

@@ -4,7 +4,7 @@ import {BaThemeConfigProvider, colorHelper} from '../../../theme';
 @Injectable()
 export class PieChartService {
 
-  constructor(private _baConfig:BaThemeConfigProvider) {
+  constructor(private _baConfig: BaThemeConfigProvider) {
   }
 
   getData() {
@@ -12,25 +12,19 @@ export class PieChartService {
     return [
       {
         color: pieColor,
-        description: 'dashboard.new_visits',
-        stats: '57,820',
-        icon: 'person',
+        description: 'Trending Words',
+        stats: '#AHV, #IV',
+        icon: 'arrow-up',
       }, {
         color: pieColor,
-        description: 'dashboard.purchases',
-        stats: '$ 89,745',
-        icon: 'money',
+        description: 'Tweets Today',
+        stats: '89,745',
+        icon: 'twitter',
       }, {
         color: pieColor,
-        description: 'dashboard.active_users',
+        description: 'Tweeters Today',
         stats: '178,391',
-        icon: 'face',
-      }, {
-        color: pieColor,
-        description: 'dashboard.returned',
-        stats: '32,592',
-        icon: 'refresh',
-      }
-    ];
+        icon: 'user',
+      }];
   }
 }
