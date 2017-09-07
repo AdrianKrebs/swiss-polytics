@@ -94,9 +94,6 @@
   .help-block{
     color: $color;
   }
-  .feed-message .message-time, .text-muted {
-    color: darken($color, 20);
-  }
 }
 
 @mixin gradient($color-1, $color-2, $color-3) {
