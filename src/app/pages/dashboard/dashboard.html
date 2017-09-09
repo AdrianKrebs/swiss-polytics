@@ -1,29 +1,22 @@
 <div class="row">
-  <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-
+  <div class="col-md-8">
     <pie-chart></pie-chart>
 
+    <ba-card class="col-xlg-6 col-xl-6"
+             cardTitle="dashboard.acquisition_channels" baCardClass="traffic-panel medium-card">
+      <traffic-chart></traffic-chart>
+    </ba-card>
+    <ba-card class="col-xlg-6 col-lg-6" cardTitle="dashboard.calendar"
+             baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
+      <calendar></calendar>
+    </ba-card>
   </div>
-  <ba-card cardTitle="Feed" class="col-4 col-sm-4"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks">A Twitter List by
-      TwitterDev</a>
+  <div class="col-md-4">
+    <ba-card cardTitle="Feed"
+             baCardClass="large-card with-scroll feed-panel">
+      <a class="twitter-timeline" href="https://twitter.com/TwitterDev/lists/national-parks">A Twitter List by
+        TwitterDev</a>
 
-  </ba-card>
-</div>
-
-
-
-<div class="row">
-  <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12"
-           cardTitle="dashboard.acquisition_channels" baCardClass="traffic-panel medium-card">
-    <traffic-chart></traffic-chart>
-  </ba-card>
-</div>
-
-<div class="row">
-  <ba-card class="col-xlg-6 col-lg-6 col-md-12 col-sm-12 col-12" cardTitle="dashboard.calendar"
-           baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
-    <calendar></calendar>
-  </ba-card>
+    </ba-card>
+  </div>
 </div>
