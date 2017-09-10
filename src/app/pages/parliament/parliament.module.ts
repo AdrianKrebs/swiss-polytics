@@ -7,9 +7,9 @@ import { NgaModule } from '../../theme/nga.module';
 import { Parliament } from './parliament.component';
 import { routing }       from './parliament.routing';
 
-import { Tile } from '../dashboard/tile/tile.component';
 import {Helper} from "../util/helper.service";
-import {TileService} from "../dashboard/tile/tile.service";
+import {TileService} from "../shared/tile/tile.service";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
@@ -17,7 +17,8 @@ import {TileService} from "../dashboard/tile/tile.service";
     FormsModule,
     AppTranslationModule,
     NgaModule,
-    routing
+    routing,
+    SharedModule
   ],
   declarations: [
     Parliament
