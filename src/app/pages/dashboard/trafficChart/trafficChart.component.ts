@@ -15,6 +15,7 @@ import {colorHelper} from "../../../theme/theme.constants";
 export class TrafficChart implements OnInit {
 
   public doughnutData: Array<Object>;
+  public total: Number;
 
   constructor(private trafficChartService: TrafficChartService, private _baConfig: BaThemeConfigProvider) {
   }
@@ -23,6 +24,7 @@ export class TrafficChart implements OnInit {
     let dashboardColors = this._baConfig.get().colors.dashboard;
     this.trafficChartService.getTweetsPerParty().subscribe((data) => {
 
+      this.total = data.total;
       this.doughnutData = [
         {
           value: data.parties['SVP'],
