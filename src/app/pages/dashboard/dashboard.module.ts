@@ -16,6 +16,7 @@ import { CalendarService } from './calendar/calendar.service';
 import { LineChartService } from './lineChart/lineChart.service';
 import { PieChartService } from './pieChart/pieChart.service';
 import { TrafficChartService } from './trafficChart/trafficChart.service';
+import {Helper} from "../util/helper.service";
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { TrafficChartService } from './trafficChart/trafficChart.service';
     CalendarService,
     LineChartService,
     PieChartService,
-    TrafficChartService
+    TrafficChartService,
+    Helper
   ]
 })
 export class DashboardModule {}

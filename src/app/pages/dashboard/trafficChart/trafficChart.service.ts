@@ -1,52 +1,28 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {BaThemeConfigProvider, colorHelper} from '../../../theme';
+import {Http, Response} from "@angular/http";
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch';
+import {APP_CONFIG} from "../../../app-config.constants";
+import {IAppConfig} from "../../../app-config.interface";
+import {Helper} from "../../util/helper.service";
+
 
 @Injectable()
 export class TrafficChartService {
 
-  constructor(private _baConfig:BaThemeConfigProvider) {
+
+  constructor(private http: Http, private _baConfig: BaThemeConfigProvider, public helper: Helper, @Inject(APP_CONFIG) private config: IAppConfig) {
   }
 
 
-  getData() {
-    let dashboardColors = this._baConfig.get().colors.dashboard;
-    return [
-      {
-        value: 2000,
-        color: dashboardColors.white,
-        highlight: colorHelper.shade(dashboardColors.white, 15),
-        label: 'Other',
-        percentage: 87,
-        order: 1,
-      }, {
-        value: 1500,
-        color: dashboardColors.gossip,
-        highlight: colorHelper.shade(dashboardColors.gossip, 15),
-        label: 'Search engines',
-        percentage: 22,
-        order: 4,
-      }, {
-        value: 1000,
-        color: dashboardColors.silverTree,
-        highlight: colorHelper.shade(dashboardColors.silverTree, 15),
-        label: 'Referral Traffic',
-        percentage: 70,
-        order: 3,
-      }, {
-        value: 1200,
-        color: dashboardColors.surfieGreen,
-        highlight: colorHelper.shade(dashboardColors.surfieGreen, 15),
-        label: 'Direct Traffic',
-        percentage: 38,
-        order: 2,
-      }, {
-        value: 400,
-        color: dashboardColors.blueStone,
-        highlight: colorHelper.shade(dashboardColors.blueStone, 15),
-        label: 'Ad Campaigns',
-        percentage: 17,
-        order: 0,
-      },
-    ];
+  getTweetsPerParty(): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/tweets/count/party')
+      .map(this.helper.extractData)
+      .map((result) => result.tweetsPerParty)
+      .catch(this.helper.handleError);
   }
+
+
 }
