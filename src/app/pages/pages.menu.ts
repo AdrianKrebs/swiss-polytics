@@ -15,6 +15,18 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'parliament',
+        data: {
+          menu: {
+            title: 'Parlament',
+            icon: 'ion-ios-people',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: 'charts',
         data: {
           menu: {
