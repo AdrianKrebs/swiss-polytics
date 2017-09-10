@@ -6,14 +6,6 @@ import { ModuleWithProviders } from '@angular/core';
 // export function loadChildren(path) { return System.import(path); };
 
 export const routes: Routes = [
-  // {
-  //   path: 'login',
-  //   loadChildren: 'app/pages/login/login.module#LoginModule'
-  // },
-  // {
-  //   path: 'register',
-  //   loadChildren: 'app/pages/register/register.module#RegisterModule'
-  // },
   {
     path: 'pages',
     component: Pages,
@@ -21,6 +13,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       { path: 'parliament', loadChildren: './parliament/parliament.module#ParliamentModule' },
+      { path: 'party', loadChildren: './party/party.module#PartyModule' },
       { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
       { path: 'ui', loadChildren: './ui/ui.module#UiModule' },
       { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },

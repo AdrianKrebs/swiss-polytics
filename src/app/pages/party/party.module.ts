@@ -4,15 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { AppTranslationModule } from '../../app.translation.module';
 import { NgaModule } from '../../theme/nga.module';
 
-import { Dashboard } from './dashboard.component';
-import { routing }       from './dashboard.routing';
+import { Party } from './party.component';
+import { routing }       from './party.routing';
 
-import { PopularApp } from './popularApp';
-import { TrafficChart } from './trafficChart';
-import { Calendar } from './calendar';
-import { CalendarService } from './calendar/calendar.service';
-import { TrafficChartService } from './trafficChart/trafficChart.service';
 import {Helper} from "../util/helper.service";
+import {DashboardModule} from "../dashboard/dashboard.module";
 import {SharedModule} from "../shared/shared.module";
 import {TileService} from "../shared/tile/tile.service";
 
@@ -26,16 +22,11 @@ import {TileService} from "../shared/tile/tile.service";
     SharedModule
   ],
   declarations: [
-    PopularApp,
-    TrafficChart,
-    Calendar,
-    Dashboard
+    Party
   ],
   providers: [
-    CalendarService,
     TileService,
-    TrafficChartService,
     Helper
   ]
 })
-export class DashboardModule {}
+export class PartyModule {}
