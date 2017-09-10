@@ -1,8 +1,8 @@
-<div class="row pie-charts">
+<div class="row tiles">
 
-  <ba-card *ngFor="let tile of tiles" class="pie-chart-item-container col-xlg-4 col-lg-4 col-md- col-sm-12 col-12">
+  <ba-card *ngFor="let tile of tiles" class="tile-item-container col-xlg-4 col-lg-4 col-md- col-sm-12 col-12">
 
-    <div class="pie-chart-item">
+    <div class="tile-item">
       <div class="description">
         <div translate>{{ tile.description }}</div>
         <div class="description-stats">{{ tile.stats }}</div>
@@ -11,9 +11,9 @@
     </div>
 
   </ba-card>
-  <ba-card class="pie-chart-item-container col-xlg-4 col-lg-4 col-md- col-sm-12 col-12">
+  <ba-card class="tile-item-container col-xlg-4 col-lg-4 col-md- col-sm-12 col-12">
 
-    <div class="pie-chart-item">
+    <div class="tile-item">
       <div class="description trending">
         <div translate>Trending Today</div>
         <div *ngFor="let topic of trendingTopics">

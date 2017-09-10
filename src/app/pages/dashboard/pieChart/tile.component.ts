@@ -1,18 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 
-import {PieChartService} from './pieChart.service';
+import {TileService} from './tile.service';
 
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
 import {BaThemeConfigProvider} from "../../../theme/theme.configProvider";
 
 @Component({
-  selector: 'pie-chart',
-  templateUrl: './pieChart.html',
-  styleUrls: ['./pieChart.scss']
+  selector: 'tile',
+  templateUrl: './tile.html',
+  styleUrls: ['./tile.scss']
 })
 
 
-export class PieChart implements OnInit{
+export class Tile implements OnInit{
 
 
   public tiles: Array<Object> = [];
@@ -25,7 +25,7 @@ export class PieChart implements OnInit{
 
   private data: Array<any>;
 
-  constructor(private _pieChartService: PieChartService, private _baConfig: BaThemeConfigProvider){
+  constructor(private _pieChartService: TileService, private _baConfig: BaThemeConfigProvider){
     //this.charts = this.data;
     this.pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
 

@@ -1,9 +1,9 @@
 @import "../../../theme/sass/conf/conf";
 
-:host /deep/ .pie-charts {
+:host /deep/ .tiles {
   color: $content-text;
 
-  .pie-chart-item-container {
+  .tile-item-container {
     position: relative;
     padding: 0 15px;
     float: left;
@@ -15,24 +15,24 @@
   }
 
   @media screen and (min-width: 1325px) {
-    .pie-chart-item-container {
+    .tile-item-container {
       flex: 0 0 75%
     }
   }
   @media screen and (min-width: 700px) and (max-width: 1325px) {
-    .pie-chart-item-container {
+    .tile-item-container {
       max-width: 75%;
       flex: 0 0 75%
     }
   }
   @media screen and (max-width: 700px) {
-    .pie-chart-item-container {
+    .tile-item-container {
       max-width: 100%;
       flex: 0 0 100%
     }
   }
 
-  .pie-chart-item {
+  .tile-item {
     position: relative;
     .chart-icon {
       position: absolute;

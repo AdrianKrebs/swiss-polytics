@@ -9,7 +9,7 @@ import {APP_CONFIG} from "../../../app-config.constants";
 import {Helper} from "../../util/helper.service";
 
 @Injectable()
-export class PieChartService {
+export class TileService {
 
   constructor(private http: Http, public helper: Helper, @Inject(APP_CONFIG) private config: IAppConfig) {
   }

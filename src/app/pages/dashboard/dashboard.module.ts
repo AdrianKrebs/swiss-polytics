@@ -8,13 +8,13 @@ import { Dashboard } from './dashboard.component';
 import { routing }       from './dashboard.routing';
 
 import { PopularApp } from './popularApp';
-import { PieChart } from './pieChart';
+import { Tile } from './pieChart';
 import { TrafficChart } from './trafficChart';
 import { LineChart } from './lineChart';
 import { Calendar } from './calendar';
 import { CalendarService } from './calendar/calendar.service';
 import { LineChartService } from './lineChart/lineChart.service';
-import { PieChartService } from './pieChart/pieChart.service';
+import { TileService } from './pieChart/tile.service';
 import { TrafficChartService } from './trafficChart/trafficChart.service';
 import {Helper} from "../util/helper.service";
 
@@ -28,7 +28,7 @@ import {Helper} from "../util/helper.service";
   ],
   declarations: [
     PopularApp,
-    PieChart,
+    Tile,
     TrafficChart,
     LineChart,
     Calendar,
@@ -37,7 +37,7 @@ import {Helper} from "../util/helper.service";
   providers: [
     CalendarService,
     LineChartService,
-    PieChartService,
+    TileService,
     TrafficChartService,
     Helper
   ]
