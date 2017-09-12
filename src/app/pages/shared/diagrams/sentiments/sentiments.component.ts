@@ -20,18 +20,7 @@ export class SentimentsComponent implements OnInit {
     let foo = 'bar';
   }
 
-  initChart(chart: any) {
-    const zoomChart = () => {
-      chart.zoomToDates(new Date(2013, 3), new Date(2014, 0));
-    };
 
-    chart.addListener('rendered', zoomChart);
-    zoomChart();
-
-    if (chart.zoomChart) {
-      chart.zoomChart();
-    }
-  }
 
 
   private getData() {
