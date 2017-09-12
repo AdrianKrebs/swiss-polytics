@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-8">
-    <tile></tile>
-
-    <ba-card class="col-xlg-6 col-xl-6"
-             cardTitle="Tweets pro Parei diese Woche" baCardClass="traffic-panel medium-card">
-      <traffic-chart></traffic-chart>
+    <ba-card cardTitle="Overview statistics" class="col-xlg-6 col-xl-6">
+      <div class="row">
+        <div class="col-md-6"><app-sentiments></app-sentiments></div>
+        <div class="col-md-6"><app-mentions></app-mentions></div>
+      </div>
     </ba-card>
-    <ba-card class="col-xlg-6 col-lg-6" cardTitle="dashboard.calendar"
-             baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
-      <calendar></calendar>
+    <ba-card class="col-xlg-6 col-xl-6"
+             cardTitle="Tweets pro Partei diese Woche" baCardClass="traffic-panel medium-card">
+      <traffic-chart></traffic-chart>
     </ba-card>
   </div>
   <div class="col-md-4">
@@ -16,7 +16,6 @@
              baCardClass="large-card with-scroll feed-panel">
       <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/schweizer-parlament">A Twitter List by
         TwitterDev</a>
-
     </ba-card>
   </div>
 </div>

@@ -1,11 +1,15 @@
-import {NgModule}            from '@angular/core';
-import {CommonModule}        from '@angular/common';
-import {FormsModule}         from '@angular/forms';
-import {Tile} from "./tile/tile.component";
-import {AppTranslationModule} from "../../app.translation.module";
-import {NgaModule} from "../../theme/nga.module";
-import {Helper} from "app/pages/util/helper.service";
-import {TileService} from "./tile/tile.service";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Tile } from './tile/tile.component';
+import { AppTranslationModule } from '../../app.translation.module';
+import { NgaModule } from '../../theme/nga.module';
+import { Helper } from 'app/pages/util/helper.service';
+import { TileService } from './tile/tile.service';
+import { SentimentsComponent } from './diagrams/sentiments/sentiments.component';
+import { MentionsComponent } from './diagrams/mentions/mentions.component';
+import { MentionsService } from './services/mentions.service';
+import { SentimentsService } from './services/sentiments.service';
 
 
 @NgModule({
@@ -14,12 +18,21 @@ import {TileService} from "./tile/tile.service";
     FormsModule,
     AppTranslationModule,
     NgaModule],
-  declarations: [Tile],
-  exports: [Tile,
-    CommonModule, FormsModule],
+  declarations: [
+    Tile,
+    SentimentsComponent,
+    MentionsComponent],
+  exports: [
+    Tile,
+    SentimentsComponent,
+    MentionsComponent,
+    CommonModule,
+    FormsModule],
   providers: [
     TileService,
-    Helper
+    Helper,
+    MentionsService,
+    SentimentsService
   ]
 })
 export class SharedModule {
