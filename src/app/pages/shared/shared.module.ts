@@ -6,6 +6,7 @@ import {AppTranslationModule} from "../../app.translation.module";
 import {NgaModule} from "../../theme/nga.module";
 import {Helper} from "app/pages/util/helper.service";
 import {TileService} from "./tile/tile.service";
+import {ParlamentService} from "./services/paralament.service";
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {TileService} from "./tile/tile.service";
     CommonModule, FormsModule],
   providers: [
     TileService,
+    ParlamentService,
     Helper
   ]
 })

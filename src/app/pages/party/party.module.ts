@@ -12,6 +12,7 @@ import {DashboardModule} from "../dashboard/dashboard.module";
 import {SharedModule} from "../shared/shared.module";
 import {TileService} from "../shared/tile/tile.service";
 import {Tile} from "../shared/tile/tile.component";
+import {PoliticianTable} from "./responsiveTable/politician-table.component";
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import {Tile} from "../shared/tile/tile.component";
     SharedModule
   ],
   declarations: [
-    Party
+    Party,
+    PoliticianTable
   ],
   providers: [
     TileService,
