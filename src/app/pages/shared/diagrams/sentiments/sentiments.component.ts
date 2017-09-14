@@ -17,11 +17,7 @@ export class SentimentsComponent implements OnInit {
 
   ngOnInit() {
     this.sentiments = this.getData();
-    let foo = 'bar';
   }
-
-
-
 
   private getData() {
 
@@ -131,5 +127,4 @@ export class SentimentsComponent implements OnInit {
       pathToImages: layoutPaths.images.amChart
     };
   }
-
 }
