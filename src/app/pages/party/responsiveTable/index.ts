@@ -1,1 +1,1 @@
-export * from './table.component';
+export * from './politician-table.component';

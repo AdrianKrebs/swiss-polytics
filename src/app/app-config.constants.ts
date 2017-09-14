@@ -6,7 +6,7 @@ import { IAppConfig } from "./app-config.interface";
 
 export const APP_DI_CONFIG: IAppConfig = {
 
-  BACKEND_URL: 'http://localhost:5000'
+  BACKEND_URL: 'https://infinite-headland-89947.herokuapp.com'
 
 };
 

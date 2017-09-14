@@ -5,13 +5,7 @@ import { ModuleWithProviders } from '@angular/core';
 
 // noinspection TypeScriptValidateTypes
 export const routes: Routes = [
-  {
-    path: '',
-    component: Party,
-    children: [
-      //{ path: 'treeview', component: TreeViewComponent }
-    ]
-  }
+  { path: ':id', component: Party }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);
