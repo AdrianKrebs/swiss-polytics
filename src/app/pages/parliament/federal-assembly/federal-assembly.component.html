@@ -9,7 +9,7 @@
     <g *ngFor="let seat of seats">
       <circle
         class="seat"  
-        (click)="gotoPolitician(seat.personId);"
+        (click)="navigateToProfile(seat.personId);"
         [attr.cx]="seat.cx" 
         [attr.cy]="seat.cy" 
         [attr.r]="seat.rx*1.2" 

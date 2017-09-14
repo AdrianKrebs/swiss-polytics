@@ -1,6 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import {SeatModel} from '../../model/seat-model'
+import {SeatModel} from '../../model/seat.model'
 
 
 @Component({
@@ -18,7 +18,7 @@ export class FederalAssemblyComponent implements OnInit {
   ngOnInit() {
   }
 
-  gotoPolitician(personId) {
+  gotonavigateToProfile(personId) {
     console.log('personId ' + personId + ' geklickt.');
     window.open('https://www.parlament.ch/de/biografie?CouncillorId=' + personId,'_blank');
   }
