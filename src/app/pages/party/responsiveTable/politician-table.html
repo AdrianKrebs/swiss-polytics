@@ -2,17 +2,15 @@
   <table class="table">
     <tr>
       <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
+      <th>Vorname</th>
+      <th>Nachname</th>
       <th>Kanton</th>
     </tr>
-    <tr *ngFor="let p of politicians | async">
+    <tr *ngFor="let p of politicians | async" (click)="navigateToProfile(p.id)">
       <td class="table-id">{{ p.id }}</td>
       <td>{{ p.firstName }}</td>
       <td>{{ p.lastName }}</td>
-      <td><a class="email-link" href="mailto:{{ p.emailWork }}">{{ p.emailWork }}</a></td>
-      <td>{{ p.canton }}</td>
+      <td>{{ p.cantonName }}</td>
     </tr>
   </table>
 </div>

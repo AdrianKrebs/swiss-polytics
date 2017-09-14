@@ -1,4 +1,4 @@
-[
+export const MAPPING = [
   {
     "id": "743779500341792768",
     "person_id": 4199,
