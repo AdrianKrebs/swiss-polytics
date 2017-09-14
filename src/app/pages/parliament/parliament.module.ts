@@ -5,6 +5,7 @@ import { AppTranslationModule } from '../../app.translation.module';
 import { NgaModule } from '../../theme/nga.module';
 
 import { Parliament } from './parliament.component';
+import { FederalAssemblyComponent} from './federal-assembly/federal-assembly.component';
 import { routing }       from './parliament.routing';
 
 import {Helper} from "../util/helper.service";
@@ -21,7 +22,8 @@ import {SharedModule} from "../shared/shared.module";
     SharedModule
   ],
   declarations: [
-    Parliament
+    Parliament,
+    FederalAssemblyComponent
   ],
   providers: [
     TileService,

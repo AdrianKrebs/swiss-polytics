@@ -1,0 +1,32 @@
+<h2>
+  Vereinigte Bundesversammlung
+</h2>
+
+<div class="svg-container">
+  <svg id="svgId" x="0" y="0" width="100%" height="100%" viewBox="0 0 2000 1000" preserveAspectRatio="none">
+    <!-- One Point per Seat-->
+       
+    <g *ngFor="let seat of seats">
+      <circle
+        class="seat"  
+        (click)="gotoPolitician(seat.personId);"
+        [attr.cx]="seat.cx" 
+        [attr.cy]="seat.cy" 
+        [attr.r]="seat.rx*1.2" 
+        stroke="black"
+        stroke-width="4"
+        
+      />
+      </g>  
+      </svg>
+</div>
+
+<!-- [attr.stroke]="black" -->
+<!--
+svg.append("text")
+.attr("x",0)
+.attr("y",70)
+.attr("font-family","FontAwesome")
+.attr('font-size', function(d) { return '70px';} )
+.text(function(d) { return '\uf083'; }); 
+-->
