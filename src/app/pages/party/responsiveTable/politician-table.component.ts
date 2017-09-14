@@ -5,6 +5,7 @@ import {Observable} from "rxjs/Observable";
 @Component({
   selector: 'politician-table',
   templateUrl: './politician-table.html',
+  styleUrls: ['./politician-table.scss']
 })
 export class PoliticianTable {
 
