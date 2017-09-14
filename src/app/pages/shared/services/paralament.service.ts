@@ -4,9 +4,11 @@ import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/filter';
 import {IAppConfig} from "../../../app-config.interface";
 import {APP_CONFIG} from "../../../app-config.constants";
 import {Helper} from "../../util/helper.service";
+import {PartyModel} from "../../model/party.model";
 
 @Injectable()
 export class ParlamentService {
@@ -17,8 +19,16 @@ export class ParlamentService {
   getPoliticanInfos(id): Observable<any> {
     return this.http.get(this.config.BACKEND_URL + '/councillor/'+id)
       .map(this.helper.extractData)
-      .map((result) => [result.data]) //TODO wird hier in array verpackt damit für ngFor gebraucht werden kann
+      .map((result) => result.data)
       .catch(this.helper.handleError);
   }
+
+  getFactionInfos(party: PartyModel): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/faction/'+party.faction)
+      .map(this.helper.extractData)
+      .map((result) => result.data.members)
+      .catch(this.helper.handleError);
+  }
+
 
 }

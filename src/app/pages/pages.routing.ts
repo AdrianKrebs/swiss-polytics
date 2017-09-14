@@ -14,7 +14,6 @@ export const routes: Routes = [
       { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
       { path: 'parliament', loadChildren: './parliament/parliament.module#ParliamentModule' },
       { path: 'party', loadChildren: './party/party.module#PartyModule' },
-      { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
       { path: 'ui', loadChildren: './ui/ui.module#UiModule' },
       { path: 'forms', loadChildren: './forms/forms.module#FormsModule' },
       { path: 'tables', loadChildren: './tables/tables.module#TablesModule' }

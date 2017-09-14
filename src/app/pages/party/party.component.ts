@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {Politician} from "../model/politician.model";
 import {ParlamentService} from "../shared/services/paralament.service";
 import 'rxjs/add/operator/switchMap';
+import {PartyModel} from "../model/party.model";
 
 @Component({
   selector: 'party',
@@ -13,7 +14,7 @@ import 'rxjs/add/operator/switchMap';
 export class Party implements AfterViewInit, OnInit{
 
   politicians$: Observable<Politician[]>;
-  private selectedId: number;
+  private selectedId: string;
 
   constructor( private service: ParlamentService,
                private route: ActivatedRoute) {
@@ -24,9 +25,15 @@ export class Party implements AfterViewInit, OnInit{
     this.politicians$ = this.route.paramMap
       .switchMap((params: ParamMap) => {
         // (+) before `params.get()` turns the string into a number
-        this.selectedId = +params.get('id');
-        return this.service.getPoliticanInfos(this.selectedId);
+        this.selectedId = params.get('id');
+        return this.service.getFactionInfos(new PartyModel(this.selectedId));
       });
+
+    this.service.getFactionInfos(new PartyModel("SVP")).subscribe((data) => {
+      console.log("got a response");
+      console.log(data);
+
+    })
   }
 
   // hacky lifecycle hook to load twitter feed
