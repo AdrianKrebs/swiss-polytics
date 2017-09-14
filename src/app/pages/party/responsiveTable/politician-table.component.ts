@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Politician} from "../../model/politician.model";
+import {PoliticianModel} from "../../model/politician.model";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -8,7 +8,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class PoliticianTable {
 
-  @Input() politicians: Observable<Politician[]>;
+  @Input() politicians: Observable<PoliticianModel[]>;
 
   constructor() {
 

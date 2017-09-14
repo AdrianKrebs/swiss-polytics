@@ -1,7 +1,7 @@
 import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import {Observable} from "rxjs/Observable";
-import {Politician} from "../model/politician.model";
+import {PoliticianModel} from "../model/politician.model";
 import {ParlamentService} from "../shared/services/paralament.service";
 import 'rxjs/add/operator/switchMap';
 import {PartyModel} from "../model/party.model";
@@ -13,7 +13,7 @@ import {PartyModel} from "../model/party.model";
 })
 export class Party implements AfterViewInit, OnInit{
 
-  politicians$: Observable<Politician[]>;
+  politicians$: Observable<PoliticianModel[]>;
   private selectedId: string;
 
   constructor( private service: ParlamentService,
