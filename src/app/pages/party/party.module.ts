@@ -1,11 +1,11 @@
-import { NgModule }      from '@angular/core';
-import { CommonModule }  from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { AppTranslationModule } from '../../app.translation.module';
-import { NgaModule } from '../../theme/nga.module';
+import {NgModule}      from '@angular/core';
+import {CommonModule}  from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {AppTranslationModule} from '../../app.translation.module';
+import {NgaModule} from '../../theme/nga.module';
 
-import { Party } from './party.component';
-import { routing }       from './party.routing';
+import {Party} from './party.component';
+import {routing}       from './party.routing';
 
 import {Helper} from "../util/helper.service";
 import {DashboardModule} from "../dashboard/dashboard.module";
@@ -32,4 +32,5 @@ import {PoliticianTable} from "./responsiveTable/politician-table.component";
     Helper
   ]
 })
-export class PartyModule {}
+export class PartyModule {
+}
