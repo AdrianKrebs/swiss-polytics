@@ -2,13 +2,13 @@
   <div class="col-md-8">
     <tile></tile>
     <ba-card cardTitle="Politiker der {{selectedParty}} auf Twitter">
-      <politician-table [politicians]="politicians$"></politician-table>
+      <politician-table [politicians]="politicians$" (onNavigateToProfile)="navigateToProfile($event)"></politician-table>
     </ba-card>
   </div>
   <div class="col-md-4">
     <ba-card cardTitle="Feed"
              baCardClass="large-card with-scroll feed-panel">
-      <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/svp">A Twitter List by
+      <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/{{selectedParty}}">A Twitter List by
         TwitterDev</a>
 
     </ba-card>

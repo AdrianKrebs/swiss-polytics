@@ -1,5 +1,5 @@
 import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {Observable} from "rxjs/Observable";
 import {PoliticianModel} from "../model/politician.model";
 import {ParlamentService} from "../shared/services/paralament.service";
@@ -20,7 +20,7 @@ export class Party implements AfterViewInit, OnInit {
   private politicians: Array<any>;
 
   constructor(private service: ParlamentService,
-              private route: ActivatedRoute, private helper: Helper) {
+              private route: ActivatedRoute,  private router: Router) {
   }
 
 
@@ -29,10 +29,6 @@ export class Party implements AfterViewInit, OnInit {
       .switchMap((params: ParamMap) => {
         // (+) before `params.get()` turns the string into a number
         this.selectedParty = params.get('id');
-
-
-        this.politicians = MAPPING.filter((p) => p.party === this.selectedParty);
-        console.log(this.politicians);
 
         return this.service.getFactionInfos(new PartyModel(this.selectedParty));
       });
@@ -53,6 +49,10 @@ export class Party implements AfterViewInit, OnInit {
       // }
     })
     (document, "script", "twitter-wjs");
+  }
+
+  navigateToProfile(id){
+    this.router.navigate(['/pages/politician/'+id]);
   }
 
 }

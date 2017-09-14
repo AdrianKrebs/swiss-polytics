@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PoliticianModel} from "../../model/politician.model";
 import {Observable} from "rxjs/Observable";
 
@@ -10,8 +10,14 @@ import {Observable} from "rxjs/Observable";
 export class PoliticianTable {
 
   @Input() politicians: Observable<PoliticianModel[]>;
+  @Output() onNavigateToProfile = new EventEmitter<String>();
 
   constructor() {
 
+  }
+
+  navigateToProfile(id) {
+
+    this.onNavigateToProfile.emit(id)
   }
 }

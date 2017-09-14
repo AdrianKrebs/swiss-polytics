@@ -1,3 +1,8 @@
 .vertical-scroll {
   max-height: none;
 }
+.table {
+  > tbody > tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
