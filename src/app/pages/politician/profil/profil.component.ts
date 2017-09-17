@@ -1,15 +1,18 @@
 
-import { AfterViewChecked, AfterViewInit, Component } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, Input } from '@angular/core';
+import { PoliticianModel } from "../../model/politician.model";
 
 @Component({
   selector: 'profil',
+  styleUrls: ['./profil.scss'],
   templateUrl: './profil.html'
 })
 
 
 export class Profil implements AfterViewInit {
 
-   
+  @Input() politicanModel: PoliticianModel
+
   constructor() {
   }
 
@@ -30,19 +33,3 @@ export class Profil implements AfterViewInit {
   }
 }
 
-//export class Profil {
- //   constructor(http: Http) {
-  //     var id = 4154;
-  //     var url = 'http://ws-old.parlament.ch/councillors/' + id + '?format=json&?lang=de';
-  //     http.get(url).subscribe(data => {
-  //       console.log(data);
-  //     })
-
-  // constructor(jsonp: Jsonp) {
-  //   var id = 4154;
-  //   var url = 'http://ws-old.parlament.ch/councillors/' + id + '?format=json&?lang=de?';
-  //   jsonp.request(url, { method: 'Get' }).subscribe((res) => {
-  //     console.log(res);
-  //   });
-  // }
-//}
