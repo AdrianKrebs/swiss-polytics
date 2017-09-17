@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RawMention } from '../../../model/rawmention.model';
 import { TableData } from '../tableData';
+import * as moment from 'moment';
 
 @Injectable()
 export class MentionsTransformerService {
@@ -12,7 +13,7 @@ export class MentionsTransformerService {
     const today: Date = new Date();
     const resultMap: Map<number, number> = this.createEmptyTableData(today);
     for (const mention of mentions) {
-      this.incrementMentionForDay(resultMap, mention.createdAt);
+      this.incrementMentionForDay(resultMap, new Date(mention.createdAt));
     }
     const result: TableData[] = this.convertMapToOrderedArray(resultMap);
     return result;
@@ -36,9 +37,8 @@ export class MentionsTransformerService {
   createEmptyTableData(today: Date): Map<number, number> {
     const result: Map<number, number> = new Map();
     for (let day = this.amountOfDays; day > 0; day--) {
-      const aDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      aDate.setDate(- day);
-      result.set(aDate.valueOf(), 0);
+      const aDate = moment(today).add(-day, 'days');
+       result.set(this.truncateDateToDate(aDate.toDate()).valueOf(), 0);
     }
     return result;
   }
@@ -48,8 +48,12 @@ export class MentionsTransformerService {
   }
 
   incrementMentionForDay(resultMap: Map<number, number>, date: Date) {
-    const time: number = this.truncateDateToDate(date).valueOf();
-    const mentions: number = resultMap.get(time);
-    resultMap.set(time, mentions + 1);
+    try {
+      const time: number = this.truncateDateToDate(date).valueOf();
+      const mentions: number = resultMap.get(time);
+      resultMap.set(time, mentions + 1);
+    } catch (e) {
+      // Do nothing at the moment
+    }
   }
 }

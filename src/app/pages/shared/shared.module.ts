@@ -11,7 +11,8 @@ import { SentimentsComponent } from './diagrams/sentiments/sentiments.component'
 import { MentionsComponent } from './diagrams/mentions/mentions.component';
 import { MentionsService } from './services/mentions.service';
 import { SentimentsService } from './services/sentiments.service';
-import {SentimentsTransformerService} from './diagrams/sentiments/sentiments-transformer.service';
+import { SentimentsTransformerService } from './diagrams/sentiments/sentiments-transformer.service';
+import { MentionsTransformerService } from './diagrams/mentions/mentions-transformer.service';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {SentimentsTransformerService} from './diagrams/sentiments/sentiments-tra
     Helper,
     MentionsService,
     SentimentsService,
-    SentimentsTransformerService
+    SentimentsTransformerService,
+    MentionsTransformerService
   ]
 })
 export class SharedModule {

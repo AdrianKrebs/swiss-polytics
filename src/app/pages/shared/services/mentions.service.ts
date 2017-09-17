@@ -16,6 +16,7 @@ export class MentionsService {
   getMentions(): Observable<RawMention[]> {
     return this.http.get(`${this.config.BACKEND_URL}/mentions`)
       .map(this.helper.extractData)
+      .map((dataInHolder) => dataInHolder.mentions)
       .catch(this.helper.handleError);
   }
 }
