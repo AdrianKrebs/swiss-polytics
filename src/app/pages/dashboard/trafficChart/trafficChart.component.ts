@@ -40,6 +40,14 @@ export class TrafficChart implements OnInit {
           label: 'SP',
           percentage: calcPercentage('SP'),
           order: 4,
+        },
+        {
+          value: data.parties['FDP'],
+          color: dashboardColors.green,
+          highlight: colorHelper.shade(dashboardColors.green, 15),
+          label: 'FDP',
+          percentage: calcPercentage('FDP'),
+          order: 3,
         }, {
           value: data.parties['CVP'],
           color: dashboardColors.silverTree,
@@ -47,7 +55,16 @@ export class TrafficChart implements OnInit {
           label: 'CVP',
           percentage: calcPercentage('CVP'),
           order: 3,
-        }, {
+        },
+        {
+          value: data.parties['BDP'],
+          color: dashboardColors.green,
+          highlight: colorHelper.shade(dashboardColors.green, 15),
+          label: 'BDP',
+          percentage: calcPercentage('BDP'),
+          order: 3,
+        },
+        {
           value: data.parties['GLP'],
           color: dashboardColors.surfieGreen,
           highlight: colorHelper.shade(dashboardColors.surfieGreen, 15),
@@ -81,8 +98,6 @@ export class TrafficChart implements OnInit {
       responsive: true
     });
   }
-
-
 
 
 }

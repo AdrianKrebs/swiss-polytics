@@ -3,13 +3,20 @@
     <tile></tile>
 
     <ba-card class="col-xlg-6 col-xl-6"
-             cardTitle="Tweets pro Parei diese Woche" baCardClass="traffic-panel medium-card">
+             cardTitle="Tweets pro Parei diese Woche" baCardClass="traffic-panel xmedium-card">
       <traffic-chart></traffic-chart>
     </ba-card>
-    <ba-card class="col-xlg-6 col-lg-6" cardTitle="dashboard.calendar"
-             baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
-      <calendar></calendar>
-    </ba-card>
+    <div class="row">
+      <ba-card class="col-md-6" cardTitle="Trending diese Woche"
+               baCardClass="medium-card">
+        <div *ngFor="let topic of trendingTopics">
+          <div class="description-stats">{{topic}}</div>
+        </div>
+      </ba-card>
+      <ba-card class="col-md-6" cardTitle="aktivste Nutzer diese Woche"
+               baCardClass="medium-card">
+      </ba-card>
+    </div>
   </div>
   <div class="col-md-4">
     <ba-card cardTitle="Feed"

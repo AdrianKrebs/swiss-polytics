@@ -7,8 +7,6 @@ import { PoliticianModel } from "../../model/politician.model";
   styleUrls: ['./profil.scss'],
   templateUrl: './profil.html'
 })
-
-
 export class Profil implements AfterViewInit {
 
   @Input() politicanModel: PoliticianModel
@@ -32,4 +30,3 @@ export class Profil implements AfterViewInit {
       (document, "script", "twitter-wjs");
   }
 }
-
