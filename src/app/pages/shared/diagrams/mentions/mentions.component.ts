@@ -19,6 +19,7 @@ export class MentionsComponent implements OnInit {
   private baConfig: BaThemeConfigProvider;
 
   mentions: any;
+  chart: any;
   _mentions: Observable<Object>;
 
   constructor(
@@ -28,16 +29,25 @@ export class MentionsComponent implements OnInit {
     this.mentionsDataService = mentionsDataService;
     this.mentionsTransformerService = transformationService;
     this.baConfig = baconfig;
+    this.mentions = this.getData();
   }
 
   ngOnInit() {
-    this.mentions = this.getData();
+
     let mentionsData: RawMention[];
     this.mentionsDataService.getMentions().subscribe((data) => {
       mentionsData = data;
       const tableData: TableData[] = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
-      this.mentions.dataProvider = tableData;
+      this.chart.dataProvider = tableData;
+      this.chart.validateData();
     });
+  }
+
+  public chartReady(chart) {
+
+    console.log('chart is ready and got it back');
+    this.chart = chart;
+
   }
 
   private getData() {
@@ -53,7 +63,11 @@ export class MentionsComponent implements OnInit {
       responsive: {
         'enabled': true
       },
-      dataProvider: [],
+      dataProvider: [
+        { date: new Date(2012, 11), value: 0 },
+        { date: new Date(2013, 0), value: 15000 },
+        { date: new Date(2013, 1), value: 30000 }
+      ],
       categoryField: 'date',
       categoryAxis: {
         parseDates: true,
@@ -81,9 +95,22 @@ export class MentionsComponent implements OnInit {
           valueField: 'value0',
           fillAlphas: 1,
           fillColorsField: 'lineColor'
-        }],
+        },
+        {
+          id: 'g1',
+          bullet: 'none',
+          useLineColorForBulletBorder: true,
+          lineColor: colorHelper.hexToRgbA(graphColor, 0.15),
+          lineThickness: 1,
+          negativeLineColor: layoutColors.danger,
+          type: 'smoothedLine',
+          valueField: 'value',
+          fillAlphas: 1,
+          fillColorsField: 'lineColor'
+        }
+      ],
       chartCursor: {
-        categoryBalloonDateFormat: 'YYYY MM DD',
+        categoryBalloonDateFormat: 'MM YYYY',
         categoryBalloonColor: '#4285F4',
         categoryBalloonAlpha: 0.7,
         cursorAlpha: 0,
@@ -91,7 +118,7 @@ export class MentionsComponent implements OnInit {
         valueLineBalloonEnabled: true,
         valueLineAlpha: 0.5
       },
-      dataDateFormat: 'YYYY MM DD',
+      dataDateFormat: 'MM YYYY',
       export: {
         enabled: true
       },
