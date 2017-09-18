@@ -1,6 +1,10 @@
 import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {TileService} from "../shared/tile/tile.service";
 import {MAPPING} from "../util/mapping";
+import {Politician} from "../politician/politician.component";
+import {PoliticianModel} from "../model/politician.model";
+import {Router} from "@angular/router";
+import {Helper} from "../util/helper.service";
 
 @Component({
   selector: 'dashboard',
@@ -10,9 +14,9 @@ import {MAPPING} from "../util/mapping";
 export class Dashboard implements AfterViewInit, OnInit {
 
   private trendingTopics: Array<String>;
-  private mostActive: Array<Object>;
+  private mostActiveUsers: Array<PoliticianModel>;
 
-  constructor(private _tileService: TileService) {
+  constructor(private _tileService: TileService,private _helper: Helper, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,33 +26,29 @@ export class Dashboard implements AfterViewInit, OnInit {
     });
 
     this._tileService.getMostActiveUsers().subscribe((data) => {
-      this.mostActive = [
-        {user: this.getNameByUser(data.id), count: data.count}
-      ]
+      this.mostActiveUsers = data.map((user) => {
+        let politician = new PoliticianModel();
+        let p = this._helper.getUserByTwitterId(user._id);
+        politician.person_id = p['person_id'];
+        politician.party = p['party'];
+        politician.firstName = p['name'];
+        politician.count = user.count;
+        return politician;
+      });
     })
   }
 
-  getNameByUser(id) {
-    return MAPPING.find((user) => user.id === id)['name'];
 
-
+  navigateToProfile(id) {
+    console.log('navigating to profile');
+    this.router.navigate(['/pages/politician/'+id]);
   }
 
+  navigateToParty(party) {
+    this.router.navigate(['/pages/party/'+party]);
+  }
 
-  // hacky lifecycle hook to load twitter feed
   ngAfterViewInit() {
-    (function (d, s, id) {
-      var js: any,
-        fjs = d.getElementsByTagName(s)[0],
-        p = 'https';
-      //if(!d.getElementById(id)){
-      js = d.createElement(s);
-      js.id = id;
-      js.src = p + "://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-      // }
-    })
-    (document, "script", "twitter-wjs");
+    this._helper.initTwitterWidget();
   }
-
 }

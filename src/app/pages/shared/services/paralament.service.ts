@@ -30,15 +30,10 @@ export class ParlamentService {
       .map(this.helper.extractData)
       .map((result) => {
         return result.data.members.filter((member) => {
-          return this.getIdsForParty(party.name).includes(member.id)
+          return this.helper.getIdsForParty(party.name).includes(member.id)
         })
       })
       .catch(this.helper.handleError);
   }
-
-  getIdsForParty(party) {
-    return MAPPING.filter((p) => p.party === party).map((element) => element['person_id']);
-  }
-
 
 }

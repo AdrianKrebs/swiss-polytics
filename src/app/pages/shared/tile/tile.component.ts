@@ -39,20 +39,22 @@ export class Tile implements OnInit{
 
     let queryParmas = '';
     if(this.politicianId) {
-      queryParmas = '?id='+this.politicianId;
+      queryParmas = '?politicianId='+this.politicianId;
     } else if (this.party) {
       queryParmas = '?party='+this.party;
     }
 
-    this._pieChartService.getUsersToday(queryParmas).subscribe((data) => {
-      this.usersToday = data;
-      this.tiles.push({
-        color: this.pieColor,
-        description: 'Tweeters Today',
-        stats: this.usersToday,
-        icon: 'user',
+    if(!this.politicianId) {
+      this._pieChartService.getUsersToday(queryParmas).subscribe((data) => {
+        this.usersToday = data;
+        this.tiles.push({
+          color: this.pieColor,
+          description: 'Tweeters Today',
+          stats: this.usersToday,
+          icon: 'user',
+        });
       });
-    });
+    }
     this._pieChartService.getTweetsToday(queryParmas).subscribe((data) => {
       this.tweetsToday = data;
       this.tiles.push({

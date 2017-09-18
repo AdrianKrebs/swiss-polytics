@@ -1,6 +1,7 @@
 
 import { AfterViewChecked, AfterViewInit, Component, Input } from '@angular/core';
 import { PoliticianModel } from "../../model/politician.model";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'profil',
@@ -9,7 +10,7 @@ import { PoliticianModel } from "../../model/politician.model";
 })
 export class Profil implements AfterViewInit {
 
-  @Input() politicanModel: PoliticianModel
+  @Input() politicanModel: Observable<PoliticianModel>;
 
   constructor() {
   }

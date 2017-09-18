@@ -1,14 +1,12 @@
 <div class="vertical-scroll">
   <table class="table">
     <tr>
-      <th>#</th>
       <th>Vorname</th>
       <th>Nachname</th>
       <th>Kanton</th>
     </tr>
     <tr *ngFor="let p of politicians | async" (click)="navigateToProfile(p.id)">
-      <td class="table-id">{{ p.id }}</td>
-      <td>{{ p.firstName }}</td>
+      <td class="table-id">{{ p.firstName }}</td>
       <td>{{ p.lastName }}</td>
       <td>{{ p.cantonName }}</td>
     </tr>
