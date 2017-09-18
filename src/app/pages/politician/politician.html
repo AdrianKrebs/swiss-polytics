@@ -1,13 +1,15 @@
 <div class="row">
-    <div class="col-md-8">
-        <ba-card class="col-xlg-6 col-lg-6" cardTitle= {{selectedPolitician.firstLastName}}>
-            <profil [politicanModel]="selectedPolitician"></profil>
-        </ba-card>
+  <div class="col-md-8">
+    <div *ngIf="politician$ | async; let politician">
+      <tile [politicianId]="politician.twitterId"></tile>
     </div>
-    <div class="col-md-4">
-        <ba-card cardTitle="Feed" baCardClass="large-card with-scroll feed-panel">
-            <!-- <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/schweizer-parlament">A Twitter List by
-          TwitterDev</a> -->
-        </ba-card>
-    </div>
+    <ba-card class="col-xlg-6 col-lg-6" cardTitle="{{(politician$ | async)?.firstLastName}}">
+      <profil [politicanModel]="politician$"></profil>
+    </ba-card>
+  </div>
+  <div class="col-md-4">
+    <ba-card cardTitle="Feed" baCardClass="large-card with-scroll feed-panel">
+      <a class="twitter-timeline" href="https://twitter.com/{{(politician$ | async)?.twitterName}}"></a>
+    </ba-card>
+  </div>
 </div>

@@ -3,19 +3,25 @@
     <tile></tile>
 
     <ba-card class="col-xlg-6 col-xl-6"
-             cardTitle="Tweets pro Parei diese Woche" baCardClass="traffic-panel medium-card">
-      <traffic-chart></traffic-chart>
+             cardTitle="Tweets pro Parei diese Woche" baCardClass="traffic-panel xmedium-card">
+      <traffic-chart (onNavigateToParty)="navigateToParty($event)"></traffic-chart>
     </ba-card>
-    <ba-card class="col-xlg-6 col-lg-6" cardTitle="dashboard.calendar"
-             baCardClass="xmedium-card feed-comply-panel with-scroll calendar-panel">
-      <calendar></calendar>
-    </ba-card>
+    <div class="row">
+      <ba-card class="col-md-6" cardTitle="Darüber reden die Parlamentarier diese Woche"
+              >
+        <div *ngFor="let topic of trendingTopics">
+          <div class="description-stats">{{topic}}</div>
+        </div>
+      </ba-card>
+      <ba-card class="col-md-6" cardTitle="Aktivste Nutzer diese Woche">
+        <activity-table [users]="mostActiveUsers" (onNavigateToProfile)="navigateToProfile($event)"></activity-table>
+      </ba-card>
+    </div>
   </div>
   <div class="col-md-4">
     <ba-card cardTitle="Feed"
              baCardClass="large-card with-scroll feed-panel">
-      <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/schweizer-parlament">A Twitter List by
-        TwitterDev</a>
+      <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/schweizer-parlament"></a>
 
     </ba-card>
   </div>

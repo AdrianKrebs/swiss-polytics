@@ -14,25 +14,41 @@ export class TileService {
   constructor(private http: Http, public helper: Helper, @Inject(APP_CONFIG) private config: IAppConfig) {
   }
 
-  getUsersToday(): Observable<any> {
-    return this.http.get(this.config.BACKEND_URL + '/tweets/users/count')
+  getUsersToday(queryParmas): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/tweets/users/count'+queryParmas)
       .map(this.helper.extractData)
       .map((result) => result.users)
       .catch(this.helper.handleError);
   }
 
-  getTweetsToday(): Observable<any> {
-    return this.http.get(this.config.BACKEND_URL + '/tweets/count')
+  getTweetsToday(queryParmas): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/tweets/count'+queryParmas)
       .map(this.helper.extractData)
       .map((result) => result.tweets)
       .catch(this.helper.handleError);
   }
 
-  getTrendingTopics(): Observable<any> {
-    return this.http.get(this.config.BACKEND_URL + '/trending')
+  getTrendingTopics(queryParmas): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/trending'+queryParmas)
       .map(this.helper.extractData)
       .map((result) => result.trending)
       .catch(this.helper.handleError);
   }
+
+  getTrendingTopicsWeekly(): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/trending/weekly')
+      .map(this.helper.extractData)
+      .map((result) => result.trending)
+      .catch(this.helper.handleError);
+  }
+
+  getMostActiveUsers(): Observable<any> {
+    return this.http.get(this.config.BACKEND_URL + '/tweets/count/weekly')
+      .map(this.helper.extractData)
+      .map((result) => result.users)
+      .catch(this.helper.handleError);
+  }
+
+
 
 }

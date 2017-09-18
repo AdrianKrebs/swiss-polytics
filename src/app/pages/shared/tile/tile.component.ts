@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import {TileService} from './tile.service';
 
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
 import {BaThemeConfigProvider} from "../../../theme/theme.configProvider";
+import {PartyModel} from "../../model/party.model";
 
 @Component({
   selector: 'tile',
@@ -14,6 +15,9 @@ import {BaThemeConfigProvider} from "../../../theme/theme.configProvider";
 
 export class Tile implements OnInit{
 
+
+  @Input() politicianId: String;
+  @Input() party: PartyModel;
 
   public tiles: Array<Object> = [];
   private _init = false;
@@ -32,16 +36,26 @@ export class Tile implements OnInit{
   }
 
   ngOnInit(): void {
-    this._pieChartService.getUsersToday().subscribe((data) => {
-      this.usersToday = data;
-      this.tiles.push({
-        color: this.pieColor,
-        description: 'Tweeters Today',
-        stats: this.usersToday,
-        icon: 'user',
+
+    let queryParmas = '';
+    if(this.politicianId) {
+      queryParmas = '?politicianId='+this.politicianId;
+    } else if (this.party) {
+      queryParmas = '?party='+this.party;
+    }
+
+    if(!this.politicianId) {
+      this._pieChartService.getUsersToday(queryParmas).subscribe((data) => {
+        this.usersToday = data;
+        this.tiles.push({
+          color: this.pieColor,
+          description: 'Tweeters Today',
+          stats: this.usersToday,
+          icon: 'user',
+        });
       });
-    });
-    this._pieChartService.getTweetsToday().subscribe((data) => {
+    }
+    this._pieChartService.getTweetsToday(queryParmas).subscribe((data) => {
       this.tweetsToday = data;
       this.tiles.push({
         color: this.pieColor,
@@ -50,14 +64,8 @@ export class Tile implements OnInit{
         icon: 'twitter',
       });
     });
-    this._pieChartService.getTrendingTopics().subscribe((data) => {
+    this._pieChartService.getTrendingTopics(queryParmas).subscribe((data) => {
       this.trendingTopics = data.slice(0, 3).map((ele) => '#'+ele);
-      // this.tiles.push({
-      //   color: this.pieColor,
-      //   description: 'Trending Topics',
-      //   stats: this.trendingTopics,
-      //   icon: 'arrow-up',
-      // });
     });
 
   }

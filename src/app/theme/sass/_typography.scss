@@ -332,12 +332,8 @@ a.learn-more {
 
 .large-banner-wrapper {
   overflow: hidden;
-  height: 400px;
-  img {
-    height: 100%;
-    width: 100%;
-    display: block
-  }
+  height: 500px;
+  background: url($assets-root + $images-root + '/app/typography/bhaus.png') no-repeat scroll center top transparent;
 }
 
 .banner-text-wrapper {

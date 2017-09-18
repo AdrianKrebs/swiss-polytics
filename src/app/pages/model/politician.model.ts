@@ -16,6 +16,9 @@ export class PoliticianModel {
   webpage: String;
   webpageUrl: String;
   imageUrl: String;
+  count: Number;
+  twitterName: String;
+  twitterId: String;
 
   constructor() { }
 

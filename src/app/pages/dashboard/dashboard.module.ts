@@ -7,7 +7,6 @@ import { NgaModule } from '../../theme/nga.module';
 import { Dashboard } from './dashboard.component';
 import { routing }       from './dashboard.routing';
 
-import { PopularApp } from './popularApp';
 import { TrafficChart } from './trafficChart';
 import { Calendar } from './calendar';
 import { CalendarService } from './calendar/calendar.service';
@@ -15,6 +14,7 @@ import { TrafficChartService } from './trafficChart/trafficChart.service';
 import {Helper} from "../util/helper.service";
 import {SharedModule} from "../shared/shared.module";
 import {TileService} from "../shared/tile/tile.service";
+import {ActivityTable} from "./mostActiveTable/activity-table.component";
 
 @NgModule({
   imports: [
@@ -26,8 +26,8 @@ import {TileService} from "../shared/tile/tile.service";
     SharedModule
   ],
   declarations: [
-    PopularApp,
     TrafficChart,
+    ActivityTable,
     Calendar,
     Dashboard
   ],

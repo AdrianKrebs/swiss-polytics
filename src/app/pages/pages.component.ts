@@ -18,8 +18,8 @@ import { PAGES_MENU } from './pages.menu';
     <footer class="al-footer clearfix">
       <div class="al-footer-main clearfix">
         <ul class="al-share clearfix">
-          <li><i class="socicon socicon-twitter"></i></li>
-          <li><i class="socicon socicon-github"></i></li>
+          <li><a href="https://twitter.com/swiss_polytics"><i class="socicon socicon-twitter"></i></a></li>
+          <li><a href="https://github.com/AdrianKrebs/swiss-poliytics"><i class="socicon socicon-github"></i></a></li>
         </ul>
       </div>
     </footer>

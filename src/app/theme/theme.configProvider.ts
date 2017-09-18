@@ -31,6 +31,14 @@ export class BaThemeConfigProvider {
     // dashboard colors for charts
     this.dashboardColors = {
       blueStone: '#40daf1',
+      lightgreen: '#03f1d4',
+      bdpYellow: '#fd0',
+      spRed: '#e4022d',
+      fdpBlue: '#009aea',
+      cvpOrange: '#ee7f00',
+      svpGreen: '#7ab51e',
+      gpsGreen: '#3a7a01',
+      glpGreen: '#9BBD58',
       surfieGreen: '#00abff',
       silverTree: '#1b70ef',
       gossip: '#3c4eb9',
@@ -70,7 +78,16 @@ export class BaThemeConfigProvider {
           surfieGreen: this.dashboardColors.surfieGreen,
           silverTree: this.dashboardColors.silverTree,
           gossip: this.dashboardColors.gossip,
+          green: this.dashboardColors.lightgreen,
+          yellow: this.dashboardColors.yellow,
           white: this.dashboardColors.white,
+          svpGreen: this.dashboardColors.svpGreen,
+          spRed: this.dashboardColors.spRed,
+          fdpBlue: this.dashboardColors.fdpBlue,
+          bdpYellow: this.dashboardColors.bdpYellow,
+          cvpOrange: this.dashboardColors.cvpOrange,
+          glpGreen: this.dashboardColors.glpGreen,
+          gpsGreen: this.dashboardColors.gpsGreen,
         },
 
         custom: {
