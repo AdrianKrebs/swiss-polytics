@@ -1,8 +1,13 @@
 <div class="row">
-  <div class="col-md-4">
-    <div class="img-wrapper"><img src="{{politicanModel.imageUrl}}"/>
+
+  <div class="col-md-4 img-wrapper">
+    <div _ngcontent-c8="" class="picture-group" ng-reflect-klass="picture-group" ng-reflect-ng-class="[object Object]">
+      <div _ngcontent-c8="" class="picture-wrapper">
+        <img _ngcontent-c8="" src="{{politicanModel.imageUrl}}" />
+      </div>
     </div>
   </div>
+
   <div class="col-md-8">
     <div class="row">
 
@@ -58,10 +63,13 @@
       <div class="col-sm-6">
         <div class="form-group">
           <label for="inputWebpage">Webseite</label>
-          <label for="inputDateOfBirth" class="form-control">{{politicanModel.webpage}}</label>
+          <label class="form-control">
+            <a class="aform-control" href="{{politicanModel.webpageUrl}}" target="_blank">{{politicanModel.webpage}}</a>
+          </label>
         </div>
       </div>
 
     </div>
   </div>
+
 </div>
