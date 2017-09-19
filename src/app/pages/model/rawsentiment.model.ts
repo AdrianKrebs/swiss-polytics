@@ -1,3 +1,7 @@
 export class RawSentiment {
-  constructor() {}
+  constructor(
+    readonly twitterUserId: string,
+    readonly sentimentLabel: string,
+    readonly sentimentScore: number,
+    readonly createdAt: Date) {}
 }

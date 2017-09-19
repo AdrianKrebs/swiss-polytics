@@ -17,10 +17,9 @@ export class MentionsComponent implements OnInit {
   private mentionsDataService: MentionsService;
   private mentionsTransformerService: MentionsTransformerService;
   private baConfig: BaThemeConfigProvider;
+  private chart: any;
 
   mentions: any;
-  chart: any;
-  _mentions: Observable<Object>;
 
   constructor(
     mentionsDataService: MentionsService,
@@ -33,21 +32,14 @@ export class MentionsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    let mentionsData: RawMention[];
-    this.mentionsDataService.getMentions().subscribe((data) => {
-      mentionsData = data;
-      const tableData: TableData[] = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
-      this.chart.dataProvider = tableData;
+    this.mentionsDataService.getMentions().subscribe((mentionsData: RawMention[]) => {
+      this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
       this.chart.validateData();
     });
   }
 
-  public chartReady(chart) {
-
-    console.log('chart is ready and got it back');
+  chartReady(chart) {
     this.chart = chart;
-
   }
 
   private getData() {
@@ -63,11 +55,7 @@ export class MentionsComponent implements OnInit {
       responsive: {
         'enabled': true
       },
-      dataProvider: [
-        { date: new Date(2012, 11), value: 0 },
-        { date: new Date(2013, 0), value: 15000 },
-        { date: new Date(2013, 1), value: 30000 }
-      ],
+      dataProvider: [],
       categoryField: 'date',
       categoryAxis: {
         parseDates: true,
