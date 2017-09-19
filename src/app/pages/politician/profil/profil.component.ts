@@ -10,7 +10,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class Profil implements AfterViewInit {
 
-  @Input() politicanModel: Observable<PoliticianModel>;
+  @Input() politicanModel: PoliticianModel;
 
   constructor() {
   }

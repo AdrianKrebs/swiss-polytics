@@ -15,9 +15,14 @@ import {Helper} from "../util/helper.service";
 export class Politician implements OnInit {
 
   politician$: Observable<PoliticianModel>;
+  politician: PoliticianModel;
   private selectedPoliticianId: Number;
 
   constructor(private service: ParlamentService, private helper: Helper, private route: ActivatedRoute) {
+
+  }
+
+  ngOnInit() {
     this.politician$ = this.route.paramMap
       .switchMap((params: ParamMap) => {
         this.selectedPoliticianId = parseInt(params.get('id'));
@@ -29,11 +34,11 @@ export class Politician implements OnInit {
         p.twitterName = twitterData['name'];
         p.twitterId = twitterData['id'];
         return p;
+      });
+
+    this.politician$.subscribe((result) => {
+      this.politician = result;
     });
-  }
-
-  ngOnInit() {
-
   }
 
   getTwitterData(person_id) {
