@@ -9,7 +9,7 @@ import {Helper} from "../../util/helper.service";
   styleUrls: ['./profil.scss'],
   templateUrl: './profil.html'
 })
-export class Profil implements AfterViewChecked {
+export class Profil implements AfterViewInit {
 
   @Input() politicanModel: PoliticianModel;
 
@@ -17,7 +17,7 @@ export class Profil implements AfterViewChecked {
   }
 
   // hacky lifecycle hook to load twitter feed
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     this._helper.initTwitterWidget();
   }
 }

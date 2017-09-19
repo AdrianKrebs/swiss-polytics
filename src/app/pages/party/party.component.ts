@@ -13,11 +13,10 @@ import {MAPPING} from "../util/mapping";
   styleUrls: ['./party.scss'],
   templateUrl: './party.html'
 })
-export class Party implements AfterViewChecked, OnInit {
+export class Party implements AfterViewInit, OnInit {
 
   politicians$: Observable<PoliticianModel[]>;
   private selectedParty: string;
-  private politicians: Array<any>;
 
   constructor(private service: ParlamentService, private helper: Helper,
               private route: ActivatedRoute,  private router: Router) {
@@ -34,7 +33,7 @@ export class Party implements AfterViewChecked, OnInit {
       });
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewInit() {
     this.helper.initTwitterWidget();
   }
 

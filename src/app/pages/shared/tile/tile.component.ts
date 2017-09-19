@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 
 import {TileService} from './tile.service';
 
@@ -13,7 +13,7 @@ import {PartyModel} from "../../model/party.model";
 })
 
 
-export class Tile implements OnInit{
+export class Tile implements OnInit, OnChanges{
 
 
   @Input() politicianId: String;
@@ -36,6 +36,20 @@ export class Tile implements OnInit{
   }
 
   ngOnInit(): void {
+
+    this.loadTileData();
+
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['party']) {
+      this.tiles = [];
+      this.loadTileData();
+    }
+  }
+
+
+  loadTileData() {
 
     let queryParmas = '';
     if(this.politicianId) {
@@ -67,7 +81,6 @@ export class Tile implements OnInit{
     this._pieChartService.getTrendingTopics(queryParmas).subscribe((data) => {
       this.trendingTopics = data.slice(0, 3).map((ele) => '#'+ele);
     });
-
   }
 
   ngAfterViewInit() {
