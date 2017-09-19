@@ -11,6 +11,8 @@ import {Helper} from "../util/helper.service";
 import {TileService} from "../shared/tile/tile.service";
 import {SharedModule} from "../shared/shared.module";
 
+import { FederalAssemblyComponent } from './federal-assembly/federal-assembly.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import {SharedModule} from "../shared/shared.module";
     SharedModule
   ],
   declarations: [
-    Parliament
+    Parliament,
+    FederalAssemblyComponent,
   ],
   providers: [
     TileService,
