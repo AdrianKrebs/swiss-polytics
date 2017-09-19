@@ -1,8 +1,11 @@
 <div class="row">
   <div class="col-md-8">
-    <tile [party]="SVP"></tile>
+    <div *ngIf="selectedParty">
+      <tile [party]="selectedParty"></tile>
+    </div>
     <ba-card cardTitle="Politiker der {{selectedParty}} auf Twitter">
-      <politician-table [politicians]="politicians$" (onNavigateToProfile)="navigateToProfile($event)"></politician-table>
+      <politician-table [politicians]="politicians$"
+                        (onNavigateToProfile)="navigateToProfile($event)"></politician-table>
     </ba-card>
   </div>
   <div class="col-md-4">

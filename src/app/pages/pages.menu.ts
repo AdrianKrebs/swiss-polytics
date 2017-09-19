@@ -27,6 +27,90 @@ export const PAGES_MENU = [
         }
       },
       {
+        path: 'politician',
+        data: {
+          menu: {
+            title: 'Profil',
+            pathMatch: 'prefix',
+            icon: 'ion-ios-people',
+            selected: false,
+            expanded: false,
+            hidden: true,
+            order: 0
+          }
+        }
+      },
+      {
+        path: 'party',
+        data: {
+          menu: {
+            title: 'Parteien',
+            icon: 'ion-ios-person',
+            selected: false,
+            expanded: false,
+            order: 300,
+          }
+        },
+        children: [
+          {
+            path: 'SVP',
+            data: {
+              menu: {
+                title: 'SVP',
+              }
+            }
+          },
+          {
+            path: 'SP',
+            data: {
+              menu: {
+                title: 'SP',
+              }
+            }
+          },
+          {
+            path: 'FDP',
+            data: {
+              menu: {
+                title: 'FDP',
+              }
+            }
+          },
+          {
+            path: 'CVP',
+            data: {
+              menu: {
+                title: 'CVP',
+              }
+            }
+          },
+          {
+            path: 'BDP',
+            data: {
+              menu: {
+                title: 'BDP',
+              }
+            }
+          },
+          {
+            path: 'GLP',
+            data: {
+              menu: {
+                title: 'GLP',
+              }
+            }
+          },
+          {
+            path: 'GPS',
+            data: {
+              menu: {
+                title: 'GPS',
+              }
+            }
+          }
+        ]
+      },
+      {
         path: 'about',
         data: {
           menu: {

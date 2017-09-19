@@ -17,7 +17,7 @@ export class Tile implements OnInit{
 
 
   @Input() politicianId: String;
-  @Input() party: PartyModel;
+  @Input() party: String;
 
   public tiles: Array<Object> = [];
   private _init = false;
