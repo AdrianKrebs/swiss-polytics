@@ -14,7 +14,11 @@ export class PoliticianModel {
   address: String;
   email: String;
   webpage: String;
+  webpageUrl: String;
   imageUrl: String;
+  count: Number;
+  twitterName: String;
+  twitterId: String;
 
   constructor() { }
 
@@ -26,22 +30,48 @@ export class PoliticianModel {
     p.firstLastName = json.firstName + " " + json.lastName;
     p.lastName = json.lastname;
     p.canton = json.canton;
-    p.council = json.council;
+    p.council = this.mapCouncil(json.council);
     p.party = json.party;
-    p.dateOfBirth = this.stringEmpty(json.birthDate);
-    p.job = this.stringEmpty(json.professions);
-    p.address = this.stringEmpty(json.contact.addressLine);
-    p.email = this.stringEmpty(json.contact.emailWork);
-    p.webpage = this.stringEmpty(json.contact.homepageWork);
+    p.dateOfBirth = this.mapDate(json.birthDate);
+    p.job = this.mapStringEmpty(json.professions);
+    p.address = this.mapStringEmpty(json.contact.addressLine);
+    p.email = this.mapStringEmpty(json.contact.emailWork);
+    p.webpage = this.mapStringEmpty(json.contact.homepageWork);
+    p.webpageUrl = this.mapWebpageUrl(json.contact.homepageWork);
     p.imageUrl = "https://www.parlament.ch/sitecollectionimages/profil/portrait-260/" + json.number + ".jpg";
     return p;
   }
 
-  public stringEmpty(str)
-  {
-      if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
-          return "-";
-      else
-          return str;
+  public mapStringEmpty(str) {
+    if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
+      return "-";
+    else
+      return str;
+  }
+
+  public mapCouncil(str) {
+    if (str === 'N')
+      return 'Nationalrat';
+    if (str === 'S')
+      return 'Ständerat';
+    if (str === 'B')
+      return 'Bundesrat';
+    return "-"
+  }
+
+  public mapDate(str) {
+    // var t = dateTime.Now.ToString(str)
+    if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
+      return "-";
+    else {
+      return new Date(str).toLocaleDateString();
+    }
+  }
+
+  public mapWebpageUrl(str) {
+    if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
+      return "-";
+    else
+      return "http://" + str;
   }
 }

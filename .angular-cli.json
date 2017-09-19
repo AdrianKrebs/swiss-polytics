@@ -33,6 +33,7 @@
         "styles.scss"
       ],
       "scripts": [
+        "../node_modules/popper.js/dist/umd/popper.js",
         "../node_modules/jquery/dist/jquery.js",
         "../node_modules/easy-pie-chart/dist/jquery.easypiechart.js",
         "../node_modules/jquery-slimscroll/jquery.slimscroll.js",

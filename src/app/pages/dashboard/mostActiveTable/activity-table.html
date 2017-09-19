@@ -1,0 +1,14 @@
+<div class="vertical-scroll">
+  <table class="table">
+    <tr>
+      <th>Nickname</th>
+      <th>Partei</th>
+      <th>Tweets</th>
+    </tr>
+    <tr *ngFor="let p of users" (click)="navigateToProfile(p.person_id)">
+      <td class="table-id">{{ p.firstName }}</td>
+      <td>{{ p.party }}</td>
+      <td>{{ p.count }}</td>
+    </tr>
+  </table>
+</div>

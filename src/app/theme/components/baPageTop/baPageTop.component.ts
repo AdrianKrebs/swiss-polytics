@@ -18,6 +18,10 @@ export class BaPageTop {
     });
   }
 
+  public startSearch(){
+    console.log('start searching');
+  }
+
   public toggleMenu() {
     this.isMenuCollapsed = !this.isMenuCollapsed;
     this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);

@@ -6,7 +6,7 @@ export const PAGES_MENU = [
         path: 'dashboard',
         data: {
           menu: {
-            title: 'general.menu.dashboard',
+            title: 'Dashboard',
             icon: 'ion-android-home',
             selected: false,
             expanded: false,
@@ -27,11 +27,25 @@ export const PAGES_MENU = [
         }
       },
       {
-        path: 'ui',
+        path: 'politician',
         data: {
           menu: {
-            title: 'general.menu.ui_features',
-            icon: 'ion-android-laptop',
+            title: 'Profil',
+            pathMatch: 'prefix',
+            icon: 'ion-ios-people',
+            selected: false,
+            expanded: false,
+            hidden: true,
+            order: 0
+          }
+        }
+      },
+      {
+        path: 'party',
+        data: {
+          menu: {
+            title: 'Parteien',
+            icon: 'ion-ios-person',
             selected: false,
             expanded: false,
             order: 300,
@@ -39,140 +53,72 @@ export const PAGES_MENU = [
         },
         children: [
           {
-            path: 'typography',
+            path: 'SVP',
             data: {
               menu: {
-                title: 'general.menu.typography',
+                title: 'SVP',
               }
             }
           },
           {
-            path: 'buttons',
+            path: 'SP',
             data: {
               menu: {
-                title: 'general.menu.buttons',
+                title: 'SP',
               }
             }
           },
           {
-            path: 'icons',
+            path: 'FDP',
             data: {
               menu: {
-                title: 'general.menu.icons',
+                title: 'FDP',
               }
             }
           },
           {
-            path: 'modals',
+            path: 'CVP',
             data: {
               menu: {
-                title: 'general.menu.modals',
+                title: 'CVP',
               }
             }
           },
           {
-            path: 'slim',
+            path: 'BDP',
             data: {
               menu: {
-                title: 'Slim loading bar',
+                title: 'BDP',
               }
             }
           },
           {
-            path: 'grid',
+            path: 'GLP',
             data: {
               menu: {
-                title: 'general.menu.grid',
+                title: 'GLP',
               }
             }
           },
+          {
+            path: 'GPS',
+            data: {
+              menu: {
+                title: 'GPS',
+              }
+            }
+          }
         ]
       },
       {
-        path: 'forms',
+        path: 'about',
         data: {
           menu: {
-            title: 'general.menu.form_elements',
-            icon: 'ion-compose',
+            title: 'Über uns',
+            icon: 'ion-information',
             selected: false,
             expanded: false,
-            order: 400,
-          }
-        },
-        children: [
-          {
-            path: 'inputs',
-            data: {
-              menu: {
-                title: 'general.menu.form_inputs',
-              }
-            }
-          },
-          {
-            path: 'layouts',
-            data: {
-              menu: {
-                title: 'general.menu.form_layouts',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: 'tables',
-        data: {
-          menu: {
-            title: 'general.menu.tables',
-            icon: 'ion-grid',
-            selected: false,
-            expanded: false,
-            order: 500,
-          }
-        },
-        children: [
-          {
-            path: 'basictables',
-            data: {
-              menu: {
-                title: 'general.menu.basic_tables',
-              }
-            }
-          },
-          {
-            path: 'smarttables',
-            data: {
-              menu: {
-                title: 'general.menu.smart_tables',
-              }
-            }
-          },
-          {
-            path: 'datatables',
-            data: {
-              menu: {
-                title: 'Data Tables',
-              }
-            }
-          },
-          {
-            path: 'hottables',
-            data: {
-              menu: {
-                title: 'Hot Tables',
-              }
-            }
-          }
-        ]
-      },
-      {
-        path: '',
-        data: {
-          menu: {
-            title: 'general.menu.external_link',
-            url: 'http://akveo.com',
-            icon: 'ion-android-exit',
-            order: 800,
-            target: '_blank'
+            order: 0
           }
         }
       }

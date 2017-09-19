@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ParlamentService } from "../shared/services/paralament.service";
 import { PoliticianModel } from "../model/politician.model";
 import 'rxjs/add/operator/switchMap';
+import {Helper} from "../util/helper.service";
 
 @Component({
   selector: 'politician',
@@ -14,22 +15,37 @@ import 'rxjs/add/operator/switchMap';
 export class Politician implements OnInit {
 
   politician$: Observable<PoliticianModel>;
-  private selectedPoliticianId: string;
-  private selectedPolitician: PoliticianModel;
+  politician: PoliticianModel;
+  private selectedPoliticianId: Number;
 
-  constructor(private service: ParlamentService, private route: ActivatedRoute) {
+  constructor(private service: ParlamentService, private helper: Helper, private route: ActivatedRoute) {
+
   }
 
   ngOnInit() {
     this.politician$ = this.route.paramMap
       .switchMap((params: ParamMap) => {
-        this.selectedPoliticianId = params.get('id');
+        this.selectedPoliticianId = parseInt(params.get('id'));
         return this.service.getPoliticanInfos(this.selectedPoliticianId);
+      }).map((result) => {
+        //console.log(result);
+        let p = new PoliticianModel().mapJsonToPolitican(result);
+        let twitterData = this.getTwitterData(this.selectedPoliticianId);
+        p.twitterName = twitterData['name'];
+        p.twitterId = twitterData['id'];
+        return p;
       });
+
     this.politician$.subscribe((result) => {
-      //console.log(result);
-      let p = new PoliticianModel().mapJsonToPolitican(result);
-      this.selectedPolitician = p;
+      this.politician = result;
     });
+  }
+
+  getTwitterData(person_id) {
+    return this.helper.getUserByPersonId(person_id);
+  }
+
+  ngAfterViewInit() {
+    this.helper.initTwitterWidget();
   }
 }
