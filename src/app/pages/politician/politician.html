@@ -1,15 +1,17 @@
 <div class="row">
   <div class="col-md-8">
-    <!--<div *ngIf="politician$ | async; let politician">-->
-      <!--<tile [politicianId]="politician.twitterId"></tile>-->
-    <!--</div>-->
+    <div *ngIf="politician">
+      <tile [politicianId]="politician.twitterId"></tile>
+    </div>
     <ba-card class="col-xlg-6 col-lg-6" cardTitle="{{politician?.firstLastName}}">
       <profil [politicanModel]="politician"></profil>
     </ba-card>
   </div>
   <div class="col-md-4">
-    <ba-card cardTitle="Feed" baCardClass="large-card with-scroll feed-panel">
-      <a class="twitter-timeline" href="https://twitter.com/{{politician?.twitterName}}"></a>
-    </ba-card>
+    <div *ngIf="politician">
+      <ba-card cardTitle="Feed" baCardClass="large-card with-scroll feed-panel">
+        <a class="twitter-timeline" href="https://twitter.com/{{politician.twitterName}}"></a>
+      </ba-card>
+    </div>
   </div>
 </div>
