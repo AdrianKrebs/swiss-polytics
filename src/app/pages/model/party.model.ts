@@ -13,5 +13,6 @@ export const FACTIONS = {
   "CVP": 3,
   "FDP": 1,
   "GLP": 137,
-  "GPS": 6
+  "GPS": 6,
+  "BDP": 136
 };
