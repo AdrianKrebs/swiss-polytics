@@ -11,7 +11,7 @@ import {Helper} from "../util/helper.service";
   styleUrls: ['./dashboard.scss'],
   templateUrl: './dashboard.html'
 })
-export class Dashboard implements AfterViewInit, OnInit {
+export class Dashboard implements AfterViewChecked, OnInit {
 
   private trendingTopics: Array<String>;
   private mostActiveUsers: Array<PoliticianModel>;
@@ -48,7 +48,7 @@ export class Dashboard implements AfterViewInit, OnInit {
     this.router.navigate(['/pages/party/'+party]);
   }
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     this._helper.initTwitterWidget();
   }
 }

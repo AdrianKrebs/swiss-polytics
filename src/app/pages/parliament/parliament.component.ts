@@ -6,13 +6,13 @@ import {Helper} from "../util/helper.service";
   styleUrls: ['./parliament.scss'],
   templateUrl: './parliament.html'
 })
-export class Parliament implements AfterViewInit{
+export class Parliament implements AfterViewChecked{
 
   constructor(private _helper: Helper) {
   }
 
 
-  ngAfterViewInit() {
+  ngAfterViewChecked() {
     this._helper.initTwitterWidget();
   }
 
