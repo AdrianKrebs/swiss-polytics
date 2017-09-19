@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RawMention } from '../../../model/rawmention.model';
-import { TableData } from '../tableData';
+import { TableData } from './tableData';
 import * as moment from 'moment';
+import * as R from 'ramda';
 
 @Injectable()
 export class MentionsTransformerService {
@@ -15,22 +16,13 @@ export class MentionsTransformerService {
     for (const mention of mentions) {
       this.incrementMentionForDay(resultMap, new Date(mention.createdAt));
     }
-    const result: TableData[] = this.convertMapToOrderedArray(resultMap);
-    return result;
+    return this.convertMapToOrderedArray(resultMap);
   }
 
   convertMapToOrderedArray(resultMap: Map<number, number>): TableData[] {
     const result: TableData[] = [];
     resultMap.forEach((value, key) => result.push(new TableData(new Date(key), value)));
-    result.sort((a, b) => {
-      if (a < b) {
-        return -1;
-      } else if (a > b) {
-        return 1;
-      } else {
-        return 0;
-      }
-    });
+    R.sort((a, b) => a.date.valueOf() - b.date.valueOf(), result);
     return result;
   }
 

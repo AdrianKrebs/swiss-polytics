@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import { MentionsService } from '../../services/mentions.service';
 import { RawMention } from '../../../model/rawmention.model';
-import { TableData } from '../tableData';
+import { TableData } from './tableData';
 import { MentionsTransformerService } from './mentions-transformer.service';
 
 @Component({
@@ -28,10 +28,10 @@ export class MentionsComponent implements OnInit {
     this.mentionsDataService = mentionsDataService;
     this.mentionsTransformerService = transformationService;
     this.baConfig = baconfig;
-    this.mentions = this.getData();
   }
 
   ngOnInit() {
+    this.mentions = this.getData();
     this.mentionsDataService.getMentions().subscribe((mentionsData: RawMention[]) => {
       this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
       this.chart.validateData();

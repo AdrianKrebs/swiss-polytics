@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { colorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
+import {SentimentsService} from "../../services/sentiments.service";
+import {SentimentsTransformerService} from "./sentiments-transformer.service";
+import {RawSentiment} from "../../../model/rawsentiment.model";
 
 @Component({
   selector: 'app-sentiments',
@@ -8,15 +11,32 @@ import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
   styleUrls: ['./sentiments.component.scss']
 })
 export class SentimentsComponent implements OnInit {
+  private sentimentDataService: SentimentsService;
+  private sentimentTransformerService: SentimentsTransformerService;
   private baConfig: BaThemeConfigProvider;
+  private chart: any;
+
   sentiments: Object;
 
-  constructor(baconfig: BaThemeConfigProvider) {
+  constructor(
+    sentimentDataService: SentimentsService,
+    sentimentTransformerService: SentimentsTransformerService,
+    baconfig: BaThemeConfigProvider) {
+    this.sentimentDataService = sentimentDataService;
+    this.sentimentTransformerService = sentimentTransformerService;
     this.baConfig = baconfig;
   }
 
   ngOnInit() {
     this.sentiments = this.getData();
+    this.sentimentDataService.getSentiments().subscribe((sentiments: RawSentiment[]) => {
+      this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
+      this.chart.validateData();
+    });
+  }
+
+  chartReady(chart) {
+    this.chart = chart;
   }
 
   private getData() {
@@ -32,38 +52,7 @@ export class SentimentsComponent implements OnInit {
       responsive: {
         'enabled': true
       },
-      dataProvider: [
-        { date: new Date(2012, 11), value: 0 },
-        { date: new Date(2013, 0), value: 15000 },
-        { date: new Date(2013, 1), value: 30000 },
-
-
-        { date: new Date(2013, 2), value: 25000 },
-        { date: new Date(2013, 3), value: 21000 },
-        { date: new Date(2013, 4), value: 24000 },
-        { date: new Date(2013, 5), value: 31000 },
-        { date: new Date(2013, 6), value: 40000 },
-        { date: new Date(2013, 7), value: 37000 },
-        { date: new Date(2013, 8), value: 18000 },
-        { date: new Date(2013, 9), value: 5000 },
-        { date: new Date(2013, 10), value: 40000 },
-        { date: new Date(2013, 11), value: 20000 },
-        { date: new Date(2014, 0), value: 5000 },
-
-        { date: new Date(2014, 1), value: 3000 },
-        { date: new Date(2014, 2), value: 1800 },
-        { date: new Date(2014, 3), value: 10400 },
-        { date: new Date(2014, 4), value: 25500 },
-        { date: new Date(2014, 5), value: 2100 },
-        { date: new Date(2014, 6), value: 6500 },
-        { date: new Date(2014, 7), value: 1100 },
-        { date: new Date(2014, 8), value: 17200 },
-        { date: new Date(2014, 9), value: 26900 },
-        { date: new Date(2014, 10), value: 14100 },
-        { date: new Date(2014, 11), value: 35300 },
-        { date: new Date(2015, 0), value: 54800 },
-        { date: new Date(2015, 1), value: 49800 }
-      ],
+      dataProvider: [],
       categoryField: 'date',
       categoryAxis: {
         parseDates: true,
@@ -88,7 +77,7 @@ export class SentimentsComponent implements OnInit {
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
-          valueField: 'value0',
+          valueField: 'positive',
           fillAlphas: 1,
           fillColorsField: 'lineColor'
         },
@@ -100,7 +89,7 @@ export class SentimentsComponent implements OnInit {
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
-          valueField: 'value',
+          valueField: 'negative',
           fillAlphas: 1,
           fillColorsField: 'lineColor'
         }

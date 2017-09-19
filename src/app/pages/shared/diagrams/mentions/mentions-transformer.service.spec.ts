@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { MentionsTransformerService } from './mentions-transformer.service';
 import { Observable } from 'rxjs/Observable';
-import { TableData } from '../tableData';
+import { TableData } from './tableData';
 import 'rxjs/add/observable/from';
 import { RawMention } from '../../../model/rawmention.model';
 
