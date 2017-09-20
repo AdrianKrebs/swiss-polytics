@@ -29,7 +29,7 @@ export class SentimentsTransformerService {
   private convertMapToOrderedArray(resultMap: Map<number, Values>): TableData[] {
     const result: TableData[] = [];
     resultMap.forEach((value, key) =>
-      result.push(new TableData(new Date(key), R.sum(value.positive), R.sum(value.negative))));
+      result.push(new TableData(new Date(key), R.mean(value.positive), R.mean(value.negative))));
     R.sort((a, b) => a.date.valueOf() - b.date.valueOf(), result);
     return result;
   }
