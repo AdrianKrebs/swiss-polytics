@@ -1,14 +1,8 @@
 export class SeatModel {
-    block: any;
-    row: any;
+    rowNumber: any;
     seatNumber: any;
-    rat: any;
-    seatId: any;
+    d: any;
     personId: any;
-    ry: any;
-    rx: any;
-    id: any;
-    cy: any;
-    cx: any;
-    transform: any;
-};
+    seatId: any;
+    rat: any;
+}

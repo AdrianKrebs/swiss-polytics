@@ -1,17 +1,12 @@
 <div class="svg-container">
-  <svg id="svgId" x="0" y="0" width="100%" height="100%" viewBox="0 0 2000 1000" preserveAspectRatio="none">
+  <svg id="svgId" x="0" y="0" width="100%" height="100%" viewBox="0 0 1000 700" preserveAspectRatio="none">
     <!-- One Point per Seat-->
        
     <g *ngFor="let seat of seats">
-      <circle
+      <path
         class="seat"  
         (click)="navigateToProfile(seat.personId);"
-        [attr.cx]="seat.cx" 
-        [attr.cy]="seat.cy" 
-        [attr.r]="10" 
-        stroke="black"
-        stroke-width="3"
-        
+        [attr.d]="seat.d"
       />
       </g>  
       </svg>
@@ -19,6 +14,9 @@
 
 <!-- [attr.stroke]="black" -->
 <!--
+          //[attr.cx]="seat.cx" 
+        [attr.cy]="seat.cy" 
+        [attr.r]="10" 
 svg.append("text")
 .attr("x",0)
 .attr("y",70)
