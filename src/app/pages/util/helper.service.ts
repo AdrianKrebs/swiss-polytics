@@ -15,7 +15,7 @@ export class Helper {
 
 
   getUserByTwitterId(id) {
-      return MAPPING.find((user) => user['id'] === id);
+    return MAPPING.find((user) => user['id'] === id);
   }
 
   getUserByPersonId(id) {
@@ -42,17 +42,26 @@ export class Helper {
   }
 
   initTwitterWidget() {
-    (function (d, s, id) {
-      var js: any,
-        fjs = d.getElementsByTagName(s)[0],
-        p = 'https';
-      //if(!d.getElementById(id)){
+
+    (<any>window).twttr = (function (d, s, id) {
+      let js: any, fjs = d.getElementsByTagName(s)[0],
+        t = (<any>window).twttr || {};
+      if (d.getElementById(id)) d.getElementById(id).remove();
       js = d.createElement(s);
       js.id = id;
-      js.src = p + "://platform.twitter.com/widgets.js";
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs = d.getElementsByTagName(s)[0]
       fjs.parentNode.insertBefore(js, fjs);
-      // }
-    })
-    (document, "script", "twitter-wjs");
+
+      t._e = [];
+      t.ready = function (f: any) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+
+    if ((<any>window).twttr.ready())
+      (<any>window).twttr.widgets.load();
   }
 }

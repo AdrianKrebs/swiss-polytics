@@ -18,16 +18,12 @@ export class Tile implements OnInit, OnChanges{
 
   @Input() politicianId: String;
   @Input() party: String;
-
-  public tiles: Array<Object> = [];
   private _init = false;
 
   private usersToday: Number;
   private tweetsToday: Number;
   private trendingTopics: Array<String>;
   private pieColor: any;
-
-  private data: Array<any>;
 
   constructor(private _pieChartService: TileService, private _baConfig: BaThemeConfigProvider){
     //this.charts = this.data;
@@ -36,21 +32,18 @@ export class Tile implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-
     this.loadTileData();
 
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['party']) {
-      this.tiles = [];
       this.loadTileData();
     }
   }
 
 
   loadTileData() {
-
     let queryParmas = '';
     if(this.politicianId) {
       queryParmas = '?politicianId='+this.politicianId;
@@ -61,22 +54,10 @@ export class Tile implements OnInit, OnChanges{
     if(!this.politicianId) {
       this._pieChartService.getUsersToday(queryParmas).subscribe((data) => {
         this.usersToday = data;
-        this.tiles.push({
-          color: this.pieColor,
-          description: 'Tweeters Today',
-          stats: this.usersToday,
-          icon: 'user',
-        });
       });
     }
     this._pieChartService.getTweetsToday(queryParmas).subscribe((data) => {
       this.tweetsToday = data;
-      this.tiles.push({
-        color: this.pieColor,
-        description: 'Tweets Today',
-        stats: this.tweetsToday,
-        icon: 'twitter',
-      });
     });
     this._pieChartService.getTrendingTopics(queryParmas).subscribe((data) => {
       this.trendingTopics = data.slice(0, 3).map((ele) => '#'+ele);

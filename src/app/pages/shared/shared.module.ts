@@ -13,6 +13,7 @@ import { MentionsService } from './services/mentions.service';
 import { SentimentsService } from './services/sentiments.service';
 import { SentimentsTransformerService } from './diagrams/sentiments/sentiments-transformer.service';
 import { MentionsTransformerService } from './diagrams/mentions/mentions-transformer.service';
+import {Feed } from './feed/feed.component';
 
 
 @NgModule({
@@ -22,10 +23,12 @@ import { MentionsTransformerService } from './diagrams/mentions/mentions-transfo
     AppTranslationModule,
     NgaModule],
   declarations: [
+    Feed,
     Tile,
     SentimentsComponent,
     MentionsComponent],
   exports: [
+    Feed,
     Tile,
     SentimentsComponent,
     MentionsComponent,

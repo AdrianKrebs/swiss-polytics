@@ -28,6 +28,7 @@ export class Party implements AfterViewInit, OnInit {
       .switchMap((params: ParamMap) => {
         // (+) before `params.get()` turns the string into a number
         this.selectedParty = params.get('id');
+        this.helper.initTwitterWidget();
 
         return this.service.getFactionInfos(new PartyModel(this.selectedParty));
       });
@@ -35,6 +36,7 @@ export class Party implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     this.helper.initTwitterWidget();
+
   }
 
   navigateToProfile(id){

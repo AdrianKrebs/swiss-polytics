@@ -28,7 +28,7 @@ import {
   BaPageTop,
   BaPictureUploader,
   BaSidebar,
-  BaFileUploader
+  BaFileUploader,
 } from './components';
 
 import { BaCardBlur } from './components/baCard/baCardBlur.directive';
@@ -56,6 +56,7 @@ import {
   EmailValidator,
   EqualPasswordsValidator
 } from './validators';
+import {Ng2CompleterModule} from "ng2-completer";
 
 const NGA_COMPONENTS = [
   BaAmChart,
@@ -112,7 +113,8 @@ const NGA_VALIDATORS = [
     FormsModule,
     ReactiveFormsModule,
     AppTranslationModule,
-    NgUploaderModule
+    NgUploaderModule,
+    Ng2CompleterModule
   ],
   exports: [
     ...NGA_PIPES,

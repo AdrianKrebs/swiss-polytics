@@ -1,26 +1,35 @@
 <div class="row tiles">
 
-  <ba-card *ngFor="let tile of tiles" class="tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12">
+  <ba-card class="tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12">
     <div class="tile-item">
       <div class="description">
-        <div translate>{{ tile.description }}</div>
-        <div class="description-stats">{{ tile.stats }}</div>
+        <div translate>Tweeters heute</div>
+        <div class="description-stats">{{ usersToday }}</div>
       </div>
-      <i class="chart-icon fa fa-{{tile.icon}} fa-5x"></i>
+      <i class="chart-icon fa fa-user fa-5x"></i>
     </div>
 
   </ba-card>
   <ba-card class="tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12">
+    <div class="tile-item">
+      <div class="description">
+        <div translate>Tweets heute</div>
+        <div class="description-stats">{{tweetsToday }}</div>
+      </div>
+      <i class="chart-icon fa fa-twitter fa-5x"></i>
+    </div>
 
+  </ba-card>
+
+  <ba-card  *ngIf="trendingTopics && trendingTopics.length > 0" class="tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12">
     <div class="tile-item">
       <div class="description trending">
-        <div translate>Trending Today</div>
+        <div translate>Trending heute</div>
         <div *ngFor="let topic of trendingTopics">
           <div class="description-stats">{{topic}}</div>
         </div>
       </div>
       <i class="chart-icon fa fa-arrow-up fa-5x"></i>
     </div>
-
   </ba-card>
 </div>
