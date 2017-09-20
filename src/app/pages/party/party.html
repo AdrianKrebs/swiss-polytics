@@ -9,9 +9,6 @@
     </ba-card>
   </div>
   <div class="col-md-4">
-    <ba-card cardTitle="Feed"
-             baCardClass="large-card with-scroll feed-panel">
-      <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/{{selectedParty}}"></a>
-    </ba-card>
+    <feed [selectedParty]="selectedParty"></feed>
   </div>
 </div>

@@ -7,6 +7,7 @@ import {NgaModule} from "../../theme/nga.module";
 import {Helper} from "app/pages/util/helper.service";
 import {TileService} from "./tile/tile.service";
 import {ParlamentService} from "./services/paralament.service";
+import {Feed } from './feed/feed.component';
 
 
 @NgModule({
@@ -15,8 +16,8 @@ import {ParlamentService} from "./services/paralament.service";
     FormsModule,
     AppTranslationModule,
     NgaModule],
-  declarations: [Tile],
-  exports: [Tile,
+  declarations: [Feed, Tile],
+  exports: [Tile, Feed,
     CommonModule, FormsModule],
   providers: [
     TileService,

@@ -11,7 +11,7 @@ import {colorHelper} from "../../../theme/theme.constants";
   styleUrls: ['./trafficChart.scss']
 })
 
-// TODO: move chart.js to it's own component
+
 export class TrafficChart implements OnInit {
 
   @Output() onNavigateToParty = new EventEmitter();
@@ -34,19 +34,20 @@ export class TrafficChart implements OnInit {
       this.total = data.total;
       this.doughnutData = [
         {
-          value: data.parties['SVP'],
-          color: dashboardColors.svpGreen,
-          highlight: colorHelper.shade(dashboardColors.svpGreen, 15),
-          label: 'SVP',
-          percentage: calcPercentage('SVP'),
-          order: 1,
-        }, {
           value: data.parties['SP'],
           color: dashboardColors.spRed,
           highlight: colorHelper.shade(dashboardColors.spRed, 15),
           label: 'SP',
           percentage: calcPercentage('SP'),
-          order: 4,
+          order: 1,
+        },
+        {
+          value: data.parties['SVP'],
+          color: dashboardColors.svpGreen,
+          highlight: colorHelper.shade(dashboardColors.svpGreen, 15),
+          label: 'SVP',
+          percentage: calcPercentage('SVP'),
+          order: 3,
         },
         {
           value: data.parties['FDP'],
@@ -54,22 +55,14 @@ export class TrafficChart implements OnInit {
           highlight: colorHelper.shade(dashboardColors.fdpBlue, 15),
           label: 'FDP',
           percentage: calcPercentage('FDP'),
-          order: 3,
+          order: 2,
         }, {
           value: data.parties['CVP'],
           color: dashboardColors.cvpOrange,
           highlight: colorHelper.shade(dashboardColors.cvpOrange, 15),
           label: 'CVP',
           percentage: calcPercentage('CVP'),
-          order: 3,
-        },
-        {
-          value: data.parties['BDP'],
-          color: dashboardColors.bdpYellow,
-          highlight: colorHelper.shade(dashboardColors.bdpYellow, 15),
-          label: 'BDP',
-          percentage: calcPercentage('BDP'),
-          order: 3,
+          order: 4,
         },
         {
           value: data.parties['GLP'],
@@ -77,14 +70,22 @@ export class TrafficChart implements OnInit {
           highlight: colorHelper.shade(dashboardColors.glpGreen, 15),
           label: 'GLP',
           percentage: calcPercentage('GLP'),
-          order: 2,
+          order: 6,
+        },
+        {
+          value: data.parties['BDP'],
+          color: dashboardColors.bdpYellow,
+          highlight: colorHelper.shade(dashboardColors.bdpYellow, 15),
+          label: 'BDP',
+          percentage: calcPercentage('BDP'),
+          order: 5,
         }, {
           value: data.parties['GPS'],
           color: dashboardColors.gpsGreen,
           highlight: colorHelper.shade(dashboardColors.gpsGreen, 15),
           label: 'GPS',
           percentage: calcPercentage('GPS'),
-          order: 0,
+          order: 7,
         },
       ];
       this._loadDoughnutCharts();

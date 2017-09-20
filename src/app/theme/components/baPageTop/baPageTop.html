@@ -5,6 +5,14 @@
 
   <div class="search">
     <i class="ion-ios-search-strong" (click)="startSearch()"></i>
-    <input id="searchInput" type="text" placeholder="Search for...">
+    <ng2-completer class="completer-limit"
+                   [(ngModel)]="captain"
+                   [datasource]="captains"
+                   [minSearchLength]="0"
+                   [placeholder]="'Suche Politiker oder Partei'"
+                   [matchClass]="'match'"
+                   [autofocus]="true"
+                   (keyup)="onKeyup($event)">
+    </ng2-completer>
   </div>
 </div>
