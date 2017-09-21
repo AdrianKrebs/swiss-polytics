@@ -44,7 +44,8 @@ export class SentimentsComponent implements OnInit, OnChanges {
   }
 
   private loadData() {
-    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((sentiments: RawSentiment[]) => {
+    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).
+    subscribe((sentiments: RawSentiment[]) => {
       this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
       this.chart.validateData();
     });
@@ -58,6 +59,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
 
     const layoutColors = this.baConfig.get().colors;
     const graphColor = this.baConfig.get().colors.custom.dashboardLineChart;
+    const positiveColor = this.baConfig.get().colors.dashboard.green;
 
     return {
       type: 'serial',
@@ -67,6 +69,9 @@ export class SentimentsComponent implements OnInit, OnChanges {
       responsive: {
         'enabled': true
       },
+      titles: [{
+        text: 'Sentiments'
+      }],
       dataProvider: [],
       categoryField: 'date',
       categoryAxis: {
@@ -88,7 +93,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
           id: 'g0',
           bullet: 'none',
           useLineColorForBulletBorder: true,
-          lineColor: colorHelper.hexToRgbA(graphColor, 0.3),
+          lineColor: colorHelper.hexToRgbA(positiveColor, 0.3),
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
@@ -110,7 +115,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
         }
       ],
       chartCursor: {
-        categoryBalloonDateFormat: 'MM YYYY',
+        categoryBalloonDateFormat: 'DD MM',
         categoryBalloonColor: '#4285F4',
         categoryBalloonAlpha: 0.7,
         cursorAlpha: 0,
@@ -118,7 +123,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
         valueLineBalloonEnabled: true,
         valueLineAlpha: 0.5
       },
-      dataDateFormat: 'MM YYYY',
+      dataDateFormat: 'DD MM YYYY',
       export: {
         enabled: true
       },

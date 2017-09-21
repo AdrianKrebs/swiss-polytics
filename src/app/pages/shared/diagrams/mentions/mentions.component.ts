@@ -47,7 +47,8 @@ export class MentionsComponent implements OnInit, OnChanges {
   }
 
   private loadData() {
-    this.mentionsDataService.getMentions(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((mentionsData: RawMention[]) => {
+    this.mentionsDataService.getMentions(this.queryHelper.createQueryString(this.party, this.politicianId)).
+    subscribe((mentionsData: RawMention[]) => {
       this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
       this.chart.validateData();
     });
@@ -70,6 +71,9 @@ export class MentionsComponent implements OnInit, OnChanges {
       responsive: {
         'enabled': true
       },
+      titles: [{
+        text: 'Mentions'
+      }],
       dataProvider: [],
       categoryField: 'date',
       categoryAxis: {
@@ -91,18 +95,6 @@ export class MentionsComponent implements OnInit, OnChanges {
           id: 'g0',
           bullet: 'none',
           useLineColorForBulletBorder: true,
-          lineColor: colorHelper.hexToRgbA(graphColor, 0.3),
-          lineThickness: 1,
-          negativeLineColor: layoutColors.danger,
-          type: 'smoothedLine',
-          valueField: 'value0',
-          fillAlphas: 1,
-          fillColorsField: 'lineColor'
-        },
-        {
-          id: 'g1',
-          bullet: 'none',
-          useLineColorForBulletBorder: true,
           lineColor: colorHelper.hexToRgbA(graphColor, 0.15),
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
@@ -113,7 +105,7 @@ export class MentionsComponent implements OnInit, OnChanges {
         }
       ],
       chartCursor: {
-        categoryBalloonDateFormat: 'MM YYYY',
+        categoryBalloonDateFormat: 'DD MM',
         categoryBalloonColor: '#4285F4',
         categoryBalloonAlpha: 0.7,
         cursorAlpha: 0,
@@ -121,7 +113,7 @@ export class MentionsComponent implements OnInit, OnChanges {
         valueLineBalloonEnabled: true,
         valueLineAlpha: 0.5
       },
-      dataDateFormat: 'MM YYYY',
+      dataDateFormat: 'DD MM YYYY',
       export: {
         enabled: true
       },
