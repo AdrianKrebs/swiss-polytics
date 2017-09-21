@@ -1,10 +1,10 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { colorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
-import {SentimentsService} from "../../services/sentiments.service";
-import {SentimentsTransformerService} from "./sentiments-transformer.service";
-import {RawSentiment} from "../../../model/rawsentiment.model";
-import {QueryHelper} from "../queryHelper";
+import { SentimentsService } from '../../services/sentiments.service';
+import { SentimentsTransformerService } from './sentiments-transformer.service';
+import { RawSentiment } from '../../../model/rawsentiment.model';
+import { QueryHelper } from '../queryHelper';
 
 @Component({
   selector: 'app-sentiments',
@@ -60,6 +60,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
     const layoutColors = this.baConfig.get().colors;
     const graphColor = this.baConfig.get().colors.custom.dashboardLineChart;
     const positiveColor = this.baConfig.get().colors.dashboard.green;
+    const meanColor = this.baConfig.get().colors.dashboard.yellow;
 
     return {
       type: 'serial',
@@ -93,7 +94,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
           id: 'g0',
           bullet: 'none',
           useLineColorForBulletBorder: true,
-          lineColor: colorHelper.hexToRgbA(positiveColor, 0.3),
+          lineColor: positiveColor,
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
@@ -110,6 +111,18 @@ export class SentimentsComponent implements OnInit, OnChanges {
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
           valueField: 'negative',
+          fillAlphas: 1,
+          fillColorsField: 'lineColor'
+        },
+        {
+          id: 'g2',
+          bullet: 'none',
+          useLineColorForBulletBorder: true,
+          lineColor: meanColor,
+          lineThickness: 1,
+          negativeLineColor: meanColor,
+          type: 'smoothedLine',
+          valueField: 'mean',
           fillAlphas: 1,
           fillColorsField: 'lineColor'
         }
