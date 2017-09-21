@@ -13,6 +13,7 @@
 :host /deep/ .channels-block {
   width: 100%;
   position: relative;
+  max-height: none;
 
   .chart-bg {
     position: absolute;
@@ -154,22 +155,6 @@
       float: none;
       margin: 0 auto;
     }
-    .chart-bg {
-      left: calc(50% - 90px);
-    }
-  }
-
-  @media (max-width: 1465px) and (min-width: 1199px) {
-
-    .channels-info {
-      display: none;
-    }
-    .traffic-chart {
-      position: inherit;
-      float: none;
-      margin: 0 auto;
-    }
-
     .chart-bg {
       left: calc(50% - 90px);
     }
