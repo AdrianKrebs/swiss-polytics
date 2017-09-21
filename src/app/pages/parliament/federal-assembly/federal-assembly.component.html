@@ -4,7 +4,7 @@
        
     <g *ngFor="let seat of seats">
       <path
-        class="seat"  
+        class="seat"
         (click)="navigateToProfile(seat.personId);"
         [attr.d]="seat.d"
       />
