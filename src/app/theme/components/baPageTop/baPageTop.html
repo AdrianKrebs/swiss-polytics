@@ -5,9 +5,9 @@
 
   <div class="search">
     <i class="ion-ios-search-strong" (click)="startSearch()"></i>
-    <ng2-completer class="completer-limit"
-                   [(ngModel)]="captain"
-                   [datasource]="captains"
+    <ng2-completer class="completer-input"
+                   [(ngModel)]="searchObject"
+                   [datasource]="searchData"
                    [minSearchLength]="0"
                    [placeholder]="'Suche Politiker oder Partei'"
                    [matchClass]="'match'"

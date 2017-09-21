@@ -30,7 +30,7 @@ export class Dashboard implements AfterViewInit, OnInit {
         let politician = new PoliticianModel();
         let p = this._helper.getUserByTwitterId(user._id);
         politician.person_id = p['person_id'];
-        politician.party = p['party'];
+        politician.party = p['parties'];
         politician.firstName = p['name'];
         politician.count = user.count;
         return politician;
