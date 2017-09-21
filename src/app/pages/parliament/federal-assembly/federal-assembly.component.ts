@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { SeatModel } from './service/federal-assembly.model';
 import { FederalAssemblyService } from './service/federal-assembly.service';
@@ -16,7 +16,7 @@ export class FederalAssemblyComponent implements OnInit {
  
   seats;
 
-  getHeroes(): void {
+  getSeats(): void {
     this.seats = this.federalAssemblyService.getSeats();
   }
 
@@ -24,7 +24,7 @@ export class FederalAssemblyComponent implements OnInit {
               private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.getHeroes();
+    this.getSeats();
   }
 
   goToProfile(personId) {
