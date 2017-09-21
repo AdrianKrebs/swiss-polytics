@@ -3,10 +3,10 @@
     <tile></tile>
     <div class="btn-group-example">
       <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-danger active" value="BV" (click)="handleFilterClick($event)">Bundesversammlung</button>
-        <button type="button" class="btn btn-danger" value="NR" (click)="handleFilterClick($event)">Nationalrat</button>
-        <button type="button" class="btn btn-danger" value="SR" (click)="handleFilterClick($event)">Ständerat</button>
-        <button type="button" class="btn btn-danger" value="BR" (click)="handleFilterClick($event)">Bundesrat</button>
+        <button type="button" class="btn btn-success" value="BV" (click)="handleFilterClick($event)">Bundesversammlung</button>
+        <button type="button" class="btn btn-success" value="NR" (click)="handleFilterClick($event)">Nationalrat</button>
+        <button type="button" class="btn btn-success" value="SR" (click)="handleFilterClick($event)">Ständerat</button>
+        <button type="button" class="btn btn-success" value="BR" (click)="handleFilterClick($event)">Bundesrat</button>
       </div>
     </div>
     <ba-card *ngIf="councilFilter === 'BV' || councilFilter === undefined" class="col-xlg-6 col-lg-6" cardTitle="Bundesversammlung">
