@@ -4,16 +4,28 @@
        
     <g *ngFor="let seat of seats">
       <path
-        class="seat"  
-        (click)="navigateToProfile(seat.personId);"
+        class="seat"
+        [attr.fill]="seat.colorCode"
+        (click)="showPreview(seat.personId)"
         [attr.d]="seat.d"
       />
       </g>  
       </svg>
 </div>
 
-<!-- [attr.stroke]="black" -->
+
 <!--
+  (mouseenter)="onEvent($event)"
+(mouseleave)="onEvent($event)"
+(mousemove)="coordinates($event)"
+<div>
+  <p class="type">Type: {{event?.type}}</p>    
+  <p>x: {{clientX}}, y: {{clientY}}</p>
+  <p>personId: {{personId}}</p>
+</div>
+  (mousenter)="showPreview(seat.personId)"
+(mouseleave)="hidePreview(seat.personId)"
+  (click)="navigateToProfile(seat.personId);"
           //[attr.cx]="seat.cx" 
         [attr.cy]="seat.cy" 
         [attr.r]="10" 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
+import { MAPPING } from '../../util/mapping';
 import { SeatModel } from './service/federal-assembly.model';
 import { FederalAssemblyService } from './service/federal-assembly.service';
-
 
 @Component({
   selector: 'app-federal-assembly',
@@ -25,19 +25,23 @@ export class FederalAssemblyComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSeats();
+    this.seats.forEach( seat => {
+      
+      seat.numberOfTweets = (Math.random() * 20 );
+      
+      if (seat.numberOfTweets < 1) {
+        seat.colorCode = 'grey';
+      } else if (seat.numberOfTweets < 5) {
+        seat.colorCode = 'lightgreen';
+      } else if (seat.numberOfTweets < 10) {
+        seat.colorCode = 'green';
+      } else {
+        seat.colorCode = 'darkgreen';
+      }
+    });
   }
 
-  goToProfile(personId) {
-    //console.log('personId ' + personId + ' geklickt.');
-    window.open('https://www.parlament.ch/de/biografie?CouncillorId=' + personId, '_blank');
-  }
-
-  navigateToProfile(personId){
+  navigateToProfile(personId) {
     this.router.navigate(['/pages/politician/' + personId]);
   }
-
-  markAsSelected() {
-
-  }
-
 }
