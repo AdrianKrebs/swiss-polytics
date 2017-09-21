@@ -9,24 +9,14 @@
     </ba-card>
     <ba-card class="col-xlg-6 col-lg-6" cardTitle="Bundesversammlung">
       <app-federal-assembly></app-federal-assembly>
-    <div class="btn-group-example">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-success" value="BV" (click)="handleFilterClick($event)">Bundesversammlung</button>
-        <button type="button" class="btn btn-success" value="NR" (click)="handleFilterClick($event)">Nationalrat</button>
-        <button type="button" class="btn btn-success" value="SR" (click)="handleFilterClick($event)">Ständerat</button>
-        <button type="button" class="btn btn-success" value="BR" (click)="handleFilterClick($event)">Bundesrat</button>
-      </div>
-    </div>
-    <ba-card *ngIf="councilFilter === 'BV' || councilFilter === undefined" class="col-xlg-6 col-lg-6" cardTitle="Bundesversammlung">
-     <app-federal-assembly></app-federal-assembly>
     </ba-card>
-    <ba-card  *ngIf="councilFilter==='NR'" class="col-xlg-6 col-lg-6" cardTitle="Nationalrat">
+    <ba-card class="col-xlg-6 col-lg-6" cardTitle="Nationalrat">
       <app-national-council></app-national-council>
      </ba-card>
-    <ba-card  *ngIf="councilFilter==='SR'" class="col-xlg-6 col-lg-6" cardTitle="Ständerat">
+    <ba-card class="col-xlg-6 col-lg-6" cardTitle="Ständerat">
       <app-council-of-states></app-council-of-states>
      </ba-card>
-     <ba-card  *ngIf="councilFilter==='BR'" class="col-xlg-6 col-lg-6" cardTitle="Bundesrat">
+     <ba-card class="col-xlg-6 col-lg-6" cardTitle="Bundesrat">
       <app-federal-council></app-federal-council>
      </ba-card>
   </div>
