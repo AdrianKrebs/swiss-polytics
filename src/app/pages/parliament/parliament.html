@@ -1,8 +1,14 @@
 <div class="row">
   <div class="col-md-8">
     <tile></tile>
+    <ba-card cardTitle="Overview statistics" class="col-xlg-6 col-xl-6">
+      <div class="row">
+        <div class="col-md-6"><app-sentiments></app-sentiments></div>
+        <div class="col-md-6"><app-mentions></app-mentions></div>
+      </div>
+    </ba-card>
     <ba-card class="col-xlg-6 col-lg-6" cardTitle="Bundesversammlung">
-     <app-federal-assembly></app-federal-assembly>
+      <app-federal-assembly></app-federal-assembly>
     </ba-card>
     <ba-card class="col-xlg-6 col-lg-6" cardTitle="Nationalrat">
       <app-national-council></app-national-council>

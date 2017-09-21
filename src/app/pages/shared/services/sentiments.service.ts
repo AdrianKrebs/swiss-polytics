@@ -14,8 +14,8 @@ export class SentimentsService {
 
   constructor(private http: Http, private helper: Helper, @Inject(APP_CONFIG) private config: IAppConfig) { }
 
-  getSentiments(): Observable<RawSentiment[]> {
-    return this.http.get(`${this.config.BACKEND_URL}/sentiments`)
+  getSentiments(query: string): Observable<RawSentiment[]> {
+    return this.http.get(`${this.config.BACKEND_URL}/sentiments${query}`)
       .map(this.helper.extractData)
       .map((dataInHolder) => dataInHolder.sentiments)
       .map((sentiments) => R.map((sentiment) => {

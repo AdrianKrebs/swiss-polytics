@@ -3,6 +3,12 @@
     <div *ngIf="selectedParty">
       <tile [party]="selectedParty"></tile>
     </div>
+    <ba-card cardTitle="Overview statistics" class="col-xlg-6 col-xl-6">
+      <div class="row" *ngIf="selectedParty">
+        <div class="col-md-6"><app-sentiments [party]="selectedParty"></app-sentiments></div>
+        <div class="col-md-6"><app-mentions [party]="selectedParty"></app-mentions></div>
+      </div>
+    </ba-card>
     <ba-card cardTitle="Politiker der {{selectedParty}} auf Twitter">
       <politician-table [politicians]="politicians$"
                         (onNavigateToProfile)="navigateToProfile($event)"></politician-table>

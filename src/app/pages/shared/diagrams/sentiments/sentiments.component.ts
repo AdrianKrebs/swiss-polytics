@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { colorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
 import {SentimentsService} from "../../services/sentiments.service";
 import {SentimentsTransformerService} from "./sentiments-transformer.service";
 import {RawSentiment} from "../../../model/rawsentiment.model";
+import {QueryHelper} from "../queryHelper";
 
 @Component({
   selector: 'app-sentiments',
   templateUrl: './sentiments.component.html',
   styleUrls: ['./sentiments.component.scss']
 })
-export class SentimentsComponent implements OnInit {
+export class SentimentsComponent implements OnInit, OnChanges {
+  @Input() party: string;
+  @Input() politicianId: string;
+
   private sentimentDataService: SentimentsService;
   private sentimentTransformerService: SentimentsTransformerService;
   private baConfig: BaThemeConfigProvider;
   private chart: any;
+  private queryHelper: QueryHelper = new QueryHelper();
 
   sentiments: Object;
 
@@ -29,7 +34,17 @@ export class SentimentsComponent implements OnInit {
 
   ngOnInit() {
     this.sentiments = this.getData();
-    this.sentimentDataService.getSentiments().subscribe((sentiments: RawSentiment[]) => {
+    this.loadData();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['party'] || changes['politicianId']) {
+      this.loadData();
+    }
+  }
+
+  private loadData() {
+    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((sentiments: RawSentiment[]) => {
       this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
       this.chart.validateData();
     });
