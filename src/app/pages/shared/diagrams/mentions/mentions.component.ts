@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { colorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
 import { Observable } from 'rxjs/Observable';
@@ -7,17 +7,22 @@ import { MentionsService } from '../../services/mentions.service';
 import { RawMention } from '../../../model/rawmention.model';
 import { TableData } from './tableData';
 import { MentionsTransformerService } from './mentions-transformer.service';
+import {QueryHelper} from "../queryHelper";
 
 @Component({
   selector: 'app-mentions',
   templateUrl: './mentions.component.html',
   styleUrls: ['./mentions.component.scss']
 })
-export class MentionsComponent implements OnInit {
+export class MentionsComponent implements OnInit, OnChanges {
+  @Input() party: string;
+  @Input() politicianId: string;
+
   private mentionsDataService: MentionsService;
   private mentionsTransformerService: MentionsTransformerService;
   private baConfig: BaThemeConfigProvider;
   private chart: any;
+  private queryHelper: QueryHelper = new QueryHelper();
 
   mentions: any;
 
@@ -32,7 +37,17 @@ export class MentionsComponent implements OnInit {
 
   ngOnInit() {
     this.mentions = this.getData();
-    this.mentionsDataService.getMentions().subscribe((mentionsData: RawMention[]) => {
+    this.loadData();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['party'] || changes['politicianId']) {
+      this.loadData();
+    }
+  }
+
+  private loadData() {
+    this.mentionsDataService.getMentions(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((mentionsData: RawMention[]) => {
       this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
       this.chart.validateData();
     });

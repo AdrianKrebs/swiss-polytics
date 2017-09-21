@@ -13,8 +13,8 @@ export class MentionsService {
 
   constructor(private http: Http, private helper: Helper, @Inject(APP_CONFIG) private config: IAppConfig) { }
 
-  getMentions(): Observable<RawMention[]> {
-    return this.http.get(`${this.config.BACKEND_URL}/mentions`)
+  getMentions(query: string): Observable<RawMention[]> {
+    return this.http.get(`${this.config.BACKEND_URL}/mentions${query}`)
       .map(this.helper.extractData)
       .map((dataInHolder) => dataInHolder.mentions)
       .catch(this.helper.handleError);
