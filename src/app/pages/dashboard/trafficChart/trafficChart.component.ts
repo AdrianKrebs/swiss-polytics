@@ -72,6 +72,14 @@ export class TrafficChart implements OnInit {
           percentage: calcPercentage('GLP'),
           order: 6,
         },
+         {
+          value: data.parties['GPS'],
+          color: dashboardColors.gpsGreen,
+          highlight: colorHelper.shade(dashboardColors.gpsGreen, 15),
+          label: 'GPS',
+          percentage: calcPercentage('GPS'),
+          order: 7,
+        },
         {
           value: data.parties['BDP'],
           color: dashboardColors.bdpYellow,
@@ -79,13 +87,6 @@ export class TrafficChart implements OnInit {
           label: 'BDP',
           percentage: calcPercentage('BDP'),
           order: 5,
-        }, {
-          value: data.parties['GPS'],
-          color: dashboardColors.gpsGreen,
-          highlight: colorHelper.shade(dashboardColors.gpsGreen, 15),
-          label: 'GPS',
-          percentage: calcPercentage('GPS'),
-          order: 7,
         },
       ];
       this._loadDoughnutCharts();
