@@ -11,6 +11,11 @@ import {Helper} from "../util/helper.service";
 import {TileService} from "../shared/tile/tile.service";
 import {SharedModule} from "../shared/shared.module";
 
+import { FederalAssemblyComponent } from './federal-assembly/federal-assembly.component';
+import { NationalCouncilComponent } from './national-council/national-council.component';
+import { CouncilOfStatesComponent } from './council-of-states/council-of-states.component';
+import { FederalCouncilComponent } from './federal-council/federal-council.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +26,11 @@ import {SharedModule} from "../shared/shared.module";
     SharedModule
   ],
   declarations: [
-    Parliament
+    Parliament,
+    FederalAssemblyComponent,
+    NationalCouncilComponent,
+    CouncilOfStatesComponent,
+    FederalCouncilComponent,
   ],
   providers: [
     TileService,
