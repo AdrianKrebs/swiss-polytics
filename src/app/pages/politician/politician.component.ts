@@ -33,6 +33,7 @@ export class Politician implements OnInit {
         let twitterData = this.getTwitterData(this.selectedPoliticianId);
         p.twitterName = twitterData['name'];
         p.twitterId = twitterData['id'];
+        this.helper.initTwitterWidget();
         return p;
       });
 
@@ -45,7 +46,4 @@ export class Politician implements OnInit {
     return this.helper.getUserByPersonId(person_id);
   }
 
-  ngAfterViewInit() {
-    this.helper.initTwitterWidget();
-  }
 }
