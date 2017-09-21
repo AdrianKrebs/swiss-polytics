@@ -1,0 +1,26 @@
+<div class="svg-container">
+  <svg id="svgId" currentScale="1" x="0" y="0" width="100%" height="100%" viewBox="0 0 929.4 646.2" preserveAspectRatio="none">
+    <!-- One Point per Seat-->
+       
+    <g *ngFor="let seat of seats">
+      <path
+        class="seat"  
+        (click)="navigateToProfile(seat.personId);"
+        [attr.d]="seat.d"
+      />
+      </g>  
+      </svg>
+</div>
+
+<!-- [attr.stroke]="black" -->
+<!--
+          //[attr.cx]="seat.cx" 
+        [attr.cy]="seat.cy" 
+        [attr.r]="10" 
+svg.append("text")
+.attr("x",0)
+.attr("y",70)
+.attr("font-family","FontAwesome")
+.attr('font-size', function(d) { return '70px';} )
+.text(function(d) { return '\uf083'; }); 
+-->

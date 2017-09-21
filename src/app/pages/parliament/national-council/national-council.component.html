@@ -1,0 +1,13 @@
+<div class="svg-container">
+  <svg id="svgId" currentScale="1" x="0" y="0" width="100%" height="100%" viewBox="0 0 929.4 646.2" preserveAspectRatio="none">
+    <!-- One Point per Seat-->
+       
+    <g *ngFor="let seat of seats">
+      <path
+        class="seat"  
+        (click)="navigateToProfile(seat.personId);"
+        [attr.d]="seat.d"
+      />
+      </g>  
+      </svg>
+</div>
