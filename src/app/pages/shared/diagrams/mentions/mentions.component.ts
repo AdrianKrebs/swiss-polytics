@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { colorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
 import { Observable } from 'rxjs/Observable';
@@ -7,7 +7,7 @@ import { MentionsService } from '../../services/mentions.service';
 import { RawMention } from '../../../model/rawmention.model';
 import { TableData } from './tableData';
 import { MentionsTransformerService } from './mentions-transformer.service';
-import {QueryHelper} from "../queryHelper";
+import { QueryHelper } from '../queryHelper';
 
 @Component({
   selector: 'app-mentions',
@@ -62,6 +62,7 @@ export class MentionsComponent implements OnInit, OnChanges {
 
     const layoutColors = this.baConfig.get().colors;
     const graphColor = this.baConfig.get().colors.custom.dashboardLineChart;
+    const theLineColor = this.baConfig.get().colors.dashboard.green;
 
     return {
       type: 'serial',
@@ -95,7 +96,7 @@ export class MentionsComponent implements OnInit, OnChanges {
           id: 'g0',
           bullet: 'none',
           useLineColorForBulletBorder: true,
-          lineColor: colorHelper.hexToRgbA(graphColor, 0.15),
+          lineColor: theLineColor,
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
