@@ -72,7 +72,7 @@ export class MentionsComponent implements OnInit, OnChanges {
         'enabled': true
       },
       titles: [{
-        text: 'Mentions'
+        text: 'Erwähnungen'
       }],
       dataProvider: [],
       categoryField: 'date',

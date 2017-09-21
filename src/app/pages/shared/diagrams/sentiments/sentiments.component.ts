@@ -70,7 +70,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
         'enabled': true
       },
       titles: [{
-        text: 'Sentiments'
+        text: 'Stimmung'
       }],
       dataProvider: [],
       categoryField: 'date',
