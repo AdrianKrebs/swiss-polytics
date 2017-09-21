@@ -7,6 +7,12 @@ import {NgaModule} from "../../theme/nga.module";
 import {Helper} from "app/pages/util/helper.service";
 import {TileService} from "./tile/tile.service";
 import {ParlamentService} from "./services/paralament.service";
+import { SentimentsComponent } from './diagrams/sentiments/sentiments.component';
+import { MentionsComponent } from './diagrams/mentions/mentions.component';
+import { MentionsService } from './services/mentions.service';
+import { SentimentsService } from './services/sentiments.service';
+import { SentimentsTransformerService } from './diagrams/sentiments/sentiments-transformer.service';
+import { MentionsTransformerService } from './diagrams/mentions/mentions-transformer.service';
 import {Feed } from './feed/feed.component';
 
 
@@ -16,13 +22,26 @@ import {Feed } from './feed/feed.component';
     FormsModule,
     AppTranslationModule,
     NgaModule],
-  declarations: [Feed, Tile],
-  exports: [Tile, Feed,
-    CommonModule, FormsModule],
+  declarations: [
+    Feed,
+    Tile,
+    SentimentsComponent,
+    MentionsComponent],
+  exports: [
+    Feed,
+    Tile,
+    SentimentsComponent,
+    MentionsComponent,
+    CommonModule,
+    FormsModule],
   providers: [
     TileService,
     ParlamentService,
-    Helper
+    Helper,
+    MentionsService,
+    SentimentsService,
+    SentimentsTransformerService,
+    MentionsTransformerService
   ]
 })
 export class SharedModule {
