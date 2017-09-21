@@ -3,7 +3,7 @@
     <div *ngIf="politician">
       <tile [politicianId]="politician.twitterId"></tile>
     </div>
-    <ba-card cardTitle="Overview statistics" class="col-xlg-6 col-xl-6">
+    <ba-card cardTitle="Statistik" class="col-xlg-6 col-xl-6">
       <div class="row" *ngIf="politician">
         <div class="col-md-6"><app-sentiments [politicianId]="politician.twitterId"></app-sentiments></div>
         <div class="col-md-6"><app-mentions [politicianId]="politician.twitterId"></app-mentions></div>

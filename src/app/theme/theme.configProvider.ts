@@ -32,7 +32,7 @@ export class BaThemeConfigProvider {
     this.dashboardColors = {
       blueStone: '#40daf1',
       lightgreen: '#03f1d4',
-      bdpYellow: '#fd0',
+      bdpYellow: '#ffdd00',
       spRed: '#e4022d',
       fdpBlue: '#009aea',
       cvpOrange: '#ee7f00',
