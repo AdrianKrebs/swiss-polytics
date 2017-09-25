@@ -8,9 +8,14 @@ import {Helper} from '../util/helper.service';
 })
 export class Parliament implements AfterViewInit{
 
+    protected councilFilter: String;
+
   constructor(private _helper: Helper) {
   }
 
+  handleFilterClick($event) {
+    this.councilFilter = $event.currentTarget.value;
+  }
 
   ngAfterViewInit() {
     this._helper.initTwitterWidget();
