@@ -17,6 +17,7 @@
     "start:hmr": "ng serve --hmr",
     "start:aot": "ng serve --aot",
     "start:prod": "ng serve --prod",
+    "postinstall": "ng build --aot -prod",
     "start:prod:aot": "ng serve --prod --aot",
     "build": "npm run clean:dist && ng build",
     "build:prod": "npm run build -- --prod",
