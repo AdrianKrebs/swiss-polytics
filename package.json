@@ -21,7 +21,7 @@
     "build": "npm run clean:dist && ng build",
     "build:prod": "npm run build --prod",
     "build:prod:aot": "npm run build:prod --aot",
-    "postinstall": "npm run build",
+    "postinstall": "ng build",
     "build:ci": "npm run build:prod && npm run build:prod:aot",
     "test": "ng test -sr",
     "test:coverage": "npm run clean:coverage && ng test -sr -cc",
