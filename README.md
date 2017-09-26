@@ -14,7 +14,7 @@ Angular 2+, Angular CLI, Bootstrap 4, and lots of awesome modules and plugins
 - yarn or npm install
 - ng serve or npm start
 - you may need to install npm install --global windows-build-tools
-- go to localhost:4200
+- go to `http://localhost:4200/`
 
 ## How can I support developers?
 - Star our GitHub repo :star:
