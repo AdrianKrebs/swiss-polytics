@@ -4,35 +4,17 @@
        
     <g *ngFor="let seat of seats">
       <path
-        class="seat"
-        [attr.fill]="seat.colorCode"
-        (click)="showPreview(seat.personId)"
+        [attr.class]="'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party"
+        (click)="setSelectedSeat(seat)"
         [attr.d]="seat.d"
       />
       </g>  
       </svg>
 </div>
-
-
-<!--
-  (mouseenter)="onEvent($event)"
-(mouseleave)="onEvent($event)"
-(mousemove)="coordinates($event)"
-<div>
-  <p class="type">Type: {{event?.type}}</p>    
-  <p>x: {{clientX}}, y: {{clientY}}</p>
-  <p>personId: {{personId}}</p>
-</div>
-  (mousenter)="showPreview(seat.personId)"
-(mouseleave)="hidePreview(seat.personId)"
-  (click)="navigateToProfile(seat.personId);"
-          //[attr.cx]="seat.cx" 
-        [attr.cy]="seat.cy" 
-        [attr.r]="10" 
-svg.append("text")
-.attr("x",0)
-.attr("y",70)
-.attr("font-family","FontAwesome")
-.attr('font-size', function(d) { return '70px';} )
-.text(function(d) { return '\uf083'; }); 
--->
+<div *ngIf="selectedSeat !== undefined">
+    <img src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/2705.jpg">
+    <p>Name, Vorname</p>
+    <p>{{selectedSeat.twitterId}}</p>
+    <p>{{selectedSeat.personId}}</p>
+    <button (click)="navigateToProfile(selectedSeat.personId)" class="btn btn-default btn-with-icon btn-sm" type="button"><i class="ion-stats-bars"></i>Zum Profil</button>
+  </div>
