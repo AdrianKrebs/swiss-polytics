@@ -16,7 +16,7 @@ import {MAPPING} from "../util/mapping";
 export class Party implements AfterViewInit, OnInit {
 
   politicians$: Observable<PoliticianModel[]>;
-  private selectedParty: string;
+  public selectedParty: string;
 
   constructor(private service: ParlamentService, private helper: Helper,
               private route: ActivatedRoute,  private router: Router) {

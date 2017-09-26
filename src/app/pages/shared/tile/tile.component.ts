@@ -21,8 +21,8 @@ export class Tile implements OnInit, OnChanges{
   private _init = false;
 
   private usersToday: Number;
-  private tweetsToday: Number;
-  private trendingTopics: Array<String>;
+  public tweetsToday: Number;
+  public trendingTopics: Array<String>;
   private pieColor: any;
 
   constructor(private _pieChartService: TileService, private _baConfig: BaThemeConfigProvider){

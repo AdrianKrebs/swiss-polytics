@@ -26,6 +26,9 @@ export class Helper {
     return MAPPING.filter((p) => p.party === party).map((element) => element['person_id']);
   }
 
+  getIndexForPersonId(id: any) {
+    return MAPPING.findIndex((obj) => obj['person_id'] === id);
+  }
 
   extractData(res: Response) {
     if (res.status < 200 || res.status >= 300) {
@@ -64,4 +67,5 @@ export class Helper {
     if ((<any>window).twttr.ready())
       (<any>window).twttr.widgets.load();
   }
+
 }

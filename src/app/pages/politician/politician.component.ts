@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Observable } from "rxjs/Observable";
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ParlamentService } from "../shared/services/paralament.service";
@@ -12,7 +12,7 @@ import {Helper} from "../util/helper.service";
   templateUrl: './politician.html'
 })
 
-export class Politician implements OnInit {
+export class Politician implements OnInit, AfterViewInit {
 
   politician$: Observable<PoliticianModel>;
   politician: PoliticianModel;
@@ -40,6 +40,10 @@ export class Politician implements OnInit {
     this.politician$.subscribe((result) => {
       this.politician = result;
     });
+  }
+
+  ngAfterViewInit(): void {
+    this.helper.initTwitterWidget();
   }
 
   getTwitterData(person_id) {

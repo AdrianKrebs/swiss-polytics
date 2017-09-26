@@ -28,3 +28,9 @@ Angular 2+, Angular CLI, Bootstrap 4, and lots of awesome modules and plugins
 
 Enjoy :metal:
 We're always happy to receive your feedback!
+
+## Deploy to Github Pages
+ng build --env=prod --base-href "/swiss-polytics/"
+angular-cli-ghpages
+
+https://adriankrebs.github.io/swiss-polytics/

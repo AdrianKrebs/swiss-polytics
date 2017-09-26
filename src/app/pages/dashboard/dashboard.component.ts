@@ -13,8 +13,8 @@ import {Helper} from "../util/helper.service";
 })
 export class Dashboard implements AfterViewInit, OnInit {
 
-  private trendingTopics: Array<String>;
-  private mostActiveUsers: Array<PoliticianModel>;
+  public trendingTopics: Array<String>;
+  public mostActiveUsers: Array<PoliticianModel>;
 
   constructor(private _tileService: TileService,private _helper: Helper, private router: Router) {
   }

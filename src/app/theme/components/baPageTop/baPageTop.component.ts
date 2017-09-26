@@ -14,12 +14,12 @@ export class BaPageTop {
 
   public isScrolled:boolean = false;
   public isMenuCollapsed:boolean = false;
-  protected searchStr: string;
-  protected searchObject: string;
+  public searchStr: string;
+  public searchObject: string;
 
   protected politicians = PERSONID_TO_NAME_MAPPING.map((user) => user["name"]);
   protected parties = ["SVP","SP","CVP","FDP","BDP","GLP","GPS"]
-  protected searchData = this.politicians.concat(this.parties);
+  public searchData = this.politicians.concat(this.parties);
 
   constructor(private _state:GlobalState, private router: Router) {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
