@@ -15,7 +15,6 @@ import { MentionsService } from '../shared/services/mentions.service';
 import { FederalAssemblyComponent } from './federal-assembly/federal-assembly.component';
 import { NationalCouncilComponent } from './national-council/national-council.component';
 import { CouncilOfStatesComponent } from './council-of-states/council-of-states.component';
-import { FederalCouncilComponent } from './federal-council/federal-council.component';
 
 @NgModule({
   imports: [
@@ -31,7 +30,6 @@ import { FederalCouncilComponent } from './federal-council/federal-council.compo
     FederalAssemblyComponent,
     NationalCouncilComponent,
     CouncilOfStatesComponent,
-    FederalCouncilComponent,
   ],
   providers: [
     TileService,
