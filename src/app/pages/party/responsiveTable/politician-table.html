@@ -1,14 +1,16 @@
 <div class="vertical-scroll">
   <table class="table">
     <tr>
-      <th>Vorname</th>
-      <th>Nachname</th>
-      <th>Kanton</th>
+      <th width="200px">Vorname</th>
+      <th width="200px">Nachname</th>
+      <th width="200px">Kanton</th>
+      <th width="auto">Bild</th>      
     </tr>
     <tr *ngFor="let p of politicians | async" (click)="navigateToProfile(p.id)">
       <td class="table-id">{{ p.firstName }}</td>
       <td>{{ p.lastName }}</td>
       <td>{{ p.cantonName }}</td>
+      <td><img class="imageProfil" src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{p.number}}.jpg"/></td>
     </tr>
   </table>
 </div>
