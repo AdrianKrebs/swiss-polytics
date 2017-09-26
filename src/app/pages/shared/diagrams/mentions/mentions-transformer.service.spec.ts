@@ -1,12 +1,13 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { MentionsTransformerService } from './mentions-transformer.service';
-import { Observable } from 'rxjs/Observable';
 import { TableData } from './tableData';
 import 'rxjs/add/observable/from';
+import * as moment from 'moment';
+import * as R from 'ramda';
 import { RawMention } from '../../../model/rawmention.model';
 
-fdescribe('MentionsTransformerService', () => {
+describe('MentionsTransformerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [MentionsTransformerService]
@@ -17,19 +18,19 @@ fdescribe('MentionsTransformerService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('return an empty Array', inject([MentionsTransformerService], (service: MentionsTransformerService) => {
+  it('return an empty Array with length 30',
+    inject([MentionsTransformerService], (service: MentionsTransformerService) => {
     const result: TableData[] = service.orderedSumPerDay([]);
-    expect(result.length === 0).toBeTruthy();
+    expect(result.length === 30).toBeTruthy();
+    expect(R.filter((line) => line.value !== 0, result).length).toBe(0);
   }));
 
-  fit('return an Array with result entries', inject([MentionsTransformerService],
+  it('return an Array with result entries', inject([MentionsTransformerService],
     (service: MentionsTransformerService) => {
-    const lastDay: Date = new Date();
-    lastDay.setDate(- 1);
-    const secondLastDay: Date = new Date();
-    secondLastDay.setDate(- 2);
-    const thirdLastDay: Date = new Date();
-    thirdLastDay.setDate(- 3);
+    const today: Date = new Date();
+    const lastDay: Date = moment(today).add(-1, 'days').toDate();
+    const secondLastDay: Date = moment(today).add(-2, 'days').toDate();
+    const thirdLastDay: Date = moment(today).add(-3, 'days').toDate();
     // lastDay = 5, secondLastDay = 4, thirdLastDay = 3
     const input: RawMention[] = [
       new RawMention('foo', 'bar', lastDay),
@@ -47,7 +48,6 @@ fdescribe('MentionsTransformerService', () => {
     ];
     const result: TableData[] = service.orderedSumPerDay(input);
     expect(result.length === 30).toBeTruthy();
-    global.console.log(`Last: ${lastDay}, ${JSON.stringify(result[29])}`);
     expect(result[29].value === 5).toBeTruthy();
     expect(result[29].date.valueOf() === service.truncateDateToDate(lastDay).valueOf()).toBeTruthy();
     expect(result[28].value === 4).toBeTruthy();
@@ -75,11 +75,9 @@ fdescribe('MentionsTransformerService', () => {
   it('return a truncated date', inject([MentionsTransformerService], (service: MentionsTransformerService) => {
     const first: Date = new Date();
     const second: Date = new Date(first.valueOf() + 1);
-    global.console.log(`Dates are, first: ${first.valueOf()}, second: ${second.valueOf()}`);
     expect(first.valueOf() === second.valueOf()).toBeFalsy();
     const tFirst = service.truncateDateToDate(first);
     const tSecond = service.truncateDateToDate(second);
-    global.console.log(`Dates are, first: ${tFirst.valueOf()}, second: ${tSecond.valueOf()}`);
     expect(tFirst.valueOf() === tSecond.valueOf()).toBeTruthy();
   }));
 
