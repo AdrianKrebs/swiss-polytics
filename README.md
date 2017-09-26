@@ -1,6 +1,6 @@
 # Swiss-Polytics
 
-<img src="swiss-poliytics\swiss-politics.PNG" width="600" alt="Sky Blue"/></a>
+<img src="AdrianKrebs/swiss-polytics/blob/master/swiss-politics.PNG" width="600" alt="Dashboard"/></a>
 
 ## Documentation
 Installation, customization and other useful articles: https://akveo.github.io/ng2-admin/
