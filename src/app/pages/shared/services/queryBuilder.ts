@@ -1,5 +1,5 @@
 export class QueryBuilder {
-  constructor(){}
+  constructor() {}
 
   queryFromPoliticianId(politicianId: string): string {
     return `?politicianId=${politicianId}`;
