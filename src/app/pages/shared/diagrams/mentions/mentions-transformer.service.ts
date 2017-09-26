@@ -40,12 +40,8 @@ export class MentionsTransformerService {
   }
 
   incrementMentionForDay(resultMap: Map<number, number>, date: Date) {
-    try {
       const time: number = this.truncateDateToDate(date).valueOf();
       const mentions: number = resultMap.get(time);
       resultMap.set(time, mentions + 1);
-    } catch (e) {
-      // Do nothing at the moment
-    }
   }
 }
