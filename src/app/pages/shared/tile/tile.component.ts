@@ -40,6 +40,10 @@ export class Tile implements OnInit, OnChanges{
     if (changes['party']) {
       this.loadTileData();
     }
+    if (changes['politicianId']) {
+      this.loadTileData();
+    }
+
   }
 
 
