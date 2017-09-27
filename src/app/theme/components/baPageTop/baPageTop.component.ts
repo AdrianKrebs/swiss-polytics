@@ -18,7 +18,7 @@ export class BaPageTop {
   public searchObject: string;
 
   protected politicians = PERSONID_TO_NAME_MAPPING.map((user) => user["name"]);
-  protected parties = ["SVP","SP","CVP","FDP","BDP","GLP","GPS"]
+  protected parties : Array<string> = ["SVP","SP","CVP","FDP","BDP","GLP","GPS"]
   public searchData = this.politicians.concat(this.parties);
 
   constructor(private _state:GlobalState, private router: Router) {
@@ -28,22 +28,23 @@ export class BaPageTop {
   }
 
   public startSearch(){
-
-
-    console.log('start searching');
+    this.navigateToTarget();
   }
 
   public onKeyup($event) {
     if ($event.code === "Enter") {
-      console.log('enter pressed --- routing to party or politician '+ $event.target.value);
-      if (this.parties.includes(this.searchObject)) {
-        this.router.navigate(['/pages/party/'+this.searchObject]);
-      } else {
-        this.router.navigate(['/pages/politician/'+this.getIdByName(this.searchObject)]);
-      }
+      this.navigateToTarget();
     }
 
 
+  }
+
+  private navigateToTarget() {
+    if (this.parties.includes(this.searchObject)) {
+      this.router.navigate(['/pages/party/' + this.searchObject]);
+    } else {
+      this.router.navigate(['/pages/politician/' + this.getIdByName(this.searchObject)]);
+    }
   }
 
   private getIdByName(name){

@@ -4,7 +4,7 @@
   <a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
 
   <div class="search">
-    <i class="ion-ios-search-strong" (click)="startSearch()"></i>
+    <i class="ion-ios-search-strong" (click)="startSearch($event)"></i>
     <ng2-completer class="completer-input"
                    [(ngModel)]="searchObject"
                    [datasource]="searchData"
