@@ -25,7 +25,7 @@ export class Dashboard implements AfterViewInit, OnInit {
       this.trendingTopics = data.slice(0, 10).map((ele) => '#' + ele);
     });
 
-    this._tileService.getMostActiveUsers().subscribe((data) => {
+    this._tileService.getMostActiveUsers(10).subscribe((data) => {
       this.mostActiveUsers = data.map((user) => {
         let politician = new PoliticianModel();
         let p = this._helper.getUserByTwitterId(user._id);

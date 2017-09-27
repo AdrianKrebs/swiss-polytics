@@ -42,8 +42,12 @@ export class TileService {
       .catch(this.helper.handleError);
   }
 
-  getMostActiveUsers(): Observable<any> {
-    return this.http.get(this.config.BACKEND_URL + '/tweets/count/weekly')
+  getMostActiveUsers(limit): Observable<any> {
+    let queryParms;
+    if (limit) {
+      queryParms = "?limit="+limit;
+    }
+    return this.http.get(this.config.BACKEND_URL + '/tweets/count/weekly'+queryParms)
       .map(this.helper.extractData)
       .map((result) => result.users)
       .catch(this.helper.handleError);
