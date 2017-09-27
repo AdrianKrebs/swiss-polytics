@@ -14,10 +14,8 @@
     </ba-card>
   </div>
   <div class="col-md-4">
-    <div *ngIf="politician?.twitterId">
-      <ba-card cardTitle="Feed" baCardClass="large-card with-scroll feed-panel">
-        <a class="twitter-timeline" href="https://twitter.com/{{politician?.twitterName}}"></a>
-      </ba-card>
+    <div *ngIf="politician?.twitterName">
+      <feed [twitterName]="politician.twitterName"></feed>
     </div>
   </div>
 </div>

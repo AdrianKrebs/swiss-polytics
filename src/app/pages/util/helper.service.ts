@@ -5,6 +5,7 @@ import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {MAPPING} from "./mapping";
+import * as jQuery from 'jquery';
 
 
 @Injectable()
@@ -67,5 +68,15 @@ export class Helper {
     if ((<any>window).twttr.ready())
       (<any>window).twttr.widgets.load();
   }
+
+  public reInitTwitterWidget(url) {
+    this.destroyWidget();
+    jQuery('.feed').append('<a class="twitter-timeline" href="' + url + '"></a>');
+    this.initTwitterWidget();
+  }
+
+  private destroyWidget = function() {
+    jQuery('[class^=twitter-timeline]').remove();
+  };
 
 }

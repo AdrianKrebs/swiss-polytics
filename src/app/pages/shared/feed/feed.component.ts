@@ -3,6 +3,8 @@ import {
   ApplicationRef
 } from '@angular/core';
 import {Helper} from "../../util/helper.service";
+import {PoliticianModel} from "../../model/politician.model";
+
 
 @Component({
   selector: 'feed',
@@ -11,19 +13,28 @@ import {Helper} from "../../util/helper.service";
 })
 export class Feed implements AfterViewInit, OnChanges {
   @Input() selectedParty: String;
+  @Input() twitterName: String;
 
   constructor(private _helper: Helper) {
   }
 
   ngAfterViewInit(): void {
 
-
-    this._helper.initTwitterWidget();
+    if (this.twitterName) {
+      this._helper.reInitTwitterWidget("https://twitter.com/" + this.twitterName);
+    } else if (this.selectedParty) {
+      this._helper.reInitTwitterWidget("https://twitter.com/swiss_polytics/lists/" + this.selectedParty);
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['selectedParty']) {
-      this._helper.initTwitterWidget();    }
+      this._helper.reInitTwitterWidget("https://twitter.com/swiss_polytics/lists/" + this.selectedParty)
+    }
+    if (changes['twitterName']) {
+      this._helper.reInitTwitterWidget("https://twitter.com/" + this.twitterName);
+    }
+
   }
 
   ngOnInit() {

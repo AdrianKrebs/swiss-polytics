@@ -1,44 +1,5 @@
-<!-- unfortunately databinding at the end of href does not work-->
-<div *ngIf="selectedParty === 'SVP'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a  class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/SVP"></a>
-  </ba-card>
-</div>
-<div *ngIf="selectedParty === 'FDP'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/FDP"></a>
-  </ba-card>
-</div>
-<div *ngIf="selectedParty === 'SP'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/SP"></a>
-  </ba-card>
-</div>
-<div *ngIf="selectedParty === 'CVP'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/CVP"></a>
-  </ba-card>
-</div>
-<div *ngIf="selectedParty === 'GLP'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/GLP"></a>
-  </ba-card>
-</div>
-<div *ngIf="selectedParty === 'GPS'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/GPS"></a>
-  </ba-card>
-</div>
-<div *ngIf="selectedParty === 'BDP'">
-  <ba-card cardTitle="Feed"
-           baCardClass="large-card with-scroll feed-panel">
-    <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/BDP"></a>
-  </ba-card>
-</div>
+<ba-card cardTitle="Feed"
+         baCardClass="large-card with-scroll feed-panel">
+  <div class="feed"></div>
+</ba-card>
 

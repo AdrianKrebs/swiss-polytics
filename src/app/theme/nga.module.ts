@@ -17,18 +17,14 @@ import {
   BaAmChart,
   BaBackTop,
   BaCard,
-  BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaFullCalendar,
   BaMenuItem,
   BaMenu,
   BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
-  BaPictureUploader,
   BaSidebar,
-  BaFileUploader,
 } from './components';
 
 import { BaCardBlur } from './components/baCard/baCardBlur.directive';
@@ -62,18 +58,14 @@ const NGA_COMPONENTS = [
   BaAmChart,
   BaBackTop,
   BaCard,
-  BaChartistChart,
   BaCheckbox,
   BaContentTop,
-  BaFullCalendar,
   BaMenuItem,
   BaMenu,
   BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
-  BaPictureUploader,
-  BaSidebar,
-  BaFileUploader
+  BaSidebar
 ];
 
 const NGA_DIRECTIVES = [
