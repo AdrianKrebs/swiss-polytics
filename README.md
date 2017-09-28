@@ -2,18 +2,16 @@
 
 <img src="swiss-politics.PNG" width="600" alt="Dashboard"/></a>
 
-## Documentation
-Installation, customization and other useful articles: https://akveo.github.io/ng2-admin/
-
-https://akveo.github.io/ng2-admin/articles/001-getting-started/
-
 ## Based on
-Angular 2+, Angular CLI, Bootstrap 4, and lots of awesome modules and plugins
+We used the following Angular dashboard as a starter for this project: https://github.com/akveo/ngx-admin
+
+## Technologies
+Angular, Angular CLI, Bootstrap 4, and lots of awesome modules and plugins
 
 ## Getting started
 - yarn or npm install
 - ng serve or npm start
-- you may need to install npm install --global windows-build-tools
+- you may need to do the following: npm install --global windows-build-tools
 - go to `http://localhost:4200/`
 
 ## How can I support developers?
@@ -33,4 +31,4 @@ We're always happy to receive your feedback!
 ng build --env=prod --base-href "/swiss-polytics/"
 angular-cli-ghpages
 
-https://adriankrebs.github.io/swiss-polytics/
+Deployed Demo: https://adriankrebs.github.io/swiss-polytics/
