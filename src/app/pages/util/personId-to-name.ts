@@ -28,7 +28,7 @@ export const PERSONID_TO_NAME_MAPPING = [
     "name": "Verena Herzog"
   },
   {
-    "\r\nid": 4130,
+    "id": 4130,
     "name": "Nadine Masshardt"
   },
   {
@@ -81,7 +81,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 91,
-    "name": "Ulrich Giezenda\r\nnner"
+    "name": "Ulrich Giezendanner"
   },
   {
     "id": 4091,
@@ -137,7 +137,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 3912,
-    "name": "Christian Wasser\r\nfallen"
+    "name": "Christian Wasserfallen"
   },
   {
     "id": 3882,
@@ -249,7 +249,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 1346,
-    "name": "Isabe\r\nlle Moret"
+    "name": "Isabelle Moret"
   },
   {
     "id": 3888,
@@ -277,7 +277,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 3907,
-    "name": "Adèle Thore\r\nns Goumaz"
+    "name": "Adèle Thorens Goumaz"
   },
   {
     "id": 4184,
@@ -305,7 +305,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 4208,
-    "name": "Matthi\r\nas Samuel Jauslin"
+    "name": "Matthias Samuel Jauslin"
   },
   {
     "id": 4212,
@@ -333,7 +333,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 3898,
-    "name": "Yves N\r\nidegger"
+    "name": "Yves Nidegger"
   },
   {
     "id": 1156,
@@ -364,7 +364,7 @@ export const PERSONID_TO_NAME_MAPPING = [
     "name": "Pirmin Bischof"
   },
   {
-    "\r\nid": 3891,
+    "id": 3891,
     "name": "Daniel Jositsch"
   },
   {
@@ -393,7 +393,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 1071,
-    "name": "\r\nRuth Humbel"
+    "name": "Ruth Humbel"
   },
   {
     "id": 1106,
@@ -445,7 +445,7 @@ export const PERSONID_TO_NAME_MAPPING = [
   },
   {
     "id": 4182,
-    "name": "Claude B\r\néglé"
+    "name": "Claude Béglé"
   },
   {
     "id": 4206,
@@ -476,7 +476,7 @@ export const PERSONID_TO_NAME_MAPPING = [
     "name": "Damian Müller"
   },
   {
-    "\r\nid": 4145,
+    "id": 4145,
     "name": "Werner Hösli"
   },
   {
@@ -532,7 +532,7 @@ export const PERSONID_TO_NAME_MAPPING = [
     "name": "Frédéric Borloz"
   },
   {
-    "\r\nid": 4196,
+    "id": 4196,
     "name": "Tim Guldimann"
   },
   {
