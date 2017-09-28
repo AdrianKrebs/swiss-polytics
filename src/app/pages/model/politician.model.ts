@@ -2,7 +2,7 @@
 export class PoliticianModel {
 
   id: string;
-  person_id: String;
+  personId: Number;
   council: String;
   firstName: String;
   lastName: String;
@@ -25,7 +25,7 @@ export class PoliticianModel {
   public mapJsonToPolitican(json) {
     let p = new PoliticianModel();
     p.id = json.id;
-    p.person_id = json.number;
+    p.personId = json.number;
     p.firstName = json.firstName;
     p.firstLastName = json.firstName + " " + json.lastName;
     p.lastName = json.lastname;

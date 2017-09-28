@@ -31,7 +31,7 @@ export class Politician implements OnInit, AfterViewInit {
         //console.log(result);
         let p = new PoliticianModel().mapJsonToPolitican(result);
         let twitterData = this.getTwitterData(this.selectedPoliticianId);
-        p.twitterName = twitterData['name'];
+        p.twitterName = twitterData['twitterName'];
         p.twitterId = twitterData['id'];
         this.helper.initTwitterWidget();
         return p;
@@ -46,8 +46,8 @@ export class Politician implements OnInit, AfterViewInit {
     this.helper.initTwitterWidget();
   }
 
-  getTwitterData(person_id) {
-    return this.helper.getUserByPersonId(person_id);
+  getTwitterData(personId) {
+    return this.helper.getUserByPersonId(personId);
   }
 
 }

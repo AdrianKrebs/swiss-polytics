@@ -29,7 +29,7 @@ export class Dashboard implements AfterViewInit, OnInit {
       this.mostActiveUsers = data.map((user) => {
         let politician = new PoliticianModel();
         let p = this._helper.getUserByTwitterId(user._id);
-        politician.person_id = p['person_id'];
+        politician.personId = p['personId'];
         politician.party = p['party'];
         politician.firstName = p['name'];
         politician.count = user.count;

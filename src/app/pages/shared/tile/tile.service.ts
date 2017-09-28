@@ -42,7 +42,7 @@ export class TileService {
       .catch(this.helper.handleError);
   }
 
-  getMostActiveUsers(limit?: string): Observable<any> {
+  getMostActiveUsers(limit?: number): Observable<any> {
     let queryParms;
     if (limit) {
       queryParms = "?limit="+limit;

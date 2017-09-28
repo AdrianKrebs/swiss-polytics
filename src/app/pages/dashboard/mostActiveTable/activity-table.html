@@ -5,7 +5,7 @@
       <th>Partei</th>
       <th>Tweets</th>
     </tr>
-    <tr *ngFor="let p of users" (click)="navigateToProfile(p.person_id)">
+    <tr *ngFor="let p of users" (click)="navigateToProfile(p.personId)">
       <td class="table-id">{{ p.firstName }}</td>
       <td>{{ p.party }}</td>
       <td>{{ p.count }}</td>

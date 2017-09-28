@@ -20,15 +20,15 @@ export class Helper {
   }
 
   getUserByPersonId(id) {
-    return MAPPING.find((user) => user['person_id'] === id);
+    return MAPPING.find((user) => user['personId'] === id);
   }
 
   getIdsForParty(party) {
-    return MAPPING.filter((p) => p.party === party).map((element) => element['person_id']);
+    return MAPPING.filter((p) => p.party === party).map((element) => element['personId']);
   }
 
   getIndexForPersonId(id: any) {
-    return MAPPING.findIndex((obj) => obj['person_id'] === id);
+    return MAPPING.findIndex((obj) => obj['personId'] === id);
   }
 
   extractData(res: Response) {
