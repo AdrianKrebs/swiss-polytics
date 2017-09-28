@@ -1,5 +1,50 @@
-.seat {
-    fill: white;
+.SVP {
+    fill: green;
+}
+
+.FDP {
+    fill: blue;
+}
+
+.SP {
+    fill: red;
+}
+
+.CVP {
+    fill: orangered;
+}
+
+.has-no-twitter-account {
+    fill-opacity: 0;
+}
+
+// .has-twitter-account {
+//     fill-opacity: 0.8;
+// }
+
+.no-activity {
+    fill-opacity: 0.2;
+}
+
+.low-activity {
+    fill-opacity: 0.4;
+}
+
+.medium-activity {
+    fill-opacity: 0.6;
+}
+
+.high-activity {
+    fill-opacity: 0.9;
+}
+
+.margin {
     stroke: black;
+    stroke-opacity: 0.8;
     stroke-width: 1pt;
+}
+
+img {
+    max-height: 80px;
+    max-width: 80px;
 }

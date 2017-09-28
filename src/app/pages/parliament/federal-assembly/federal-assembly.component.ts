@@ -35,18 +35,6 @@ export class FederalAssemblyComponent implements OnInit {
     //getTweetsToday
   }
 
-  getTwitterData(politicianId) {
-    let queryParmas = '';
-    if (politicianId) {
-      queryParmas = '?politicianId=' + politicianId;
-      this.tileService.getTweetsToday(queryParmas).subscribe((data) => {
-        // console.log(data);
-        return data.tweets;
-      });
-    }
-  }
-
-
   getIndexForPersonId(id) {
     return this.helperService.getIndexForPersonId(id);
   }
