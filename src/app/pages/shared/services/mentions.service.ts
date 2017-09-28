@@ -24,7 +24,7 @@ export class MentionsService {
       .catch(this.helper.handleError);
   }
 
-  getMentionsForToday(query: string): Observable<MentionCount[]> {
+  getMentionCountsForLastWeek(): Observable<MentionCount[]> {
     return this.http.get(`${this.config.BACKEND_URL}/mentions/countLastWeek`)
       .map(this.helper.extractData)
       .map((dataInHolder) => dataInHolder.counts)
