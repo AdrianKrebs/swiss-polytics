@@ -1,9 +1,8 @@
-
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import { Observable } from "rxjs/Observable";
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ParlamentService } from "../shared/services/paralament.service";
-import { PoliticianModel } from "../model/politician.model";
+import {Observable} from "rxjs/Observable";
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {ParlamentService} from "../shared/services/paralament.service";
+import {PoliticianModel} from "../model/politician.model";
 import 'rxjs/add/operator/switchMap';
 import {Helper} from "../util/helper.service";
 
@@ -31,8 +30,10 @@ export class Politician implements OnInit, AfterViewInit {
         //console.log(result);
         let p = new PoliticianModel().mapJsonToPolitican(result);
         let twitterData = this.getTwitterData(this.selectedPoliticianId);
-        p.twitterName = twitterData['twitterName'];
-        p.twitterId = twitterData['id'];
+        if (twitterData) {
+          p.twitterName = twitterData['twitterName'];
+          p.twitterId = twitterData['id'];
+        }
         this.helper.initTwitterWidget();
         return p;
       });
