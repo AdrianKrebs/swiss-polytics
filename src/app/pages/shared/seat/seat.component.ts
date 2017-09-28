@@ -90,24 +90,25 @@ export class SeatComponent implements OnInit, OnChanges {
       this.viewbox = "0 0 599.9 407.5";
       this.council = "Ständerat";
     }
-    else if(this.councilFilter === 'Nr') {
+    else if (this.councilFilter === 'Nr') {
       this.council = "Nationalrat";
     }
     else {
       this.council = "Bundesversammlung"
     }
     this.seats = this.seatService.getSeats(this.councilFilter);
+    this.selectedSeat = undefined;
   }
 
-getIndexForPersonId(id) {
-  return this.helperService.getIndexForPersonId(id);
-}
+  getIndexForPersonId(id) {
+    return this.helperService.getIndexForPersonId(id);
+  }
 
-navigateToProfile(personId) {
-  this.router.navigate(['/pages/politician/' + personId]);
-}
+  navigateToProfile(personId) {
+    this.router.navigate(['/pages/politician/' + personId]);
+  }
 
-setSelectedSeat(seat) {
-  this.selectedSeat = seat;
-}
+  setSelectedSeat(seat) {
+    this.selectedSeat = seat;
+  }
 }
