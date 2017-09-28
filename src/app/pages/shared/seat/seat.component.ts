@@ -1,27 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MAPPING } from '../../util/mapping';
-import { NationalCouncilService } from './service/national-council.service';
+import { SeatService } from './service/seat.service';
+
 import { Helper } from '../../util/helper.service';
 import { TileService } from '../../shared/tile/tile.service';
 import { SeatModel } from "../../model/seat.model";
 
 @Component({
-  selector: 'app-national-council',
-  templateUrl: './national-council.component.html',
-  styleUrls: ['./national-council.component.scss'],
-  providers: [NationalCouncilService],
+  selector: 'app-seat',
+  templateUrl: './seat.html',
+  styleUrls: ['./seat.scss'],
+  providers: [SeatService],
 })
 
-export class NationalCouncilComponent implements OnInit {
+export class SeatComponent implements OnInit, OnChanges {
 
-  // private tweetsToday: Number;
+  @Input() councilFilter: string;
+
   private seats;
   private selectedSeat: SeatModel;
+  private viewbox;
+  private council;
   private userActivity = [];
 
-
-  constructor(private nationalCouncilService: NationalCouncilService,
+  constructor(private seatService: SeatService,
     private route: ActivatedRoute,
     private router: Router,
     private helperService: Helper,
@@ -30,6 +33,13 @@ export class NationalCouncilComponent implements OnInit {
   ngOnInit(): void {
     this.getSeats();
     this.getUserActivity();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes["councilFilter"]) {
+      this.getSeats();
+      this.getUserActivity();
+    }
   }
 
   getUserActivity() {
@@ -75,18 +85,29 @@ export class NationalCouncilComponent implements OnInit {
   }
 
   getSeats(): void {
-    this.seats = this.nationalCouncilService.getSeats();
+    this.viewbox = "0 0 929.4 646.2";
+    if (this.councilFilter === 'SR') {
+      this.viewbox = "0 0 599.9 407.5";
+      this.council = "Ständerat";
+    }
+    else if(this.councilFilter === 'Nr') {
+      this.council = "Nationalrat";
+    }
+    else {
+      this.council = "Bundesversammlung"
+    }
+    this.seats = this.seatService.getSeats(this.councilFilter);
   }
 
-  getIndexForPersonId(id) {
-    return this.helperService.getIndexForPersonId(id);
-  }
+getIndexForPersonId(id) {
+  return this.helperService.getIndexForPersonId(id);
+}
 
-  navigateToProfile(personId) {
-    this.router.navigate(['/pages/politician/' + personId]);
-  }
+navigateToProfile(personId) {
+  this.router.navigate(['/pages/politician/' + personId]);
+}
 
-  setSelectedSeat(seat) {
-    this.selectedSeat = seat;
-  }
+setSelectedSeat(seat) {
+  this.selectedSeat = seat;
+}
 }

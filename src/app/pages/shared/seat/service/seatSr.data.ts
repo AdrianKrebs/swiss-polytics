@@ -1,4 +1,4 @@
-export const SEATS: any[] = [
+export const SEATSSR: any[] = [
     {
         'rowNumber' : 0,
         'seatNumber' : 1,

@@ -1,7 +1,5 @@
 <div class="svg-container">
-  <svg id="svgId" currentScale="1" x="0" y="0" width="100%" height="100%" viewBox="0 0 929.4 646.2" preserveAspectRatio="none">
-    <!-- One Point per Seat-->
-
+  <svg id="svgId" currentScale="1" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" [attr.viewBox]="viewbox">
     <g *ngFor="let seat of seats">
       <path [attr.class]="'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party" (click)="setSelectedSeat(seat)"
         [attr.d]="seat.d" />

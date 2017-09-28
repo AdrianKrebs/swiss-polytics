@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { SeatModel } from './council-of-states.model';
+import { SeatModel } from "../../../model/seat.model";
 import { SEATS } from './council-of-states.data';
 
 @Injectable()

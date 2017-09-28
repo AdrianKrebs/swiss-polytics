@@ -1,30 +1,20 @@
 <div class="row">
-    <div class="col-md-8">
-      <tile></tile>
-      <div class="btn-group-example">
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-success" value="BV" (click)="handleFilterClick($event)">Bundesversammlung</button>
-          <button type="button" class="btn btn-success" value="NR" (click)="handleFilterClick($event)">Nationalrat</button>
-          <button type="button" class="btn btn-success" value="SR" (click)="handleFilterClick($event)">Ständerat</button>
-        </div>
+  <div class="col-md-8">
+    <tile></tile>
+    <div class="btn-group-example">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-success" value="BV" (click)="handleFilterClick($event)">Bundesversammlung</button>
+        <button type="button" class="btn btn-success" value="NR" (click)="handleFilterClick($event)">Nationalrat</button>
+        <button type="button" class="btn btn-success" value="SR" (click)="handleFilterClick($event)">Ständerat</button>
       </div>
-      <ba-card *ngIf="councilFilter === 'BV' || councilFilter === undefined" class="col-xlg-6 col-lg-6" cardTitle="Bundesversammlung">
-       <app-federal-assembly></app-federal-assembly>
-      </ba-card>
-      <ba-card  *ngIf="councilFilter==='NR'" class="col-xlg-6 col-lg-6" cardTitle="Nationalrat">
-        <app-national-council></app-national-council>
-       </ba-card>
-      <ba-card  *ngIf="councilFilter==='SR'" class="col-xlg-6 col-lg-6" cardTitle="Ständerat">
-        <app-council-of-states></app-council-of-states>
-       </ba-card>
     </div>
-    <div class="col-md-4">
-      <ba-card cardTitle="Feed"
-               baCardClass="large-card with-scroll feed-panel">
-        <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/schweizer-parlament">A Twitter List by
-          TwitterDev</a>
-  
-      </ba-card>
-    </div>
+    <ba-card class="col-xlg-6 col-lg-6">
+      <app-seat [councilFilter]="councilFilter"></app-seat>
+    </ba-card>
   </div>
-  
+  <div class="col-md-4">
+    <ba-card cardTitle="Feed" baCardClass="large-card with-scroll feed-panel">
+      <a class="twitter-timeline" href="https://twitter.com/swiss_polytics/lists/schweizer-parlament">A Twitter List by TwitterDev</a>
+    </ba-card>
+  </div>
+</div>

@@ -1,6 +1,4 @@
-import { SeatModel } from './national-council.model';
-
-export const SEATS: SeatModel[] = [
+export const SEATS: any[] = [
     {
         'rowNumber' : 0,
         'seatNumber' : 1,

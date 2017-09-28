@@ -14,7 +14,7 @@ import { SentimentsService } from './services/sentiments.service';
 import { SentimentsTransformerService } from './diagrams/sentiments/sentiments-transformer.service';
 import { MentionsTransformerService } from './diagrams/mentions/mentions-transformer.service';
 import { Feed } from './feed/feed.component';
-
+import {SeatComponent} from './seat/seat.component';
 
 @NgModule({
   imports: [
@@ -24,11 +24,13 @@ import { Feed } from './feed/feed.component';
     NgaModule],
   declarations: [
     Feed,
+    SeatComponent,
     Tile,
     SentimentsComponent,
     MentionsComponent],
   exports: [
     Feed,
+    SeatComponent,
     Tile,
     SentimentsComponent,
     MentionsComponent,
