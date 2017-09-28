@@ -47,7 +47,7 @@ export class BaPageTop {
   }
 
   private getIdByName(name){
-    return MAPPING.find((user) => user['name'] === name)['id'];
+    return MAPPING.find((user) => user['name'] === name)['personId'];
   }
 
   public toggleMenu() {
