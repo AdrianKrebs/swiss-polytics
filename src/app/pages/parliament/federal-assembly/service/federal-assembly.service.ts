@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 
-import { SeatModel } from './federal-assembly.model';
-import { SEATS } from './federal-assembly.data';
+import { SeatModel } from '../../../model/seat.model';
+import { Seats } from './federal-assembly.data';
 
 @Injectable()
 export class FederalAssemblyService {
 
   getSeats(): SeatModel[] {
-    return SEATS;
+    return Seats;
   }
   constructor() { }
 

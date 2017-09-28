@@ -1,6 +1,6 @@
-import { SeatModel } from './federal-assembly.model';
+import { SeatModel } from '../../../model/seat.model';
 
-export const SEATS: SeatModel[] = [
+export const Seats: any[] = [
     {
         'rowNumber' : 0,
         'seatNumber' : 1,
