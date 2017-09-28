@@ -3,7 +3,6 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 import { MAPPING } from '../../util/mapping';
 
-import { SeatModel } from './service/federal-assembly.model';
 import { FederalAssemblyService } from './service/federal-assembly.service';
 
 import { Helper } from '../../util/helper.service';
@@ -12,6 +11,7 @@ import { ParlamentService } from '../../shared/services/paralament.service';
 import { TileService } from '../../shared/tile/tile.service';
 
 import { Observable } from 'rxjs/Observable';
+import {SeatModel} from "../../model/seat.model";
 
 @Component({
   selector: 'app-federal-assembly',
@@ -47,19 +47,19 @@ export class FederalAssemblyComponent implements OnInit {
     // Wird ausgeführt, sobald die Daten geladen sind.
 
     this.seats.forEach(seat => {
-      
+
             seat.mappingIndex = this.getIndexForPersonId(seat.personId);
-      
+
             if (seat.mappingIndex !== -1) {
               seat.party = MAPPING[seat.mappingIndex].party;
               seat.twitterId = MAPPING[seat.mappingIndex].id;
             }
-      
+
             seat.numberOfTweets = 0;
-      
+
             // TODO
             // Anzahl Tweets pro Tag und Politiker einfügen
-      
+
             if (seat.twitterId !== undefined) {
               seat.twitterClass = 'has-no-twitter-account';
               let userActivity = this.userActivity.find((obj) => obj._id === seat.twitterId);
@@ -68,7 +68,7 @@ export class FederalAssemblyComponent implements OnInit {
             } else {
               seat.twitterClass = 'has-twitter-account';
             }
-      
+
             if (seat.numberOfTweets < 1) {
               seat.activityClass = 'no-activity';
             } else if (seat.numberOfTweets < 5) {
@@ -80,7 +80,7 @@ export class FederalAssemblyComponent implements OnInit {
             }
           });
 
-    });  
+    });
   }
 
   constructor(private federalAssemblyService: FederalAssemblyService,
