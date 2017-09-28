@@ -3,12 +3,14 @@
     <div *ngIf="politician?.twitterId">
       <tile [politicianId]="politician.twitterId"></tile>
     </div>
+    <div *ngIf="politician?.twitterId">
     <ba-card cardTitle="Statistik" class="col-xlg-6 col-xl-6">
       <div class="row" *ngIf="politician">
         <div class="col-md-6"><app-sentiments [politicianId]="politician.twitterId"></app-sentiments></div>
         <div class="col-md-6"><app-mentions [politicianId]="politician.twitterId"></app-mentions></div>
       </div>
     </ba-card>
+    </div>
     <ba-card class="col-xlg-6 col-lg-6" cardTitle="{{politician?.firstLastName}}">
       <profil [politicanModel]="politician"></profil>
     </ba-card>
