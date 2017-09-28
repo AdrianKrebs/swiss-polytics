@@ -12,8 +12,8 @@
       </svg>
 </div>
 <div *ngIf="selectedSeat !== undefined">
-    <img src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/2705.jpg">
-    <p>Name, Vorname</p>
+    <img src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat.number}}.jpg">
+    <p>{{selectedSeat.name}}</p>
     <p>{{selectedSeat.twitterId}}</p>
     <p>{{selectedSeat.personId}}</p>
     <button (click)="navigateToProfile(selectedSeat.personId)" class="btn btn-default btn-with-icon btn-sm" type="button"><i class="ion-stats-bars"></i>Zum Profil</button>
