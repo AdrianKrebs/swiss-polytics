@@ -7,6 +7,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { RawMention } from '../../model/rawmention.model';
+import { MentionCount } from '../../model/mentioncount.model';
+import * as R from 'ramda';
 
 @Injectable()
 export class MentionsService {
@@ -17,6 +19,16 @@ export class MentionsService {
     return this.http.get(`${this.config.BACKEND_URL}/mentions${query}`)
       .map(this.helper.extractData)
       .map((dataInHolder) => dataInHolder.mentions)
+      .map((mentions) => R.map((mention) =>
+        new RawMention(mention.tweetId, mention.twitterUserId, new Date(mention.createdAt)), mentions))
+      .catch(this.helper.handleError);
+  }
+
+  getMentionCountsForLastWeek(): Observable<MentionCount[]> {
+    return this.http.get(`${this.config.BACKEND_URL}/mentions/countLastWeek`)
+      .map(this.helper.extractData)
+      .map((dataInHolder) => dataInHolder.counts)
+      .map((counts) => R.map(count => new MentionCount(count._id, count.count), counts))
       .catch(this.helper.handleError);
   }
 }

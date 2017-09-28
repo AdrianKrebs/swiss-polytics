@@ -18,13 +18,11 @@ export class SentimentsService {
     return this.http.get(`${this.config.BACKEND_URL}/sentiments${query}`)
       .map(this.helper.extractData)
       .map((dataInHolder) => dataInHolder.sentiments)
-      .map((sentiments) => R.map((sentiment) => {
-        return {
-          twitterUserId: sentiment.user.id,
-          sentimentLabel: sentiment.tweet.sentiment.label,
-          sentimentScore: sentiment.tweet.sentiment.score,
-          createdAt: new Date(sentiment.createdAt)}}, sentiments))
+      .map((sentiments) => R.map((sentiment) => new RawSentiment(
+        sentiment.user.id,
+        sentiment.tweet.sentiment.label,
+        sentiment.tweet.sentiment.score,
+        new Date(sentiment.createdAt)), sentiments))
       .catch(this.helper.handleError);
   }
 }
-
