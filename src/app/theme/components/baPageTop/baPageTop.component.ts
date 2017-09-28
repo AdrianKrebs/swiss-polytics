@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 
 import {GlobalState} from '../../../global.state';
-import {PERSONID_TO_NAME_MAPPING} from "app/pages/util/personId-to-name";
 import {Router} from "@angular/router";
 import {MAPPING} from "../../../pages/util/mapping";
 
@@ -17,7 +16,7 @@ export class BaPageTop {
   public searchStr: string;
   public searchObject: string;
 
-  protected politicians = PERSONID_TO_NAME_MAPPING.map((user) => user["name"]);
+  protected politicians = MAPPING.map((user) => user["name"]);
   protected parties : Array<string> = ["SVP","SP","CVP","FDP","BDP","GLP","GPS"]
   public searchData = this.politicians.concat(this.parties);
 
@@ -48,7 +47,7 @@ export class BaPageTop {
   }
 
   private getIdByName(name){
-    return PERSONID_TO_NAME_MAPPING.find((user) => user['name'] === name)['id'];
+    return MAPPING.find((user) => user['name'] === name)['id'];
   }
 
   public toggleMenu() {
