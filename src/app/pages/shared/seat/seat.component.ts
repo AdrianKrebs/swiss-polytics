@@ -7,6 +7,8 @@ import { Helper } from '../../util/helper.service';
 import { TileService } from '../../shared/tile/tile.service';
 import { SeatModel } from "../../model/seat.model";
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-seat',
   templateUrl: './seat.html',
@@ -112,3 +114,4 @@ export class SeatComponent implements OnInit, OnChanges {
     this.selectedSeat = seat;
   }
 }
+

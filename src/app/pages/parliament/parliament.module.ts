@@ -12,8 +12,6 @@ import { TileService } from "../shared/tile/tile.service";
 import { SharedModule } from "../shared/shared.module";
 import { MentionsService } from '../shared/services/mentions.service';
 
-import { SeatComponent } from "../shared/seat/seat.component";
-
 
 @NgModule({
   imports: [

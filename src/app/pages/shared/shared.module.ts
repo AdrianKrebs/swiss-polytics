@@ -16,6 +16,7 @@ import { MentionsTransformerService } from './diagrams/mentions/mentions-transfo
 import { Feed } from './feed/feed.component';
 import {SeatComponent} from './seat/seat.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
