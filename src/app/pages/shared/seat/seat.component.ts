@@ -2,12 +2,11 @@ import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/cor
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MAPPING } from '../../util/mapping';
 import { SeatService } from './service/seat.service';
-
 import { Helper } from '../../util/helper.service';
 import { TileService } from '../../shared/tile/tile.service';
 import { SeatModel } from "../../model/seat.model";
-
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DefaultModal } from './default-modal/default-modal.component';
 
 @Component({
   selector: 'app-seat',
@@ -30,6 +29,7 @@ export class SeatComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     private router: Router,
     private helperService: Helper,
+    private modalService: NgbModal,
     private tileService: TileService) { }
 
   ngOnInit(): void {
@@ -106,12 +106,12 @@ export class SeatComponent implements OnInit, OnChanges {
     return this.helperService.getIndexForPersonId(id);
   }
 
-  navigateToProfile(personId) {
-    this.router.navigate(['/pages/politician/' + personId]);
-  }
-
-  setSelectedSeat(seat) {
+  smModalShow(seat): void {
     this.selectedSeat = seat;
+    const activeModal = this.modalService.open(DefaultModal, {size: 'sm'});
+    activeModal.componentInstance.modalName = this.selectedSeat.name;
+    activeModal.componentInstance.modalPersonId = this.selectedSeat.personId;
+    activeModal.componentInstance.modalNumber = this.selectedSeat.number;
   }
 }
 

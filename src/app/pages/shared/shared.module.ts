@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Tile } from './tile/tile.component';
 import { AppTranslationModule } from '../../app.translation.module';
 import { NgaModule } from '../../theme/nga.module';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { Helper } from 'app/pages/util/helper.service';
 import { TileService } from './tile/tile.service';
 import { ParlamentService } from './services/paralament.service';
@@ -15,19 +16,21 @@ import { SentimentsTransformerService } from './diagrams/sentiments/sentiments-t
 import { MentionsTransformerService } from './diagrams/mentions/mentions-transformer.service';
 import { Feed } from './feed/feed.component';
 import {SeatComponent} from './seat/seat.component';
-
+import { DefaultModal } from './seat/default-modal/default-modal.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     AppTranslationModule,
+    NgbModalModule,
     NgaModule],
   declarations: [
     Feed,
     SeatComponent,
     Tile,
     SentimentsComponent,
+    DefaultModal,
     MentionsComponent],
   exports: [
     Feed,
@@ -37,6 +40,9 @@ import {SeatComponent} from './seat/seat.component';
     MentionsComponent,
     CommonModule,
     FormsModule],
+  entryComponents: [
+      DefaultModal
+    ],
   providers: [
     TileService,
     ParlamentService,
