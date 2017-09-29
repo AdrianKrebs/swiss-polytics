@@ -1,5 +1,6 @@
-import {AfterViewChecked, AfterViewInit, Component} from '@angular/core';
+import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
 import {Helper} from '../util/helper.service';
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'parliament',
@@ -7,14 +8,10 @@ import {Helper} from '../util/helper.service';
   templateUrl: './parliament.html',
 })
 export class Parliament implements AfterViewInit{
+    public councilFilter: string = "BV";
 
-    protected councilFilter: String;
 
   constructor(private _helper: Helper) {
-  }
-
-  handleFilterClick($event) {
-    this.councilFilter = $event.currentTarget.value;
   }
 
   ngAfterViewInit() {

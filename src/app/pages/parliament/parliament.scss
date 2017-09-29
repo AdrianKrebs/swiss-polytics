@@ -1,4 +1,4 @@
-@media screen and (min-width: 1620px) {
+$btnColor: #90b900 !default@media screen and (min-width: 1620px) {
   .row.shift-up {
     > * {
       margin-top: -573px;
@@ -18,6 +18,25 @@
   }
 }
 
-.blurCalendar {
-  height: 475px;
+[type='radio'] {
+  display: none;
+}
+
+.btn-group {
+  padding-bottom: 0.5em;
+}
+
+
+.btn-success {
+  background-color: #00abff;
+  border-color: #648fe1;
+}
+
+.btn-success.active {
+  background-color: #3b5998;
+}
+
+button.btn.btn-success {
+
+
 }
