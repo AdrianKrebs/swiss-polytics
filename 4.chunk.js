@@ -92,7 +92,7 @@ ParliamentModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__app_translation_module__["a" /* AppTranslationModule */],
             __WEBPACK_IMPORTED_MODULE_4__theme_nga_module__["a" /* NgaModule */],
             __WEBPACK_IMPORTED_MODULE_6__parliament_routing__["a" /* routing */],
-            __WEBPACK_IMPORTED_MODULE_9__shared_shared_module__["a" /* SharedModule */]
+            __WEBPACK_IMPORTED_MODULE_9__shared_shared_module__["a" /* SharedModule */],
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_5__parliament_component__["a" /* Parliament */],
