@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Tile } from './tile/tile.component';
 import { AppTranslationModule } from '../../app.translation.module';
 import { NgaModule } from '../../theme/nga.module';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbModalModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { Helper } from 'app/pages/util/helper.service';
 import { TileService } from './tile/tile.service';
 import { ParlamentService } from './services/paralament.service';
@@ -24,7 +24,8 @@ import { DefaultModal } from './seat/default-modal/default-modal.component';
     FormsModule,
     AppTranslationModule,
     NgbModalModule,
-    NgaModule],
+    NgaModule,
+    NgbModule],
   declarations: [
     Feed,
     SeatComponent,

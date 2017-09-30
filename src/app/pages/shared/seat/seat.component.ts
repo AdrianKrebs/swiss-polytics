@@ -112,5 +112,12 @@ export class SeatComponent implements OnInit, OnChanges {
     activeModal.componentInstance.modalPersonId = this.selectedSeat.personId;
     activeModal.componentInstance.modalNumber = this.selectedSeat.number;
   }
+  navigateToProfile(){
+    this.router.navigate(['/pages/politician/' + this.selectedSeat.personId]);
+  }
+
+  onSeatChange(seat): void {
+    this.selectedSeat = seat;
+  }
 }
 
