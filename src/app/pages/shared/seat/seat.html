@@ -1,4 +1,12 @@
-<ng-template #popContent >{{selectedSeat?.name}}  <button class="btn btn-primary confirm-btn" (mousedown)="navigateToProfile()" >Profil</button></ng-template>
+<ng-template #popContent >
+  <div class="container">
+    <p>{{selectedSeat?.name}}</p>
+    <div class="profile-img">
+    <img src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg">
+    </div>
+    <button class="btn btn-primary confirm-btn" (mousedown)="navigateToProfile()" >Profil</button>
+  </div>
+</ng-template>
 <div class="svg-container">
   <svg id="svgId" currentScale="1" x="0" y="0" width="100%" height="100%" preserveAspectRatio="none" [attr.viewBox]="viewbox">
     <g *ngFor="let seat of seats">

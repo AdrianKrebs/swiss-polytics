@@ -1,18 +1,19 @@
 <div class="row">
   <div class="col-md-8">
     <tile></tile>
-    <div class="btn-group" >
-      <label class="btn btn-success" [class.active]='councilFilter === "BV"'>
-        <input type="radio" name="options" [(ngModel)]="councilFilter" value="BV"> Bundesversammlung
-      </label>
-      <label class="btn btn-success" [class.active]='councilFilter === "NR"'>
-        <input type="radio"[(ngModel)]="councilFilter" value="NR"  name="options"> Nationalrat
-      </label>
-      <label class="btn btn-success" [class.active]='councilFilter === "SR"'>
-        <input type="radio" [(ngModel)]="councilFilter" value="SR" name="options" > Ständerat
-      </label>
-    </div>
+
     <ba-card class="col-xlg-6 col-lg-6">
+      <div class="btn-group" >
+        <label class="btn btn-success" [class.active]='councilFilter === "BV"'>
+          <input type="radio" name="options" [(ngModel)]="councilFilter" value="BV"> Bundesversammlung
+        </label>
+        <label class="btn btn-success" [class.active]='councilFilter === "NR"'>
+          <input type="radio"[(ngModel)]="councilFilter" value="NR"  name="options"> Nationalrat
+        </label>
+        <label class="btn btn-success" [class.active]='councilFilter === "SR"'>
+          <input type="radio" [(ngModel)]="councilFilter" value="SR" name="options" > Ständerat
+        </label>
+      </div>
       <app-seat [councilFilter]="councilFilter"></app-seat>
     </ba-card>
   </div>

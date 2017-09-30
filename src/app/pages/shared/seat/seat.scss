@@ -1,58 +1,71 @@
 .SVP {
-    fill: green;
+  fill: green;
 }
 
 .FDP {
-    fill: blue;
+  fill: blue;
 }
 
 .SP {
-    fill: red;
+  fill: red;
 }
 
 .BDP {
-    fill: yellow;
-    }
+  fill: yellow;
+}
 
 .CVP {
-    fill: orangered;
+  fill: orangered;
 }
 
 .GLP {
-    fill: greenyellow
+  fill: greenyellow
 }
 
 .GPS {
- fill: purple;
+  fill: purple;
 }
 
 .has-no-twitter-account {
-    fill-opacity: 0;
+  fill-opacity: 0;
 }
 
 .no-activity {
-    fill-opacity: 0.2;
+  fill-opacity: 0.2;
 }
 
 .low-activity {
-    fill-opacity: 0.4;
+  fill-opacity: 0.4;
 }
 
 .medium-activity {
-    fill-opacity: 0.6;
+  fill-opacity: 0.6;
 }
 
 .high-activity {
-    fill-opacity: 0.9;
+  fill-opacity: 0.9;
 }
 
 .margin {
-    stroke: black;
-    stroke-opacity: 0.8;
-    stroke-width: 1pt;
+  stroke: black;
+  stroke-opacity: 0.8;
+  stroke-width: 1pt;
 }
 
 img {
-    max-height: 80px;
-    max-width: 80px;
+  max-height: 80px;
+  max-width: 80px;
+  margin: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // align along main axis
+  align-items: center;
+}
+
+#svgId {
+  padding-top: 2px;
+  padding-bottom: 2px;
 }
