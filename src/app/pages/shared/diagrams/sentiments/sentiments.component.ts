@@ -20,7 +20,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
   private baConfig: BaThemeConfigProvider;
   private chart: any;
   private queryHelper: QueryHelper = new QueryHelper();
-
+  isChartEmpty: boolean;
   sentiments: Object;
 
   constructor(
@@ -46,8 +46,14 @@ export class SentimentsComponent implements OnInit, OnChanges {
   private loadData() {
     this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).
     subscribe((sentiments: RawSentiment[]) => {
-      this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
-      this.chart.validateData();
+      if (this.chart) {
+        this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
+        this.chart.validateData();
+      }
+      const filtered = this.chart.dataProvider.filter((data) => data.negative || data.positive || data.mean);
+      if (filtered.length < 2) {
+        this.isChartEmpty = true;
+      }
     });
   }
 
@@ -65,14 +71,12 @@ export class SentimentsComponent implements OnInit, OnChanges {
     return {
       type: 'serial',
       theme: 'blur',
+      fontFamily: 'Roboto',
       marginTop: 15,
       marginRight: 15,
       responsive: {
         'enabled': true,
       },
-      titles: [{
-        text: 'Stimmung',
-      }],
       dataProvider: [],
       categoryField: 'date',
       categoryAxis: {

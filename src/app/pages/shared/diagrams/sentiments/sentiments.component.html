@@ -1,1 +1,6 @@
-<ba-am-chart baAmChartClass="dashboard-line-chart" (onChartReady)="chartReady($event)" [baAmChartConfiguration]="sentiments"></ba-am-chart>
+<div *ngIf="!isChartEmpty">
+  <ba-card class="col-md-6" cardTitle="Stimmung">
+    <ba-am-chart baAmChartClass="dashboard-line-chart" (onChartReady)="chartReady($event)"
+                 [baAmChartConfiguration]="sentiments"></ba-am-chart>
+  </ba-card>
+</div>

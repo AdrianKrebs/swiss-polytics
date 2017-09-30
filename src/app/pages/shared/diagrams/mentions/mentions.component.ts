@@ -23,7 +23,7 @@ export class MentionsComponent implements OnInit, OnChanges {
   private baConfig: BaThemeConfigProvider;
   private chart: any;
   private queryHelper: QueryHelper = new QueryHelper();
-
+  isChartEmpty: boolean;
   mentions: any;
 
   constructor(
@@ -49,8 +49,14 @@ export class MentionsComponent implements OnInit, OnChanges {
   private loadData() {
     this.mentionsDataService.getMentions(this.queryHelper.createQueryString(this.party, this.politicianId)).
     subscribe((mentionsData: RawMention[]) => {
-      this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
-      this.chart.validateData();
+      if (this.chart) {
+        this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
+        this.chart.validateData();
+      }
+      const filtered = this.chart.dataProvider.filter((data) => data.value > 0);
+      if (filtered.length < 2) {
+        this.isChartEmpty = true;
+      }
     });
   }
 
@@ -66,15 +72,13 @@ export class MentionsComponent implements OnInit, OnChanges {
 
     return {
       type: 'serial',
+      fontFamily: 'Roboto',
       theme: 'blur',
       marginTop: 15,
       marginRight: 15,
       responsive: {
         'enabled': true,
       },
-      titles: [{
-        text: 'Erwähnungen',
-      }],
       dataProvider: [],
       categoryField: 'date',
       categoryAxis: {

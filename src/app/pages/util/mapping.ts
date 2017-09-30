@@ -52,7 +52,7 @@ export const MAPPING =
       'name': 'Hans-Ulrich Bigler',
       'number': 3110,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -60,7 +60,7 @@ export const MAPPING =
       'personId': 4215,
       'name': 'Hansjörg Brunner',
       'number': 3116,
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -114,7 +114,7 @@ export const MAPPING =
       'name': 'Philippe Nantermod',
       'number': 3088,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '385293664',
@@ -230,7 +230,7 @@ export const MAPPING =
       'name': 'Philippe Bauer',
       'number': 3059,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -257,7 +257,7 @@ export const MAPPING =
       'name': 'Martin Bäumle',
       'number': 2585,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': null,
@@ -275,7 +275,7 @@ export const MAPPING =
       'name': 'Kathrin Bertschy',
       'number': 3016,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': '743779500341792768',
@@ -553,7 +553,7 @@ export const MAPPING =
       'name': 'Regine Sauter',
       'number': 3103,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -589,7 +589,7 @@ export const MAPPING =
       'name': 'Thierry Burkart',
       'number': 3065,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -616,7 +616,7 @@ export const MAPPING =
       'name': 'Beat Walti',
       'number': 3044,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -643,7 +643,7 @@ export const MAPPING =
       'name': 'Beat Flach',
       'number': 2765,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': '353662120',
@@ -679,7 +679,7 @@ export const MAPPING =
       'name': 'Benoît Genecand',
       'number': 3073,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -706,7 +706,7 @@ export const MAPPING =
       'name': 'Giovanni Merlini',
       'number': 3042,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '603431624',
@@ -715,7 +715,7 @@ export const MAPPING =
       'name': 'Damian Müller',
       'number': 3108,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '2991955251',
@@ -751,7 +751,7 @@ export const MAPPING =
       'name': 'Walter Müller',
       'number': 2617,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -769,7 +769,7 @@ export const MAPPING =
       'name': 'Bruno Pezzatti',
       'number': 2784,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -787,7 +787,7 @@ export const MAPPING =
       'name': 'Christian Wasserfallen',
       'number': 2715,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '485885985',
@@ -850,7 +850,7 @@ export const MAPPING =
       'name': 'Albert Vitali',
       'number': 2761,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '2536865558',
@@ -913,7 +913,7 @@ export const MAPPING =
       'name': 'Matthias Samuel Jauslin',
       'number': 3109,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -940,7 +940,7 @@ export const MAPPING =
       'name': 'Philipp Müller',
       'number': 2616,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '780565772',
@@ -967,7 +967,7 @@ export const MAPPING =
       'name': 'Frédéric Borloz',
       'number': 3061,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -976,7 +976,7 @@ export const MAPPING =
       'name': 'Jacques Bourgeois',
       'number': 2675,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '244437560',
@@ -1021,7 +1021,7 @@ export const MAPPING =
       'name': 'Marcel Dobler',
       'number': 3070,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1048,7 +1048,7 @@ export const MAPPING =
       'name': 'Josef Dittli',
       'number': 3052,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '888380018673545216',
@@ -1075,7 +1075,7 @@ export const MAPPING =
       'name': 'Olivier Feller',
       'number': 2789,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1120,7 +1120,7 @@ export const MAPPING =
       'name': 'Hermann Hess',
       'number': 3079,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '21436172',
@@ -1183,7 +1183,7 @@ export const MAPPING =
       'name': 'Hans Wicki',
       'number': 3054,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1192,7 +1192,7 @@ export const MAPPING =
       'name': 'Verena Diener Lenz',
       'number': 2044,
       'council': 'SR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': null,
@@ -1210,7 +1210,7 @@ export const MAPPING =
       'name': 'Hans-Peter Portmann',
       'number': 3043,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '3070292500',
@@ -1219,7 +1219,7 @@ export const MAPPING =
       'name': 'Doris Fiala',
       'number': 2680,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '3290133496',
@@ -1246,7 +1246,7 @@ export const MAPPING =
       'name': 'Hugues Hiltpold',
       'number': 2691,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1282,7 +1282,7 @@ export const MAPPING =
       'name': 'Karin Keller-Sutter',
       'number': 2769,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '546752881',
@@ -1309,7 +1309,7 @@ export const MAPPING =
       'name': 'Thomas Hefti',
       'number': 3041,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '2860664668',
@@ -1390,7 +1390,7 @@ export const MAPPING =
       'name': 'Olivier Français',
       'number': 2682,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '3133285757',
@@ -1417,7 +1417,7 @@ export const MAPPING =
       'name': 'Fabio Abate',
       'number': 2565,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1444,7 +1444,7 @@ export const MAPPING =
       'name': 'Isabelle Moret',
       'number': 2660,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '2881577681',
@@ -1561,7 +1561,7 @@ export const MAPPING =
       'name': 'Laurent Wehrli',
       'number': 3100,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '121068845',
@@ -1687,7 +1687,7 @@ export const MAPPING =
       'name': 'Fathi Derder',
       'number': 2788,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '45513818',
@@ -1714,7 +1714,7 @@ export const MAPPING =
       'name': 'Petra Gössi',
       'number': 3023,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1776,7 +1776,7 @@ export const MAPPING =
       'personId': 4217,
       'name': 'Rocco Cattaneo',
       'number': 3118,
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1812,7 +1812,7 @@ export const MAPPING =
       'name': 'Jürg Grossen',
       'number': 2786,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': null,
@@ -1839,7 +1839,7 @@ export const MAPPING =
       'name': 'Christian Lüscher',
       'number': 2698,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1866,7 +1866,7 @@ export const MAPPING =
       'name': 'Daniela Schneeberger',
       'number': 2766,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1875,7 +1875,7 @@ export const MAPPING =
       'name': 'Tiana Angelina Moser',
       'number': 2700,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': null,
@@ -1902,7 +1902,7 @@ export const MAPPING =
       'name': 'Felix Gutzwiller',
       'number': 2495,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -1974,7 +1974,7 @@ export const MAPPING =
       'name': 'Peter Schilliger',
       'number': 3029,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '3295223895',
@@ -1983,7 +1983,7 @@ export const MAPPING =
       'name': 'Raphaël Comte',
       'number': 2741,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '93878848',
@@ -2001,7 +2001,7 @@ export const MAPPING =
       'name': 'Ruedi Noser',
       'number': 2619,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -2028,7 +2028,7 @@ export const MAPPING =
       'name': 'Thomas Weibel',
       'number': 2728,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': null,
@@ -2064,7 +2064,7 @@ export const MAPPING =
       'name': 'Isabelle Chevalley',
       'number': 3604,
       'council': 'NR',
-      'party': 'glp',
+      'party': 'GLP',
     },
     {
       'id': null,
@@ -2073,7 +2073,7 @@ export const MAPPING =
       'name': 'Kurt Fluri',
       'number': 2594,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -2109,7 +2109,7 @@ export const MAPPING =
       'name': 'Ignazio Cassis',
       'number': 2664,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -2136,7 +2136,7 @@ export const MAPPING =
       'name': 'Martin Schmid',
       'number': 2783,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '226922317',
@@ -2145,7 +2145,7 @@ export const MAPPING =
       'name': 'Christa Markwalder',
       'number': 2614,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '40872955',
@@ -2244,7 +2244,7 @@ export const MAPPING =
       'name': 'Joachim Eder',
       'number': 2780,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': null,
@@ -2262,7 +2262,7 @@ export const MAPPING =
       'name': 'Corina Eichenberger-Walther',
       'number': 2678,
       'council': 'NR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '350243582',
@@ -2280,7 +2280,7 @@ export const MAPPING =
       'name': 'Andrea Caroni',
       'number': 2775,
       'council': 'SR',
-      'party': 'FDP-Liberale',
+      'party': 'FDP',
     },
     {
       'id': '332184640',
