@@ -64,7 +64,7 @@ export class Tile implements OnInit, OnChanges {
       this.tweetsToday = data;
     });
     this._pieChartService.getTrendingTopics(queryParmas).subscribe((data) => {
-      this.trendingTopics = data.slice(0, 3).map((ele) => '#' + ele);
+      this.trendingTopics = data.slice(0, 3);
     });
   }
 }

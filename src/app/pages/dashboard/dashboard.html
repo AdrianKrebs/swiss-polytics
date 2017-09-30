@@ -13,7 +13,7 @@
     <div class="row">
       <ba-card class="col-md-6" cardTitle="Darüber reden die Parlamentarier diese Woche">
         <div *ngFor="let topic of trendingTopics">
-          <div class="description-stats">{{topic}}</div>
+          <div class="description-stats"><a href="https://twitter.com/search?q=%23{{topic}}">#{{topic}}</a></div>
         </div>
       </ba-card>
       <ba-card class="col-md-6" cardTitle="Aktivste Nutzer diese Woche">

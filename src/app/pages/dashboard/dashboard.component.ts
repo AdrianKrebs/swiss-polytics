@@ -22,7 +22,7 @@ export class Dashboard implements AfterViewInit, OnInit {
   ngOnInit(): void {
 
     this._tileService.getTrendingTopicsWeekly().subscribe((data) => {
-      this.trendingTopics = data.slice(0, 10).map((ele) => '#' + ele);
+      this.trendingTopics = data.slice(0, 10);
     });
 
     this._tileService.getMostActiveUsers(10).subscribe((data) => {
