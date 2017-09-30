@@ -1,7 +1,19 @@
 
 .form-control { border:none}
 
-.img-wrapper img{
-    max-width: 190px;
-    max-height: 190px;
+.profile-picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 7px;
+  margin: 15px;
+  display: block;
+  vertical-align: middle;
+  max-width: 200px;
+  height: auto;
+  width: 100%;
 }

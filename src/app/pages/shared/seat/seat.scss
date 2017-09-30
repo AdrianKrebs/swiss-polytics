@@ -56,13 +56,15 @@ img {
   max-height: 80px;
   max-width: 80px;
   margin: 5px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
 }
 
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; // default row
   justify-content: center; // align along main axis
-  align-items: center;
+  align-items: center; // cross axis
 }
 
 #svgId {
