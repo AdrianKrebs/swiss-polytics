@@ -1,4 +1,3 @@
-
 export class PoliticianModel {
 
   id: string;
@@ -20,14 +19,15 @@ export class PoliticianModel {
   twitterName: String;
   twitterId: String;
 
-  constructor() { }
+  constructor() {
+  }
 
   public mapJsonToPolitican(json) {
-    let p = new PoliticianModel();
+    const p = new PoliticianModel();
     p.id = json.id;
     p.personId = json.number;
     p.firstName = json.firstName;
-    p.firstLastName = json.firstName + " " + json.lastName;
+    p.firstLastName = json.firstName + ' ' + json.lastName;
     p.lastName = json.lastname;
     p.canton = json.canton;
     p.council = this.mapCouncil(json.council);
@@ -38,40 +38,45 @@ export class PoliticianModel {
     p.email = this.mapStringEmpty(json.contact.emailWork);
     p.webpage = this.mapStringEmpty(json.contact.homepageWork);
     p.webpageUrl = this.mapWebpageUrl(json.contact.homepageWork);
-    p.imageUrl = "https://www.parlament.ch/sitecollectionimages/profil/portrait-260/" + json.number + ".jpg";
+    p.imageUrl = 'https://www.parlament.ch/sitecollectionimages/profil/portrait-260/' + json.number + '.jpg';
     return p;
   }
 
   public mapStringEmpty(str) {
-    if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
-      return "-";
-    else
-      return str;
+    if (typeof str === 'undefined' || !str || str.length === 0 || str === '') {
+      return '-';
+    }
+    return str;
+
   }
 
   public mapCouncil(str) {
-    if (str === 'N')
+    if (str === 'N') {
       return 'Nationalrat';
-    if (str === 'S')
+    }
+    if (str === 'S') {
       return 'Ständerat';
-    if (str === 'B')
+    }
+    if (str === 'B') {
       return 'Bundesrat';
-    return "-"
+    }
+    return '-'
   }
 
   public mapDate(str) {
     // var t = dateTime.Now.ToString(str)
-    if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
-      return "-";
-    else {
-      return new Date(str).toLocaleDateString();
+    if (typeof str === 'undefined' || !str || str.length === 0 || str === '') {
+      return '-';
     }
+    return new Date(str).toLocaleDateString();
+
   }
 
   public mapWebpageUrl(str) {
-    if (typeof str == 'undefined' || !str || str.length === 0 || str === "")
-      return "-";
-    else
-      return "http://" + str;
+    if (typeof str === 'undefined' || !str || str.length === 0 || str === '') {
+      return '-';
+    }
+    return 'http://' + str;
+
   }
 }

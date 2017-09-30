@@ -5,7 +5,7 @@ import { MentionsService } from './mentions.service';
 describe('MentionsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MentionsService]
+      providers: [MentionsService],
     });
   });
 

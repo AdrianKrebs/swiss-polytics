@@ -7,9 +7,9 @@ import { NgaModule } from '../../theme/nga.module';
 import { Parliament } from './parliament.component';
 import { routing } from './parliament.routing';
 
-import { Helper } from "../util/helper.service";
-import { TileService } from "../shared/tile/tile.service";
-import { SharedModule } from "../shared/shared.module";
+import { Helper } from '../util/helper.service';
+import { TileService } from '../shared/tile/tile.service';
+import { SharedModule } from '../shared/shared.module';
 import { MentionsService } from '../shared/services/mentions.service';
 
 
@@ -29,6 +29,6 @@ import { MentionsService } from '../shared/services/mentions.service';
     TileService,
     MentionsService,
     Helper,
-  ]
+  ],
 })
 export class ParliamentModule { }

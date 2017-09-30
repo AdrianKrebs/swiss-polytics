@@ -1,22 +1,22 @@
 import {AfterViewChecked, AfterViewInit, Component, OnInit} from '@angular/core';
-import {TileService} from "../shared/tile/tile.service";
-import {MAPPING} from "../util/mapping";
-import {Politician} from "../politician/politician.component";
-import {PoliticianModel} from "../model/politician.model";
-import {Router} from "@angular/router";
-import {Helper} from "../util/helper.service";
+import {TileService} from '../shared/tile/tile.service';
+import {MAPPING} from '../util/mapping';
+import {Politician} from '../politician/politician.component';
+import {PoliticianModel} from '../model/politician.model';
+import {Router} from '@angular/router';
+import {Helper} from '../util/helper.service';
 
 @Component({
   selector: 'dashboard',
   styleUrls: ['./dashboard.scss'],
-  templateUrl: './dashboard.html'
+  templateUrl: './dashboard.html',
 })
 export class Dashboard implements AfterViewInit, OnInit {
 
   public trendingTopics: Array<String>;
   public mostActiveUsers: Array<PoliticianModel>;
 
-  constructor(private _tileService: TileService,private _helper: Helper, private router: Router) {
+  constructor(private _tileService: TileService, private _helper: Helper, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -27,8 +27,8 @@ export class Dashboard implements AfterViewInit, OnInit {
 
     this._tileService.getMostActiveUsers(10).subscribe((data) => {
       this.mostActiveUsers = data.map((user) => {
-        let politician = new PoliticianModel();
-        let p = this._helper.getUserByTwitterId(user._id);
+        const politician = new PoliticianModel();
+        const p = this._helper.getUserByTwitterId(user._id);
         politician.personId = p['personId'];
         politician.party = p['party'];
         politician.firstName = p['name'];
@@ -40,12 +40,11 @@ export class Dashboard implements AfterViewInit, OnInit {
 
 
   navigateToProfile(id) {
-    console.log('navigating to profile');
-    this.router.navigate(['/pages/politician/'+id]);
+    this.router.navigate(['/pages/politician/' + id]);
   }
 
   navigateToParty(party) {
-    this.router.navigate(['/pages/party/'+party]);
+    this.router.navigate(['/pages/party/' + party]);
   }
 
   ngAfterViewInit() {

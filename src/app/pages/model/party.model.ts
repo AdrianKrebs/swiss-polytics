@@ -1,3 +1,14 @@
+export const FACTIONS = {
+  'SVP': 4,
+  'SP': 2,
+  'CVP': 3,
+  'FDP': 1,
+  'GLP': 137,
+  'GPS': 6,
+  'BDP': 136,
+};
+
+
 export class PartyModel {
   public faction: number;
 
@@ -7,12 +18,3 @@ export class PartyModel {
 }
 
 
-export const FACTIONS = {
-  "SVP": 4,
-  "SP": 2,
-  "CVP": 3,
-  "FDP": 1,
-  "GLP": 137,
-  "GPS": 6,
-  "BDP": 136
-};

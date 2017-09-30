@@ -5,7 +5,7 @@ import { SeatService } from './seat.service';
 describe('CouncilOfStatesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SeatService]
+      providers: [SeatService],
     });
   });
 

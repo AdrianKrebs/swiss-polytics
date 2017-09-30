@@ -5,7 +5,7 @@ import { SentimentsService } from './sentiments.service';
 describe('SentimentsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SentimentsService]
+      providers: [SentimentsService],
     });
   });
 

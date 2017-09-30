@@ -1,5 +1,4 @@
 export * from './baPageTop';
-export * from './baMsgCenter';
 export * from './baSidebar';
 export * from './baMenu/components/baMenuItem';
 export * from './baMenu';

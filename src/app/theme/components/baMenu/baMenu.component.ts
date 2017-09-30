@@ -1,16 +1,16 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
-import { Subscription } from 'rxjs/Rx';
+import {Component, Input, Output, EventEmitter, OnInit, OnDestroy} from '@angular/core';
+import {Router, NavigationEnd} from '@angular/router';
+import {Subscription} from 'rxjs/Rx';
 
-import { BaMenuService } from '../../services';
-import { GlobalState } from '../../../global.state';
+import {BaMenuService} from '../../services';
+import {GlobalState} from '../../../global.state';
 
 @Component({
   selector: 'ba-menu',
   templateUrl: './baMenu.html',
-  styleUrls: ['./baMenu.scss']
+  styleUrls: ['./baMenu.scss'],
 })
-export class BaMenu {
+export class BaMenu implements OnInit, OnDestroy {
 
   @Input() sidebarCollapsed: boolean = false;
   @Input() menuHeight: number;
@@ -69,7 +69,7 @@ export class BaMenu {
   }
 
   public toggleSubMenu($event): boolean {
-    let submenu = jQuery($event.currentTarget).next();
+    const submenu = jQuery($event.currentTarget).next();
 
     if (this.sidebarCollapsed) {
       this.expandMenu.emit(null);

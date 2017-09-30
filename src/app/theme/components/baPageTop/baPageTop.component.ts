@@ -1,37 +1,37 @@
 import {Component} from '@angular/core';
 
 import {GlobalState} from '../../../global.state';
-import {Router} from "@angular/router";
-import {MAPPING} from "../../../pages/util/mapping";
+import {Router} from '@angular/router';
+import {MAPPING} from '../../../pages/util/mapping';
 
 @Component({
   selector: 'ba-page-top',
   templateUrl: './baPageTop.html',
-  styleUrls: ['./baPageTop.scss']
+  styleUrls: ['./baPageTop.scss'],
 })
 export class BaPageTop {
 
-  public isScrolled:boolean = false;
-  public isMenuCollapsed:boolean = false;
+  public isScrolled: boolean = false;
+  public isMenuCollapsed: boolean = false;
   public searchStr: string;
   public searchObject: string;
 
-  protected politicians = MAPPING.map((user) => user["name"]);
-  protected parties : Array<string> = ["SVP","SP","CVP","FDP","BDP","GLP","GPS"]
+  protected politicians = MAPPING.map((user) => user['name']);
+  protected parties: Array<string> = ['SVP', 'SP', 'CVP', 'FDP', 'BDP', 'GLP', 'GPS']
   public searchData = this.politicians.concat(this.parties);
 
-  constructor(private _state:GlobalState, private router: Router) {
+  constructor(private _state: GlobalState, private router: Router) {
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
       this.isMenuCollapsed = isCollapsed;
     });
   }
 
-  public startSearch(){
+  public startSearch() {
     this.navigateToTarget();
   }
 
   public onKeyup($event) {
-    if ($event.code === "Enter") {
+    if ($event.code === 'Enter') {
       this.navigateToTarget();
     }
 
@@ -46,7 +46,7 @@ export class BaPageTop {
     }
   }
 
-  private getIdByName(name){
+  private getIdByName(name) {
     return MAPPING.find((user) => user['name'] === name)['personId'];
   }
 

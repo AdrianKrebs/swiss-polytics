@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { colorHelper, layoutPaths } from '../../../../theme';
+import { ColorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
@@ -12,7 +12,7 @@ import { QueryHelper } from '../queryHelper';
 @Component({
   selector: 'app-mentions',
   templateUrl: './mentions.component.html',
-  styleUrls: ['./mentions.component.scss']
+  styleUrls: ['./mentions.component.scss'],
 })
 export class MentionsComponent implements OnInit, OnChanges {
   @Input() party: string;
@@ -70,10 +70,10 @@ export class MentionsComponent implements OnInit, OnChanges {
       marginTop: 15,
       marginRight: 15,
       responsive: {
-        'enabled': true
+        'enabled': true,
       },
       titles: [{
-        text: 'Erwähnungen'
+        text: 'Erwähnungen',
       }],
       dataProvider: [],
       categoryField: 'date',
@@ -81,15 +81,15 @@ export class MentionsComponent implements OnInit, OnChanges {
         parseDates: true,
         gridAlpha: 0,
         color: layoutColors.defaultText,
-        axisColor: layoutColors.defaultText
+        axisColor: layoutColors.defaultText,
       },
       valueAxes: [
         {
           minVerticalGap: 50,
           gridAlpha: 0,
           color: layoutColors.defaultText,
-          axisColor: layoutColors.defaultText
-        }
+          axisColor: layoutColors.defaultText,
+        },
       ],
       graphs: [
         {
@@ -102,8 +102,8 @@ export class MentionsComponent implements OnInit, OnChanges {
           type: 'smoothedLine',
           valueField: 'value',
           fillAlphas: 1,
-          fillColorsField: 'lineColor'
-        }
+          fillColorsField: 'lineColor',
+        },
       ],
       chartCursor: {
         categoryBalloonDateFormat: 'DD MM',
@@ -112,19 +112,19 @@ export class MentionsComponent implements OnInit, OnChanges {
         cursorAlpha: 0,
         valueLineEnabled: true,
         valueLineBalloonEnabled: true,
-        valueLineAlpha: 0.5
+        valueLineAlpha: 0.5,
       },
       dataDateFormat: 'DD MM YYYY',
       export: {
-        enabled: true
+        enabled: true,
       },
       creditsPosition: 'bottom-right',
       zoomOutButton: {
         backgroundColor: '#fff',
-        backgroundAlpha: 0
+        backgroundAlpha: 0,
       },
       zoomOutText: '',
-      pathToImages: layoutPaths.images.amChart
+      pathToImages: layoutPaths.images.amChart,
     };
   }
 }

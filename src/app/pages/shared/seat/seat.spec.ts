@@ -8,7 +8,7 @@ describe('UnitedFederalAssemblyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SeatComponent ]
+      declarations: [ SeatComponent ],
     })
     .compileComponents();
   }));

@@ -1,10 +1,10 @@
-import { Component, ViewContainerRef } from '@angular/core';
+import {AfterViewInit, Component, ViewContainerRef} from '@angular/core';
 import * as $ from 'jquery';
 
-import { GlobalState } from './global.state';
-import { BaImageLoaderService, BaThemePreloader, BaThemeSpinner } from './theme/services';
-import { BaThemeConfig } from './theme/theme.config';
-import { layoutPaths } from './theme/theme.constants';
+import {GlobalState} from './global.state';
+import {BaImageLoaderService, BaThemePreloader, BaThemeSpinner} from './theme/services';
+import {BaThemeConfig} from './theme/theme.config';
+import {layoutPaths} from './theme/theme.constants';
 
 /*
  * App Component
@@ -18,9 +18,9 @@ import { layoutPaths } from './theme/theme.constants';
       <div class="additional-bg"></div>
       <router-outlet></router-outlet>
     </main>
-  `
+  `,
 })
-export class App {
+export class App implements AfterViewInit {
 
   isMenuCollapsed: boolean = false;
 

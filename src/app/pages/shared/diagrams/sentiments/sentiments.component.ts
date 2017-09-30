@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { colorHelper, layoutPaths } from '../../../../theme';
+import { ColorHelper, layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
 import { SentimentsService } from '../../services/sentiments.service';
 import { SentimentsTransformerService } from './sentiments-transformer.service';
@@ -9,7 +9,7 @@ import { QueryHelper } from '../queryHelper';
 @Component({
   selector: 'app-sentiments',
   templateUrl: './sentiments.component.html',
-  styleUrls: ['./sentiments.component.scss']
+  styleUrls: ['./sentiments.component.scss'],
 })
 export class SentimentsComponent implements OnInit, OnChanges {
   @Input() party: string;
@@ -68,10 +68,10 @@ export class SentimentsComponent implements OnInit, OnChanges {
       marginTop: 15,
       marginRight: 15,
       responsive: {
-        'enabled': true
+        'enabled': true,
       },
       titles: [{
-        text: 'Stimmung'
+        text: 'Stimmung',
       }],
       dataProvider: [],
       categoryField: 'date',
@@ -79,15 +79,15 @@ export class SentimentsComponent implements OnInit, OnChanges {
         parseDates: true,
         gridAlpha: 0,
         color: layoutColors.defaultText,
-        axisColor: layoutColors.defaultText
+        axisColor: layoutColors.defaultText,
       },
       valueAxes: [
         {
           minVerticalGap: 50,
           gridAlpha: 0,
           color: layoutColors.defaultText,
-          axisColor: layoutColors.defaultText
-        }
+          axisColor: layoutColors.defaultText,
+        },
       ],
       graphs: [
         {
@@ -100,19 +100,19 @@ export class SentimentsComponent implements OnInit, OnChanges {
           type: 'smoothedLine',
           valueField: 'positive',
           fillAlphas: 1,
-          fillColorsField: 'lineColor'
+          fillColorsField: 'lineColor',
         },
         {
           id: 'g1',
           bullet: 'none',
           useLineColorForBulletBorder: true,
-          lineColor: colorHelper.hexToRgbA(graphColor, 0.15),
+          lineColor: ColorHelper.hexToRgbA(graphColor, 0.15),
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'smoothedLine',
           valueField: 'negative',
           fillAlphas: 1,
-          fillColorsField: 'lineColor'
+          fillColorsField: 'lineColor',
         },
         {
           id: 'g2',
@@ -124,8 +124,8 @@ export class SentimentsComponent implements OnInit, OnChanges {
           type: 'smoothedLine',
           valueField: 'mean',
           fillAlphas: 1,
-          fillColorsField: 'lineColor'
-        }
+          fillColorsField: 'lineColor',
+        },
       ],
       chartCursor: {
         categoryBalloonDateFormat: 'DD MM',
@@ -134,19 +134,19 @@ export class SentimentsComponent implements OnInit, OnChanges {
         cursorAlpha: 0,
         valueLineEnabled: true,
         valueLineBalloonEnabled: true,
-        valueLineAlpha: 0.5
+        valueLineAlpha: 0.5,
       },
       dataDateFormat: 'DD MM YYYY',
       export: {
-        enabled: true
+        enabled: true,
       },
       creditsPosition: 'bottom-right',
       zoomOutButton: {
         backgroundColor: '#fff',
-        backgroundAlpha: 0
+        backgroundAlpha: 0,
       },
       zoomOutText: '',
-      pathToImages: layoutPaths.images.amChart
+      pathToImages: layoutPaths.images.amChart,
     };
   }
 }

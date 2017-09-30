@@ -1,15 +1,15 @@
-import { NgModule, ModuleWithProviders }      from '@angular/core';
-import { CommonModule }  from '@angular/common';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { AppTranslationModule } from '../app.translation.module';
+import {NgModule, ModuleWithProviders} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {AppTranslationModule} from '../app.translation.module';
 
 import {
-  BaThemeConfig
+  BaThemeConfig,
 } from './theme.config';
 
 import {
-  BaThemeConfigProvider
+  BaThemeConfigProvider,
 } from './theme.configProvider';
 
 import {
@@ -20,38 +20,33 @@ import {
   BaContentTop,
   BaMenuItem,
   BaMenu,
-  BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
   BaSidebar,
 } from './components';
 
-import { BaCardBlur } from './components/baCard/baCardBlur.directive';
+import {BaCardBlur} from './components/baCard/baCardBlur.directive';
 
 import {
   BaScrollPosition,
   BaSlimScroll,
-  BaThemeRun
+  BaThemeRun,
 } from './directives';
 
 import {
   BaAppPicturePipe,
   BaKameleonPicturePipe,
-  BaProfilePicturePipe
+  BaProfilePicturePipe,
 } from './pipes';
 
 import {
   BaImageLoaderService,
   BaMenuService,
   BaThemePreloader,
-  BaThemeSpinner
+  BaThemeSpinner,
 } from './services';
 
-import {
-  EmailValidator,
-  EqualPasswordsValidator
-} from './validators';
-import {Ng2CompleterModule} from "ng2-completer";
+import {Ng2CompleterModule} from 'ng2-completer';
 
 const NGA_COMPONENTS = [
   BaAmChart,
@@ -61,42 +56,36 @@ const NGA_COMPONENTS = [
   BaContentTop,
   BaMenuItem,
   BaMenu,
-  BaMsgCenter,
   BaMultiCheckbox,
   BaPageTop,
-  BaSidebar
+  BaSidebar,
 ];
 
 const NGA_DIRECTIVES = [
   BaScrollPosition,
   BaSlimScroll,
   BaThemeRun,
-  BaCardBlur
+  BaCardBlur,
 ];
 
 const NGA_PIPES = [
   BaAppPicturePipe,
   BaKameleonPicturePipe,
-  BaProfilePicturePipe
+  BaProfilePicturePipe,
 ];
 
 const NGA_SERVICES = [
   BaImageLoaderService,
   BaThemePreloader,
   BaThemeSpinner,
-  BaMenuService
-];
-
-const NGA_VALIDATORS = [
-  EmailValidator,
-  EqualPasswordsValidator
+  BaMenuService,
 ];
 
 @NgModule({
   declarations: [
     ...NGA_PIPES,
     ...NGA_DIRECTIVES,
-    ...NGA_COMPONENTS
+    ...NGA_COMPONENTS,
   ],
   imports: [
     CommonModule,
@@ -104,13 +93,13 @@ const NGA_VALIDATORS = [
     FormsModule,
     ReactiveFormsModule,
     AppTranslationModule,
-    Ng2CompleterModule
+    Ng2CompleterModule,
   ],
   exports: [
     ...NGA_PIPES,
     ...NGA_DIRECTIVES,
-    ...NGA_COMPONENTS
-  ]
+    ...NGA_COMPONENTS,
+  ],
 })
 export class NgaModule {
   static forRoot(): ModuleWithProviders {
@@ -119,8 +108,7 @@ export class NgaModule {
       providers: [
         BaThemeConfigProvider,
         BaThemeConfig,
-        ...NGA_VALIDATORS,
-        ...NGA_SERVICES
+        ...NGA_SERVICES,
       ],
     };
   }

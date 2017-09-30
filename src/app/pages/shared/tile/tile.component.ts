@@ -3,17 +3,17 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core'
 import {TileService} from './tile.service';
 
 import 'easy-pie-chart/dist/jquery.easypiechart.js';
-import {BaThemeConfigProvider} from "../../../theme/theme.configProvider";
-import {PartyModel} from "../../model/party.model";
+import {BaThemeConfigProvider} from '../../../theme/theme.configProvider';
+import {PartyModel} from '../../model/party.model';
 
 @Component({
   selector: 'tile',
   templateUrl: './tile.html',
-  styleUrls: ['./tile.scss']
+  styleUrls: ['./tile.scss'],
 })
 
 
-export class Tile implements OnInit, OnChanges{
+export class Tile implements OnInit, OnChanges {
 
 
   @Input() politicianId: String;
@@ -25,8 +25,8 @@ export class Tile implements OnInit, OnChanges{
   public trendingTopics: Array<String>;
   private pieColor: any;
 
-  constructor(private _pieChartService: TileService, private _baConfig: BaThemeConfigProvider){
-    //this.charts = this.data;
+  constructor(private _pieChartService: TileService, private _baConfig: BaThemeConfigProvider) {
+    // this.charts = this.data;
     this.pieColor = this._baConfig.get().colors.custom.dashboardPieChart;
 
   }
@@ -49,13 +49,13 @@ export class Tile implements OnInit, OnChanges{
 
   loadTileData() {
     let queryParmas = '';
-    if(this.politicianId) {
-      queryParmas = '?politicianId='+this.politicianId;
+    if (this.politicianId) {
+      queryParmas = '?politicianId=' + this.politicianId;
     } else if (this.party) {
-      queryParmas = '?party='+this.party;
+      queryParmas = '?party=' + this.party;
     }
 
-    if(!this.politicianId) {
+    if (!this.politicianId) {
       this._pieChartService.getUsersToday(queryParmas).subscribe((data) => {
         this.usersToday = data;
       });
@@ -64,13 +64,7 @@ export class Tile implements OnInit, OnChanges{
       this.tweetsToday = data;
     });
     this._pieChartService.getTrendingTopics(queryParmas).subscribe((data) => {
-      this.trendingTopics = data.slice(0, 3).map((ele) => '#'+ele);
+      this.trendingTopics = data.slice(0, 3).map((ele) => '#' + ele);
     });
-  }
-
-  ngAfterViewInit() {
-    if (!this._init) {
-      this._init = true;
-    }
   }
 }

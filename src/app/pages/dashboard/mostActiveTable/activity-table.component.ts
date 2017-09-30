@@ -1,11 +1,11 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {PoliticianModel} from "../../model/politician.model";
-import {Observable} from "rxjs/Observable";
+import {PoliticianModel} from '../../model/politician.model';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'activity-table',
   templateUrl: './activity-table.html',
-  styleUrls: ['./activity-table.scss']
+  styleUrls: ['./activity-table.scss'],
 })
 export class ActivityTable {
 

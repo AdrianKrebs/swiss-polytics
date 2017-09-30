@@ -16,8 +16,8 @@ export const routes: Routes = [
       { path: 'party', loadChildren: './party/party.module#PartyModule' },
       { path: 'politician',  loadChildren: './politician/politician.module#PoliticianModule' },
       { path: 'about', loadChildren: './about/about.module#AboutModule' },
-    ]
-  }
+    ],
+  },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forChild(routes);

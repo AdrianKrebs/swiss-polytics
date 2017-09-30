@@ -41,7 +41,7 @@ import { DefaultModal } from './seat/default-modal/default-modal.component';
     CommonModule,
     FormsModule],
   entryComponents: [
-      DefaultModal
+      DefaultModal,
     ],
   providers: [
     TileService,
@@ -50,8 +50,8 @@ import { DefaultModal } from './seat/default-modal/default-modal.component';
     MentionsService,
     SentimentsService,
     SentimentsTransformerService,
-    MentionsTransformerService
-  ]
+    MentionsTransformerService,
+  ],
 })
 export class SharedModule {
 }

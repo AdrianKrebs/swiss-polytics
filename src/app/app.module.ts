@@ -16,7 +16,7 @@ import { AppState, InternalStateType } from './app.service';
 import { GlobalState } from './global.state';
 import { NgaModule } from './theme/nga.module';
 import { PagesModule } from './pages/pages.module';
-import {APP_CONFIG, APP_DI_CONFIG} from "./app-config.constants";
+import {APP_CONFIG, APP_DI_CONFIG} from './app-config.constants';
 
 
 // Application wide providers
@@ -25,15 +25,15 @@ const APP_PROVIDERS = [
   GlobalState,
   {
     provide: APP_CONFIG,
-    useValue: APP_DI_CONFIG
-  }
+    useValue: APP_DI_CONFIG,
+  },
 ];
 
-export type StoreType = {
+export interface StoreType {
   state: InternalStateType,
   restoreInputValues: () => void,
-  disposeOldHosts: () => void
-};
+  disposeOldHosts: () => void,
+}
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -41,7 +41,7 @@ export type StoreType = {
 @NgModule({
   bootstrap: [App],
   declarations: [
-    App
+    App,
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -52,11 +52,11 @@ export type StoreType = {
     NgaModule.forRoot(),
     NgbModule.forRoot(),
     PagesModule,
-    routing
+    routing,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
-    APP_PROVIDERS
-  ]
+    APP_PROVIDERS,
+  ],
 })
 
 export class AppModule {

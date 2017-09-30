@@ -1,10 +1,10 @@
 /**
  * Created by Adrian on 9/10/2017.
  */
-import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
-import {Observable} from "rxjs/Observable";
-import {MAPPING} from "./mapping";
+import {Injectable} from '@angular/core';
+import {Http, Response} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import {MAPPING} from './mapping';
 import * as jQuery from 'jquery';
 
 
@@ -48,13 +48,15 @@ export class Helper {
   initTwitterWidget() {
 
     (<any>window).twttr = (function (d, s, id) {
-      let js: any, fjs = d.getElementsByTagName(s)[0],
-        t = (<any>window).twttr || {};
-      if (d.getElementById(id)) d.getElementById(id).remove();
+      let js: any, fjs = d.getElementsByTagName(s)[0];
+      const t = (<any>window).twttr || {};
+      if (d.getElementById(id)) {
+        d.getElementById(id).remove();
+      }
       js = d.createElement(s);
       js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs = d.getElementsByTagName(s)[0]
+      js.src = 'https://platform.twitter.com/widgets.js';
+      fjs = d.getElementsByTagName(s)[0];
       fjs.parentNode.insertBefore(js, fjs);
 
       t._e = [];
@@ -63,10 +65,11 @@ export class Helper {
       };
 
       return t;
-    }(document, "script", "twitter-wjs"));
+    }(document, 'script', 'twitter-wjs'));
 
-    if ((<any>window).twttr.ready())
+    if ((<any>window).twttr.ready()) {
       (<any>window).twttr.widgets.load();
+    }
   }
 
   public reInitTwitterWidget(url) {
@@ -75,7 +78,7 @@ export class Helper {
     this.initTwitterWidget();
   }
 
-  private destroyWidget = function() {
+  private destroyWidget = function () {
     jQuery('[class^=twitter-timeline]').remove();
   };
 

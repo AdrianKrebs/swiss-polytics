@@ -1,4 +1,4 @@
-import {QueryBuilder} from "../services/queryBuilder";
+import {QueryBuilder} from '../services/queryBuilder';
 
 export class QueryHelper {
   private queryBuilder: QueryBuilder = new QueryBuilder();

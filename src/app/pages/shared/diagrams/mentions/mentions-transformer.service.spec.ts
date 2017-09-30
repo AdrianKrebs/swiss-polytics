@@ -10,7 +10,7 @@ import { RawMention } from '../../../model/rawmention.model';
 describe('MentionsTransformerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [MentionsTransformerService]
+      providers: [MentionsTransformerService],
     });
   });
 

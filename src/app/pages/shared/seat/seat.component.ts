@@ -1,12 +1,12 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { MAPPING } from '../../util/mapping';
-import { SeatService } from './service/seat.service';
-import { Helper } from '../../util/helper.service';
-import { TileService } from '../../shared/tile/tile.service';
-import { SeatModel } from "../../model/seat.model";
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DefaultModal } from './default-modal/default-modal.component';
+import {Component, OnInit, Input, SimpleChanges, OnChanges} from '@angular/core';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {MAPPING} from '../../util/mapping';
+import {SeatService} from './service/seat.service';
+import {Helper} from '../../util/helper.service';
+import {TileService} from '../../shared/tile/tile.service';
+import {SeatModel} from '../../model/seat.model';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {DefaultModal} from './default-modal/default-modal.component';
 
 @Component({
   selector: 'app-seat',
@@ -26,11 +26,12 @@ export class SeatComponent implements OnInit, OnChanges {
   private userActivity = [];
 
   constructor(private seatService: SeatService,
-    private route: ActivatedRoute,
-    private router: Router,
-    private helperService: Helper,
-    private modalService: NgbModal,
-    private tileService: TileService) { }
+              private route: ActivatedRoute,
+              private router: Router,
+              private helperService: Helper,
+              private modalService: NgbModal,
+              private tileService: TileService) {
+  }
 
   ngOnInit(): void {
     this.getSeats();
@@ -38,7 +39,7 @@ export class SeatComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes["councilFilter"]) {
+    if (changes['councilFilter']) {
       this.getSeats();
       this.getUserActivity();
     }
@@ -66,7 +67,7 @@ export class SeatComponent implements OnInit, OnChanges {
         // Anzahl Tweets pro Tag und Politiker einfügen
         if (seat.twitterId !== undefined) {
           seat.twitterClass = 'has-no-twitter-account';
-          let userActivity = this.userActivity.find((obj) => obj._id === seat.twitterId);
+          const userActivity = this.userActivity.find((obj) => obj._id === seat.twitterId);
           seat.numberOfTweets = userActivity ? userActivity.count : 0;
         } else {
           seat.twitterClass = 'has-twitter-account';
@@ -87,16 +88,14 @@ export class SeatComponent implements OnInit, OnChanges {
   }
 
   getSeats(): void {
-    this.viewbox = "0 0 929.4 646.2";
+    this.viewbox = '0 0 929.4 646.2';
     if (this.councilFilter === 'SR') {
-      this.viewbox = "0 0 599.9 407.5";
-      this.council = "Ständerat";
-    }
-    else if (this.councilFilter === 'Nr') {
-      this.council = "Nationalrat";
-    }
-    else {
-      this.council = "Bundesversammlung"
+      this.viewbox = '0 0 599.9 407.5';
+      this.council = 'Ständerat';
+    } else if (this.councilFilter === 'NR') {
+      this.council = 'Nationalrat';
+    } else {
+      this.council = 'Bundesversammlung';
     }
     this.seats = this.seatService.getSeats(this.councilFilter);
     this.selectedSeat = undefined;

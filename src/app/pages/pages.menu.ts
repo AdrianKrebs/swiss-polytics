@@ -10,9 +10,9 @@ export const PAGES_MENU = [
             icon: 'ion-android-home',
             selected: false,
             expanded: false,
-            order: 0
-          }
-        }
+            order: 0,
+          },
+        },
       },
       {
         path: 'parliament',
@@ -22,9 +22,9 @@ export const PAGES_MENU = [
             icon: 'ion-ios-people',
             selected: false,
             expanded: false,
-            order: 0
-          }
-        }
+            order: 0,
+          },
+        },
       },
       {
         path: 'politician',
@@ -36,9 +36,9 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             hidden: true,
-            order: 0
-          }
-        }
+            order: 0,
+          },
+        },
       },
       {
         path: 'party',
@@ -49,7 +49,7 @@ export const PAGES_MENU = [
             selected: false,
             expanded: false,
             order: 300,
-          }
+          },
         },
         children: [
           {
@@ -57,58 +57,58 @@ export const PAGES_MENU = [
             data: {
               menu: {
                 title: 'SVP',
-              }
-            }
+              },
+            },
           },
           {
             path: 'SP',
             data: {
               menu: {
                 title: 'SP',
-              }
-            }
+              },
+            },
           },
           {
             path: 'FDP',
             data: {
               menu: {
                 title: 'FDP',
-              }
-            }
+              },
+            },
           },
           {
             path: 'CVP',
             data: {
               menu: {
                 title: 'CVP',
-              }
-            }
+              },
+            },
           },
           {
             path: 'BDP',
             data: {
               menu: {
                 title: 'BDP',
-              }
-            }
+              },
+            },
           },
           {
             path: 'GLP',
             data: {
               menu: {
                 title: 'GLP',
-              }
-            }
+              },
+            },
           },
           {
             path: 'GPS',
             data: {
               menu: {
                 title: 'GPS',
-              }
-            }
-          }
-        ]
+              },
+            },
+          },
+        ],
       },
       {
         path: 'about',
@@ -118,10 +118,10 @@ export const PAGES_MENU = [
             icon: 'ion-information',
             selected: false,
             expanded: false,
-            order: 0
-          }
-        }
-      }
-    ]
-  }
+            order: 0,
+          },
+        },
+      },
+    ],
+  },
 ];

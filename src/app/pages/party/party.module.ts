@@ -1,18 +1,18 @@
-import {NgModule}      from '@angular/core';
-import {CommonModule}  from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {AppTranslationModule} from '../../app.translation.module';
 import {NgaModule} from '../../theme/nga.module';
 
 import {Party} from './party.component';
-import {routing}       from './party.routing';
+import {routing} from './party.routing';
 
-import {Helper} from "../util/helper.service";
-import {DashboardModule} from "../dashboard/dashboard.module";
-import {SharedModule} from "../shared/shared.module";
-import {TileService} from "../shared/tile/tile.service";
-import {Tile} from "../shared/tile/tile.component";
-import {PoliticianTable} from "./responsiveTable/politician-table.component";
+import {Helper} from '../util/helper.service';
+import {DashboardModule} from '../dashboard/dashboard.module';
+import {SharedModule} from '../shared/shared.module';
+import {TileService} from '../shared/tile/tile.service';
+import {Tile} from '../shared/tile/tile.component';
+import {PoliticianTable} from './responsiveTable/politician-table.component';
 
 @NgModule({
   imports: [
@@ -21,16 +21,16 @@ import {PoliticianTable} from "./responsiveTable/politician-table.component";
     AppTranslationModule,
     NgaModule,
     routing,
-    SharedModule
+    SharedModule,
   ],
   declarations: [
     Party,
-    PoliticianTable
+    PoliticianTable,
   ],
   providers: [
     TileService,
-    Helper
-  ]
+    Helper,
+  ],
 })
 export class PartyModule {
 }

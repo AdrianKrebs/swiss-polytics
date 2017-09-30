@@ -5,7 +5,7 @@ import { SentimentsTransformerService } from './sentiments-transformer.service';
 describe('SentimentsTransformerService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SentimentsTransformerService]
+      providers: [SentimentsTransformerService],
     });
   });
 

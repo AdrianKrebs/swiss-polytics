@@ -2,13 +2,13 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 import {TrafficChartService} from './trafficChart.service';
 import * as Chart from 'chart.js';
-import {BaThemeConfigProvider} from "../../../theme/theme.configProvider";
-import {colorHelper} from "../../../theme/theme.constants";
+import {BaThemeConfigProvider} from '../../../theme/theme.configProvider';
+import {ColorHelper} from '../../../theme/theme.constants';
 
 @Component({
   selector: 'traffic-chart',
   templateUrl: './trafficChart.html',
-  styleUrls: ['./trafficChart.scss']
+  styleUrls: ['./trafficChart.scss'],
 })
 
 
@@ -26,9 +26,8 @@ export class TrafficChart implements OnInit {
   }
 
   ngOnInit(): void {
-    let dashboardColors = this._baConfig.get().colors.dashboard;
+    const dashboardColors = this._baConfig.get().colors.dashboard;
 
-    //TODO von aussen?
     this.trafficChartService.getTweetsPerParty().subscribe((data) => {
 
       this.total = data.total;
@@ -36,7 +35,7 @@ export class TrafficChart implements OnInit {
         {
           value: data.parties['SP'],
           color: dashboardColors.spRed,
-          highlight: colorHelper.shade(dashboardColors.spRed, 15),
+          highlight: ColorHelper.shade(dashboardColors.spRed, 15),
           label: 'SP',
           percentage: calcPercentage('SP'),
           order: 1,
@@ -44,7 +43,7 @@ export class TrafficChart implements OnInit {
         {
           value: data.parties['SVP'],
           color: dashboardColors.svpGreen,
-          highlight: colorHelper.shade(dashboardColors.svpGreen, 15),
+          highlight: ColorHelper.shade(dashboardColors.svpGreen, 15),
           label: 'SVP',
           percentage: calcPercentage('SVP'),
           order: 3,
@@ -52,14 +51,14 @@ export class TrafficChart implements OnInit {
         {
           value: data.parties['FDP'],
           color: dashboardColors.fdpBlue,
-          highlight: colorHelper.shade(dashboardColors.fdpBlue, 15),
+          highlight: ColorHelper.shade(dashboardColors.fdpBlue, 15),
           label: 'FDP',
           percentage: calcPercentage('FDP'),
           order: 2,
         }, {
           value: data.parties['CVP'],
           color: dashboardColors.cvpOrange,
-          highlight: colorHelper.shade(dashboardColors.cvpOrange, 15),
+          highlight: ColorHelper.shade(dashboardColors.cvpOrange, 15),
           label: 'CVP',
           percentage: calcPercentage('CVP'),
           order: 4,
@@ -67,7 +66,7 @@ export class TrafficChart implements OnInit {
         {
           value: data.parties['GLP'],
           color: dashboardColors.glpGreen,
-          highlight: colorHelper.shade(dashboardColors.glpGreen, 15),
+          highlight: ColorHelper.shade(dashboardColors.glpGreen, 15),
           label: 'GLP',
           percentage: calcPercentage('GLP'),
           order: 6,
@@ -75,7 +74,7 @@ export class TrafficChart implements OnInit {
          {
           value: data.parties['GPS'],
           color: dashboardColors.gpsGreen,
-          highlight: colorHelper.shade(dashboardColors.gpsGreen, 15),
+          highlight: ColorHelper.shade(dashboardColors.gpsGreen, 15),
           label: 'GPS',
           percentage: calcPercentage('GPS'),
           order: 7,
@@ -83,7 +82,7 @@ export class TrafficChart implements OnInit {
         {
           value: data.parties['BDP'],
           color: dashboardColors.bdpYellow,
-          highlight: colorHelper.shade(dashboardColors.bdpYellow, 15),
+          highlight: ColorHelper.shade(dashboardColors.bdpYellow, 15),
           label: 'BDP',
           percentage: calcPercentage('BDP'),
           order: 5,
@@ -100,11 +99,11 @@ export class TrafficChart implements OnInit {
   }
 
   private _loadDoughnutCharts() {
-    let el = jQuery('.chart-area').get(0) as HTMLCanvasElement;
+    const el = jQuery('.chart-area').get(0) as HTMLCanvasElement;
     new Chart(el.getContext('2d')).Doughnut(this.doughnutData, {
       segmentShowStroke: false,
       percentageInnerCutout: 64,
-      responsive: true
+      responsive: true,
     });
   }
 

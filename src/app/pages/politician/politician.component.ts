@@ -1,14 +1,14 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute, ParamMap} from '@angular/router';
-import {ParlamentService} from "../shared/services/paralament.service";
-import {PoliticianModel} from "../model/politician.model";
+import {ParlamentService} from '../shared/services/paralament.service';
+import {PoliticianModel} from '../model/politician.model';
 import 'rxjs/add/operator/switchMap';
-import {Helper} from "../util/helper.service";
+import {Helper} from '../util/helper.service';
 
 @Component({
   selector: 'politician',
-  templateUrl: './politician.html'
+  templateUrl: './politician.html',
 })
 
 export class Politician implements OnInit, AfterViewInit {
@@ -24,12 +24,11 @@ export class Politician implements OnInit, AfterViewInit {
   ngOnInit() {
     this.politician$ = this.route.paramMap
       .switchMap((params: ParamMap) => {
-        this.selectedPoliticianId = parseInt(params.get('id'));
+        this.selectedPoliticianId = parseInt(params.get('id'), 10);
         return this.service.getPoliticanInfos(this.selectedPoliticianId);
       }).map((result) => {
-        //console.log(result);
-        let p = new PoliticianModel().mapJsonToPolitican(result);
-        let twitterData = this.getTwitterData(this.selectedPoliticianId);
+        const p = new PoliticianModel().mapJsonToPolitican(result);
+        const twitterData = this.getTwitterData(this.selectedPoliticianId);
         if (twitterData) {
           p.twitterName = twitterData['twitterName'];
           p.twitterId = twitterData['id'];

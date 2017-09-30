@@ -439,5 +439,5 @@ export const SEATSSR: any[] = [
         'personId' : 540,
         'rat' : 'SR',
         },
-           
+
 ];
