@@ -987,6 +987,9 @@ let SeatComponent = class SeatComponent {
         activeModal.componentInstance.modalPersonId = this.selectedSeat.personId;
         activeModal.componentInstance.modalNumber = this.selectedSeat.number;
     }
+    navigateToProfile() {
+        this.router.navigate(['/pages/politician/' + this.selectedSeat.personId]);
+    }
     onSeatChange(seat) {
         this.selectedSeat = seat;
     }
@@ -1013,7 +1016,7 @@ var _a, _b, _c, _d, _e, _f;
 /***/ "../../../../../src/app/pages/shared/seat/seat.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #popContent >{{selectedSeat.name}}  <button class=\"btn btn-primary confirm-btn\">Profil</button></ng-template>\r\n<div class=\"svg-container\">\r\n  <svg id=\"svgId\" currentScale=\"1\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" [attr.viewBox]=\"viewbox\">\r\n    <g *ngFor=\"let seat of seats\">\r\n      <path [attr.class]=\"'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party\" (click)=\"onSeatChange(seat)\" triggers=\"focus:blur\" [ngbPopover]=\"popContent\" container=\"body\" [attr.d]=\"seat.d\" />\r\n    </g>\r\n  </svg>\r\n</div>\r\n\r\n"
+module.exports = "<ng-template #popContent >{{selectedSeat?.name}}  <button class=\"btn btn-primary confirm-btn\" (mousedown)=\"navigateToProfile()\" >Profil</button></ng-template>\r\n<div class=\"svg-container\">\r\n  <svg id=\"svgId\" currentScale=\"1\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" [attr.viewBox]=\"viewbox\">\r\n    <g *ngFor=\"let seat of seats\">\r\n      <path [attr.class]=\"'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party\" (click)=\"onSeatChange(seat)\" triggers=\"focus:blur\" [ngbPopover]=\"popContent\" container=\"body\" [attr.d]=\"seat.d\" />\r\n    </g>\r\n  </svg>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
