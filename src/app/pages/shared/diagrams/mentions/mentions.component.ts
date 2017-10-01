@@ -1,13 +1,13 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ColorHelper, layoutPaths } from '../../../../theme';
+import { layoutPaths } from '../../../../theme';
 import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/from';
 import { MentionsService } from '../../services/mentions.service';
 import { RawMention } from '../../../model/rawmention.model';
 import { TableData } from './tableData';
 import { MentionsTransformerService } from './mentions-transformer.service';
 import { QueryHelper } from '../queryHelper';
+import * as R from 'ramda';
 
 @Component({
   selector: 'app-mentions',
@@ -19,7 +19,6 @@ export class MentionsComponent implements OnInit, OnChanges {
   @Input() politicianId: string;
 
   private mentionsDataService: MentionsService;
-  private mentionsTransformerService: MentionsTransformerService;
   private baConfig: BaThemeConfigProvider;
   private chart: any;
   private queryHelper: QueryHelper = new QueryHelper();
@@ -28,10 +27,8 @@ export class MentionsComponent implements OnInit, OnChanges {
 
   constructor(
     mentionsDataService: MentionsService,
-    transformationService: MentionsTransformerService,
     baconfig: BaThemeConfigProvider) {
     this.mentionsDataService = mentionsDataService;
-    this.mentionsTransformerService = transformationService;
     this.baConfig = baconfig;
   }
 
@@ -47,14 +44,14 @@ export class MentionsComponent implements OnInit, OnChanges {
   }
 
   private loadData() {
-    this.mentionsDataService.getMentions(this.queryHelper.createQueryString(this.party, this.politicianId)).
-    subscribe((mentionsData: RawMention[]) => {
+    this.mentionsDataService.getMentionsAggregateForLastMonth(
+      this.queryHelper.createQueryString(this.party, this.politicianId)).
+    subscribe((mentionsAggregate: TableData[]) => {
       if (this.chart) {
-        this.chart.dataProvider = this.mentionsTransformerService.orderedSumPerDay(mentionsData);
+        this.chart.dataProvider = R.sort((a, b) => a.date.valueOf() - b.date.valueOf(), mentionsAggregate);
         this.chart.validateData();
       }
-      const filtered = this.chart.dataProvider.filter((data) => data.value > 0);
-      if (filtered.length < 2) {
+      if (this.chart.dataProvider.filter((data) => data.value > 0).length < 2) {
         this.isChartEmpty = true;
       }
     });
