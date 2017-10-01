@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppTranslationModule } from '../../app.translation.module';
 import { NgaModule } from '../../theme/nga.module';
-import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { NgbDropdownModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { routing } from './politician.routing';
 
@@ -18,7 +17,6 @@ import {SharedModule} from '../shared/shared.module';
     NgaModule,
     NgbDropdownModule,
     NgbModalModule,
-    SlimLoadingBarModule.forRoot(),
     routing,
     SharedModule,
   ],

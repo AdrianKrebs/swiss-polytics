@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Router, Routes} from '@angular/router';
-import * as _ from 'lodash';
+import * as R from 'ramda';
 
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
@@ -19,7 +19,7 @@ export class BaMenuService {
    * @param {Routes} routes Type compatible with app.menu.ts
    */
   public updateMenuByRoutes(routes: Routes) {
-    const convertedRoutes = this.convertRoutesToMenus(_.cloneDeep(routes));
+    const convertedRoutes = this.convertRoutesToMenus(R.clone(routes));
     this.menuItems.next(convertedRoutes);
   }
 

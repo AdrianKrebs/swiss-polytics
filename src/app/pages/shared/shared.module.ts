@@ -17,7 +17,6 @@ import { MentionsTransformerService } from './diagrams/mentions/mentions-transfo
 import { Feed } from './feed/feed.component';
 import {SeatComponent} from './seat/seat.component';
 import { DefaultModal } from './seat/default-modal/default-modal.component';
-import { ChartModule } from 'angular2-chartjs';
 
 @NgModule({
   imports: [
@@ -27,7 +26,7 @@ import { ChartModule } from 'angular2-chartjs';
     NgbModalModule,
     NgaModule,
     NgbModule,
-    ChartModule],
+  ],
   declarations: [
     Feed,
     SeatComponent,
