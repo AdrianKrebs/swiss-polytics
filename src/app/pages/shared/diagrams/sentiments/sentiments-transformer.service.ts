@@ -30,8 +30,11 @@ export class SentimentsTransformerService {
     const result: TableData[] = [];
     resultMap.forEach((value, key) => {
       const positive = R.mean(value.positive);
+      const positiveCount = value.positive.length;
       const negative = R.mean(value.negative);
-      result.push(new TableData(new Date(key), positive, negative, positive + negative));
+      const negativeCount = value.negative.length;
+      result.push(new TableData(new Date(key), positive, negative,
+        ((positiveCount * positive) + (negativeCount * negative)) / (positiveCount + negativeCount)));
     });
     R.sort((a, b) => a.date.valueOf() - b.date.valueOf(), result);
     return result;

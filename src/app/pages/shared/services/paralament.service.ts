@@ -10,7 +10,7 @@ import {APP_CONFIG} from '../../../app-config.constants';
 import {Helper} from '../../util/helper.service';
 import {PartyModel} from '../../model/party.model';
 import {MAPPING} from '../../util/mapping';
-import {PoliticianModel} from "../../model/politician.model";
+import {PoliticianModel} from '../../model/politician.model';
 
 @Injectable()
 export class ParlamentService {
