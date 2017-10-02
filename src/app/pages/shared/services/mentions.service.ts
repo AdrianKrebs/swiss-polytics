@@ -9,6 +9,7 @@ import 'rxjs/add/operator/catch';
 import { RawMention } from '../../model/rawmention.model';
 import { MentionCount } from '../../model/mentioncount.model';
 import * as R from 'ramda';
+import { TableData } from '../diagrams/mentions/tableData';
 
 @Injectable()
 export class MentionsService {
@@ -29,6 +30,15 @@ export class MentionsService {
       .map(this.helper.extractData)
       .map((dataInHolder) => dataInHolder.counts)
       .map((counts) => R.map(count => new MentionCount(count._id, count.count), counts))
+      .catch(this.helper.handleError);
+  }
+
+  getMentionsAggregateForLastMonth(query: string): Observable<TableData[]> {
+    return this.http.get(`${this.config.BACKEND_URL}/mentions/count${query}`)
+      .map(this.helper.extractData)
+      .map((dataInHolder) => dataInHolder.count)
+      .map((counts) => R.map(count =>
+        new TableData(new Date(count._id.year, count._id.month - 1, count._id.day), count.count), counts))
       .catch(this.helper.handleError);
   }
 }
