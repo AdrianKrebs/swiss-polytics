@@ -15,7 +15,6 @@ Angular, Angular CLI, Bootstrap 4, and lots of awesome modules and plugins
 ## Getting started
 - yarn or npm install
 - ng serve or npm start
-- If you see errors caused by the SASS compilation you may need to do the following: npm install --global windows-build-tools
 - go to `http://localhost:4200/`
 
 ## Backend
