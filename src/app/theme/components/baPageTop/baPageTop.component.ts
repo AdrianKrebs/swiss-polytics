@@ -30,14 +30,6 @@ export class BaPageTop {
     this.navigateToTarget();
   }
 
-  public onKeyup($event) {
-    if ($event.code === 'Enter') {
-      this.navigateToTarget();
-    }
-
-
-  }
-
   private navigateToTarget() {
     if (this.parties.includes(this.searchObject)) {
       this.router.navigate(['/pages/party/' + this.searchObject]);

@@ -34,7 +34,6 @@ export class Feed implements AfterViewInit, OnChanges, OnInit {
     if (changes['twitterName']) {
       this._helper.reInitTwitterWidget('https://twitter.com/' + this.twitterName);
     }
-
   }
 
   ngOnInit() {
