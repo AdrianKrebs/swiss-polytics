@@ -6,7 +6,6 @@ import {Helper} from '../../util/helper.service';
 import {TileService} from '../../shared/tile/tile.service';
 import {SeatModel} from '../../model/seat.model';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {DefaultModal} from './default-modal/default-modal.component';
 
 @Component({
   selector: 'app-seat',
@@ -105,13 +104,6 @@ export class SeatComponent implements OnInit, OnChanges {
     return this.helperService.getIndexForPersonId(id);
   }
 
-  smModalShow(seat): void {
-    this.selectedSeat = seat;
-    const activeModal = this.modalService.open(DefaultModal, {size: 'sm'});
-    activeModal.componentInstance.modalName = this.selectedSeat.name;
-    activeModal.componentInstance.modalPersonId = this.selectedSeat.personId;
-    activeModal.componentInstance.modalNumber = this.selectedSeat.number;
-  }
   navigateToProfile() {
     this.router.navigate(['/pages/politician/' + this.selectedSeat.personId]);
   }

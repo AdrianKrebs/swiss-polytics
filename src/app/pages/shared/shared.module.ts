@@ -16,7 +16,6 @@ import { SentimentsTransformerService } from './diagrams/sentiments/sentiments-t
 import { MentionsTransformerService } from './diagrams/mentions/mentions-transformer.service';
 import { Feed } from './feed/feed.component';
 import {SeatComponent} from './seat/seat.component';
-import { DefaultModal } from './seat/default-modal/default-modal.component';
 
 @NgModule({
   imports: [
@@ -32,7 +31,6 @@ import { DefaultModal } from './seat/default-modal/default-modal.component';
     SeatComponent,
     Tile,
     SentimentsComponent,
-    DefaultModal,
     MentionsComponent,
   ],
   exports: [
@@ -43,9 +41,6 @@ import { DefaultModal } from './seat/default-modal/default-modal.component';
     MentionsComponent,
     CommonModule,
     FormsModule],
-  entryComponents: [
-      DefaultModal,
-    ],
   providers: [
     TileService,
     ParlamentService,

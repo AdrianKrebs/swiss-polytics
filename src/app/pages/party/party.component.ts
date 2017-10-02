@@ -32,6 +32,18 @@ export class Party implements AfterViewInit, OnInit {
 
         return this.service.getFactionInfos(new PartyModel(this.selectedParty));
       });
+
+
+    this.route.paramMap
+      .switchMap((params: ParamMap) => {
+        // (+) before `params.get()` turns the string into a number
+        this.selectedParty = params.get('id');
+        this.helper.initTwitterWidget();
+
+        return this.service.getFactionInfos(new PartyModel(this.selectedParty));
+      }).subscribe((data) => {
+      console.log(data)
+    });
   }
 
   ngAfterViewInit() {

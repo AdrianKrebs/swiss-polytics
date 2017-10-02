@@ -4,12 +4,14 @@
       <th width="200px">Vorname</th>
       <th width="200px">Nachname</th>
       <th width="200px">Kanton</th>
-      <th width="auto">Bild</th>      
+      <th width="200px">Twitter</th>
+      <th width="auto">Bild</th>
     </tr>
     <tr *ngFor="let p of politicians | async" (click)="navigateToProfile(p.id)">
       <td class="table-id">{{ p.firstName }}</td>
       <td>{{ p.lastName }}</td>
       <td>{{ p.cantonName }}</td>
+      <td>{{ p.hasTwitter }}</td>
       <td><img class="imageProfil" src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{p.number}}.jpg"/></td>
     </tr>
   </table>

@@ -10,6 +10,7 @@ import {APP_CONFIG} from '../../../app-config.constants';
 import {Helper} from '../../util/helper.service';
 import {PartyModel} from '../../model/party.model';
 import {MAPPING} from '../../util/mapping';
+import {PoliticianModel} from "../../model/politician.model";
 
 @Injectable()
 export class ParlamentService {
@@ -25,13 +26,23 @@ export class ParlamentService {
       .catch(this.helper.handleError);
   }
 
-  getFactionInfos(party: PartyModel): Observable<any> {
+  getFactionInfos(party: PartyModel): Observable<PoliticianModel[]> {
     return this.http.get(this.config.BACKEND_URL + '/faction/' + party.faction)
       .map(this.helper.extractData)
       .map((result) => {
-        return result.data.members.filter((member) => {
-          return this.helper.getIdsForParty(party.name).includes(member.id)
+        result.data.members.forEach((member) => {
+          const fromMapping = this.helper.getUserByPersonId(member.id);
+          member.twitterName = fromMapping.twitterName;
+          member.twitterId = fromMapping.id;
+          member.hasTwitter = fromMapping.twitterName && fromMapping.id ? 'Ja' : 'Nein';
         })
+        return result.data.members;
+      })
+      .map((data) => {
+        data.sort((a, b) => {
+          return a.twitterName && b.twitterName ? 0 : a.twitterName ? -1 : 1;
+        });
+        return data;
       })
       .catch(this.helper.handleError);
   }

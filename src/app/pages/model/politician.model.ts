@@ -18,6 +18,7 @@ export class PoliticianModel {
   count: Number;
   twitterName: String;
   twitterId: String;
+  hasTwitter: String;
 
   constructor() {
   }
@@ -39,6 +40,7 @@ export class PoliticianModel {
     p.webpage = this.mapStringEmpty(json.contact.homepageWork);
     p.webpageUrl = this.mapWebpageUrl(json.contact.homepageWork);
     p.imageUrl = 'https://www.parlament.ch/sitecollectionimages/profil/portrait-260/' + json.number + '.jpg';
+    p.hasTwitter = p.twitterName && p.twitterId ? 'Ja' : 'Nein';
     return p;
   }
 
