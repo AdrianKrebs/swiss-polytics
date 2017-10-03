@@ -1,10 +1,10 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ColorHelper, layoutPaths } from '../../../../theme';
-import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
-import { SentimentsService } from '../../services/sentiments.service';
-import { SentimentsTransformerService } from './sentiments-transformer.service';
-import { RawSentiment } from '../../../model/rawsentiment.model';
-import { QueryHelper } from '../queryHelper';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ColorHelper, layoutPaths} from '../../../../theme';
+import {BaThemeConfigProvider} from '../../../../theme/theme.configProvider';
+import {SentimentsService} from '../../services/sentiments.service';
+import {SentimentsTransformerService} from './sentiments-transformer.service';
+import {RawSentiment} from '../../../model/rawsentiment.model';
+import {QueryHelper} from '../queryHelper';
 
 @Component({
   selector: 'app-sentiments',
@@ -23,10 +23,9 @@ export class SentimentsComponent implements OnInit, OnChanges {
   isChartEmpty: boolean;
   sentiments: Object;
 
-  constructor(
-    sentimentDataService: SentimentsService,
-    sentimentTransformerService: SentimentsTransformerService,
-    baconfig: BaThemeConfigProvider) {
+  constructor(sentimentDataService: SentimentsService,
+              sentimentTransformerService: SentimentsTransformerService,
+              baconfig: BaThemeConfigProvider) {
     this.sentimentDataService = sentimentDataService;
     this.sentimentTransformerService = sentimentTransformerService;
     this.baConfig = baconfig;
@@ -44,8 +43,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
   }
 
   private loadData() {
-    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).
-    subscribe((sentiments: RawSentiment[]) => {
+    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((sentiments: RawSentiment[]) => {
       if (this.chart) {
         this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
         this.chart.validateData();
@@ -59,6 +57,9 @@ export class SentimentsComponent implements OnInit, OnChanges {
 
   chartReady(chart) {
     this.chart = chart;
+    // let legend = new AmCharts.AmLegend();
+    // legend.useMarkerColorForLabels = true;
+    // this.chart.addLegend(legend);
   }
 
   private getData() {
@@ -69,10 +70,6 @@ export class SentimentsComponent implements OnInit, OnChanges {
     const meanColor = this.baConfig.get().colors.dashboard.yellow;
 
     return {
-      titles: [{
-        text: 'Grün ist positiv, rot ist negativ, gelb ist der Durchschnitt',
-        bold: false,
-      }],
       type: 'serial',
       theme: 'blur',
       fontFamily: 'Roboto',
@@ -80,6 +77,11 @@ export class SentimentsComponent implements OnInit, OnChanges {
       marginRight: 15,
       responsive: {
         'enabled': true,
+      },
+      legend: {
+        position: 'top',
+        fontSize: 16,
+        valueWidth: 0,
       },
       dataProvider: [],
       categoryField: 'date',
@@ -109,18 +111,20 @@ export class SentimentsComponent implements OnInit, OnChanges {
           valueField: 'positive',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
+          title: 'Positiv',
         },
         {
           id: 'g1',
           bullet: 'none',
           useLineColorForBulletBorder: true,
-          lineColor: ColorHelper.hexToRgbA(graphColor, 0.15),
+          lineColor: '#f4595f',
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
           type: 'line',
           valueField: 'negative',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
+          title: 'Negativ',
         },
         {
           id: 'g2',
@@ -133,6 +137,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
           valueField: 'mean',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
+          title: 'Durchschnitt',
         },
       ],
       chartCursor: {

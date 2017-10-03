@@ -1,12 +1,12 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { layoutPaths } from '../../../../theme';
-import { BaThemeConfigProvider } from '../../../../theme/theme.configProvider';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {layoutPaths} from '../../../../theme';
+import {BaThemeConfigProvider} from '../../../../theme/theme.configProvider';
 import 'rxjs/add/observable/from';
-import { MentionsService } from '../../services/mentions.service';
-import { RawMention } from '../../../model/rawmention.model';
-import { TableData } from './tableData';
-import { MentionsTransformerService } from './mentions-transformer.service';
-import { QueryHelper } from '../queryHelper';
+import {MentionsService} from '../../services/mentions.service';
+import {RawMention} from '../../../model/rawmention.model';
+import {TableData} from './tableData';
+import {MentionsTransformerService} from './mentions-transformer.service';
+import {QueryHelper} from '../queryHelper';
 import * as R from 'ramda';
 
 @Component({
@@ -25,9 +25,8 @@ export class MentionsComponent implements OnInit, OnChanges {
   isChartEmpty: boolean;
   mentions: any;
 
-  constructor(
-    mentionsDataService: MentionsService,
-    baconfig: BaThemeConfigProvider) {
+  constructor(mentionsDataService: MentionsService,
+              baconfig: BaThemeConfigProvider) {
     this.mentionsDataService = mentionsDataService;
     this.baConfig = baconfig;
   }
@@ -45,8 +44,7 @@ export class MentionsComponent implements OnInit, OnChanges {
 
   private loadData() {
     this.mentionsDataService.getMentionsAggregateForLastMonth(
-      this.queryHelper.createQueryString(this.party, this.politicianId)).
-    subscribe((mentionsAggregate: TableData[]) => {
+      this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((mentionsAggregate: TableData[]) => {
       if (this.chart) {
         this.chart.dataProvider = R.sort((a, b) => a.date.valueOf() - b.date.valueOf(), mentionsAggregate);
         this.chart.validateData();
@@ -76,6 +74,11 @@ export class MentionsComponent implements OnInit, OnChanges {
       responsive: {
         'enabled': true,
       },
+      legend: {
+      position: 'top',
+        fontSize: 16,
+        valueWidth: 0,
+    },
       dataProvider: [],
       categoryField: 'date',
       categoryAxis: {
@@ -100,8 +103,9 @@ export class MentionsComponent implements OnInit, OnChanges {
           lineColor: theLineColor,
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
-          type: 'smoothedLine',
+          type: 'line',
           valueField: 'value',
+          title: 'Anzahl',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
         },
