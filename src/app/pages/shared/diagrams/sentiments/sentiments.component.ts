@@ -69,6 +69,10 @@ export class SentimentsComponent implements OnInit, OnChanges {
     const meanColor = this.baConfig.get().colors.dashboard.yellow;
 
     return {
+      titles: [{
+        text: 'Grün ist positiv, rot ist negativ, gelb ist der Durchschnitt',
+        bold: false,
+      }],
       type: 'serial',
       theme: 'blur',
       fontFamily: 'Roboto',
@@ -101,7 +105,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
           lineColor: positiveColor,
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
-          type: 'smoothedLine',
+          type: 'line',
           valueField: 'positive',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
@@ -113,7 +117,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
           lineColor: ColorHelper.hexToRgbA(graphColor, 0.15),
           lineThickness: 1,
           negativeLineColor: layoutColors.danger,
-          type: 'smoothedLine',
+          type: 'line',
           valueField: 'negative',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
@@ -125,7 +129,7 @@ export class SentimentsComponent implements OnInit, OnChanges {
           lineColor: meanColor,
           lineThickness: 1,
           negativeLineColor: meanColor,
-          type: 'smoothedLine',
+          type: 'line',
           valueField: 'mean',
           fillAlphas: 1,
           fillColorsField: 'lineColor',
