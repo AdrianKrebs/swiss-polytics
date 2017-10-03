@@ -62,7 +62,7 @@ Dashboard = __decorate([
         styles: [__webpack_require__("../../../../../src/app/pages/dashboard/dashboard.scss")],
         template: __webpack_require__("../../../../../src/app/pages/dashboard/dashboard.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_tile_tile_service__["a" /* TileService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_tile_tile_service__["a" /* TileService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__util_helper_service__["a" /* Helper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__util_helper_service__["a" /* Helper */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__shared_tile_tile_service__["a" /* TileService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__shared_tile_tile_service__["a" /* TileService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__util_helper_service__["a" /* Helper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__util_helper_service__["a" /* Helper */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _c || Object])
 ], Dashboard);
 
 var _a, _b, _c;
@@ -73,7 +73,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/pages/dashboard/dashboard.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <tile></tile>\r\n    <ba-card cardTitle=\"Statistik\" class=\"col-xlg-6 col-xl-6\">\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6\"><app-sentiments></app-sentiments></div>\r\n        <div class=\"col-md-6\"><app-mentions></app-mentions></div>\r\n      </div>\r\n    </ba-card>\r\n    <ba-card class=\"col-xlg-6 col-xl-6\" cardTitle=\"Tweets pro Parei diese Woche\">\r\n      <traffic-chart (onNavigateToParty)=\"navigateToParty($event)\"></traffic-chart>\r\n    </ba-card>\r\n    <div class=\"row\">\r\n      <ba-card class=\"col-md-6\" cardTitle=\"Darüber reden die Parlamentarier diese Woche\">\r\n        <div *ngFor=\"let topic of trendingTopics\">\r\n          <div class=\"description-stats\"><a href=\"https://twitter.com/search?q=%23{{topic}}\">#{{topic}}</a></div>\r\n        </div>\r\n      </ba-card>\r\n      <ba-card class=\"col-md-6\" cardTitle=\"Aktivste Nutzer diese Woche\">\r\n        <activity-table [users]=\"mostActiveUsers\" (onNavigateToProfile)=\"navigateToProfile($event)\"></activity-table>\r\n      </ba-card>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <ba-card cardTitle=\"Feed\" baCardClass=\"large-card with-scroll feed-panel\">\r\n      <a class=\"twitter-timeline\" href=\"https://twitter.com/swiss_polytics/lists/schweizer-parlament\"></a>\r\n    </ba-card>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <tile></tile>\r\n      <div class=\"row\">\r\n        <div class=\"col-md-6\"><app-sentiments></app-sentiments></div>\r\n        <div class=\"col-md-6\"><app-mentions></app-mentions></div>\r\n      </div>\r\n    <ba-card class=\"col-xlg-6 col-xl-6\" cardTitle=\"Tweets pro Partei diese Woche\">\r\n      <traffic-chart (onNavigateToParty)=\"navigateToParty($event)\"></traffic-chart>\r\n    </ba-card>\r\n    <div class=\"row\">\r\n      <ba-card class=\"col-md-6\" cardTitle=\"Darüber reden die Parlamentarier diese Woche\">\r\n        <div *ngFor=\"let topic of trendingTopics\">\r\n          <div class=\"description-stats\"><a href=\"https://twitter.com/search?q=%23{{topic}}\">#{{topic}}</a></div>\r\n        </div>\r\n      </ba-card>\r\n      <ba-card class=\"col-md-6\" cardTitle=\"Aktivste Nutzer diese Woche\">\r\n        <activity-table [users]=\"mostActiveUsers\" (onNavigateToProfile)=\"navigateToProfile($event)\"></activity-table>\r\n      </ba-card>\r\n    </div>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <ba-card cardTitle=\"Feed\" baCardClass=\"large-card with-scroll feed-panel\">\r\n      <a class=\"twitter-timeline\" href=\"https://twitter.com/swiss_polytics/lists/schweizer-parlament\"></a>\r\n    </ba-card>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -216,7 +216,7 @@ __decorate([
     __metadata("design:type", Object)
 ], ActivityTable.prototype, "users", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", Object)
 ], ActivityTable.prototype, "onNavigateToProfile", void 0);
 ActivityTable = __decorate([
@@ -379,7 +379,7 @@ let TrafficChart = class TrafficChart {
     }
 };
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", Object)
 ], TrafficChart.prototype, "onNavigateToParty", void 0);
 TrafficChart = __decorate([

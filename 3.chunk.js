@@ -1,44 +1,17 @@
 webpackJsonp([3],{
 
-/***/ "../../../../../src/app/pages/model/party.model.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-const FACTIONS = {
-    'SVP': 4,
-    'SP': 2,
-    'CVP': 3,
-    'FDP': 1,
-    'GLP': 137,
-    'GPS': 6,
-    'BDP': 136,
-};
-/* unused harmony export FACTIONS */
-
-class PartyModel {
-    constructor(name) {
-        this.name = name;
-        this.faction = FACTIONS[name];
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = PartyModel;
-
-//# sourceMappingURL=party.model.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/party/party.component.ts":
+/***/ "../../../../../src/app/pages/politician/politician.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_services_paralament_service__ = __webpack_require__("../../../../../src/app/pages/shared/services/paralament.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__model_party_model__ = __webpack_require__("../../../../../src/app/pages/model/party.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_politician_model__ = __webpack_require__("../../../../../src/app/pages/model/politician.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap__ = __webpack_require__("../../../../rxjs/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__util_helper_service__ = __webpack_require__("../../../../../src/app/pages/util/helper.service.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Party; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Politician; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -54,51 +27,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-let Party = class Party {
-    constructor(service, helper, route, router) {
+let Politician = class Politician {
+    constructor(service, helper, route) {
         this.service = service;
         this.helper = helper;
         this.route = route;
-        this.router = router;
     }
     ngOnInit() {
-        this.politicians$ = this.route.paramMap
+        this.politician$ = this.route.paramMap
             .switchMap((params) => {
-            // (+) before `params.get()` turns the string into a number
-            this.selectedParty = params.get('id');
+            this.selectedPoliticianId = parseInt(params.get('id'), 10);
+            return this.service.getPoliticanInfos(this.selectedPoliticianId);
+        }).map((result) => {
+            const p = new __WEBPACK_IMPORTED_MODULE_3__model_politician_model__["a" /* PoliticianModel */]().mapJsonToPolitican(result);
+            const twitterData = this.getTwitterData(this.selectedPoliticianId);
+            if (twitterData) {
+                p.twitterName = twitterData['twitterName'];
+                p.twitterId = twitterData['id'];
+            }
             this.helper.initTwitterWidget();
-            return this.service.getFactionInfos(new __WEBPACK_IMPORTED_MODULE_4__model_party_model__["a" /* PartyModel */](this.selectedParty));
+            return p;
+        });
+        this.politician$.subscribe((result) => {
+            this.politician = result;
         });
     }
     ngAfterViewInit() {
         this.helper.initTwitterWidget();
     }
-    navigateToProfile(id) {
-        this.router.navigate(['/pages/politician/' + id]);
+    getTwitterData(personId) {
+        return this.helper.getUserByPersonId(personId);
     }
 };
-Party = __decorate([
+Politician = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
-        selector: 'party',
-        styles: [__webpack_require__("../../../../../src/app/pages/party/party.scss")],
-        template: __webpack_require__("../../../../../src/app/pages/party/party.html"),
+        selector: 'politician',
+        template: __webpack_require__("../../../../../src/app/pages/politician/politician.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_paralament_service__["a" /* ParlamentService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_paralament_service__["a" /* ParlamentService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__util_helper_service__["a" /* Helper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__util_helper_service__["a" /* Helper */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _d || Object])
-], Party);
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services_paralament_service__["a" /* ParlamentService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services_paralament_service__["a" /* ParlamentService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__util_helper_service__["a" /* Helper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__util_helper_service__["a" /* Helper */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* ActivatedRoute */]) === "function" && _c || Object])
+], Politician);
 
-var _a, _b, _c, _d;
-//# sourceMappingURL=party.component.js.map
+var _a, _b, _c;
+//# sourceMappingURL=politician.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/party/party.html":
+/***/ "../../../../../src/app/pages/politician/politician.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"selectedParty\">\r\n      <tile [party]=\"selectedParty\"></tile>\r\n    </div>\r\n    <ba-card cardTitle=\"Statistik\" class=\"col-xlg-6 col-xl-6\">\r\n      <div class=\"row\" *ngIf=\"selectedParty\">\r\n        <div class=\"col-md-6\"><app-sentiments [party]=\"selectedParty\"></app-sentiments></div>\r\n        <div class=\"col-md-6\"><app-mentions [party]=\"selectedParty\"></app-mentions></div>\r\n      </div>\r\n    </ba-card>\r\n    <ba-card cardTitle=\"Politiker der {{selectedParty}} auf Twitter\">\r\n      <politician-table [politicians]=\"politicians$\"\r\n                        (onNavigateToProfile)=\"navigateToProfile($event)\"></politician-table>\r\n    </ba-card>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <feed [selectedParty]=\"selectedParty\"></feed>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"politician?.twitterId\">\r\n      <tile [politicianId]=\"politician.twitterId\"></tile>\r\n    </div>\r\n    <div *ngIf=\"politician?.twitterId\">\r\n      <div class=\"row\" *ngIf=\"politician\">\r\n        <div class=\"col-md-6\"><app-sentiments [politicianId]=\"politician.twitterId\"></app-sentiments></div>\r\n        <div class=\"col-md-6\"><app-mentions [politicianId]=\"politician.twitterId\"></app-mentions></div>\r\n      </div>\r\n    </div>\r\n    <ba-card class=\"col-xlg-6 col-lg-6\" cardTitle=\"{{politician?.firstLastName}}\">\r\n      <profil [politicanModel]=\"politician\"></profil>\r\n    </ba-card>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div *ngIf=\"politician?.twitterName\">\r\n      <feed [twitterName]=\"politician.twitterName\"></feed>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/party/party.module.ts":
+/***/ "../../../../../src/app/pages/politician/politician.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106,15 +87,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_translation_module__ = __webpack_require__("../../../../../src/app/app.translation.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__theme_nga_module__ = __webpack_require__("../../../../../src/app/theme/nga.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__party_component__ = __webpack_require__("../../../../../src/app/pages/party/party.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__party_routing__ = __webpack_require__("../../../../../src/app/pages/party/party.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__util_helper_service__ = __webpack_require__("../../../../../src/app/pages/util/helper.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__theme_nga_module__ = __webpack_require__("../../../../../src/app/theme/nga.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__ = __webpack_require__("../../../../@ng-bootstrap/ng-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__politician_routing__ = __webpack_require__("../../../../../src/app/pages/politician/politician.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__politician_component__ = __webpack_require__("../../../../../src/app/pages/politician/politician.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__profil_profil_component__ = __webpack_require__("../../../../../src/app/pages/politician/profil/profil.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__shared_shared_module__ = __webpack_require__("../../../../../src/app/pages/shared/shared.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__shared_tile_tile_service__ = __webpack_require__("../../../../../src/app/pages/shared/tile/tile.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__responsiveTable_politician_table_component__ = __webpack_require__("../../../../../src/app/pages/party/responsiveTable/politician-table.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PartyModule", function() { return PartyModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoliticianModule", function() { return PoliticianModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -130,82 +109,62 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-let PartyModule = class PartyModule {
+let PoliticianModule = class PoliticianModule {
 };
-PartyModule = __decorate([
+PoliticianModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["a" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__app_translation_module__["a" /* AppTranslationModule */],
-            __WEBPACK_IMPORTED_MODULE_4__theme_nga_module__["a" /* NgaModule */],
-            __WEBPACK_IMPORTED_MODULE_6__party_routing__["a" /* routing */],
+            __WEBPACK_IMPORTED_MODULE_3__theme_nga_module__["a" /* NgaModule */],
+            __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__["d" /* NgbDropdownModule */],
+            __WEBPACK_IMPORTED_MODULE_4__ng_bootstrap_ng_bootstrap__["b" /* NgbModalModule */],
+            __WEBPACK_IMPORTED_MODULE_5__politician_routing__["a" /* routing */],
             __WEBPACK_IMPORTED_MODULE_8__shared_shared_module__["a" /* SharedModule */],
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_5__party_component__["a" /* Party */],
-            __WEBPACK_IMPORTED_MODULE_10__responsiveTable_politician_table_component__["a" /* PoliticianTable */],
+            __WEBPACK_IMPORTED_MODULE_6__politician_component__["a" /* Politician */],
+            __WEBPACK_IMPORTED_MODULE_7__profil_profil_component__["a" /* Profil */],
         ],
-        providers: [
-            __WEBPACK_IMPORTED_MODULE_9__shared_tile_tile_service__["a" /* TileService */],
-            __WEBPACK_IMPORTED_MODULE_7__util_helper_service__["a" /* Helper */],
-        ],
+        providers: [],
     })
-], PartyModule);
+], PoliticianModule);
 
-//# sourceMappingURL=party.module.js.map
+//# sourceMappingURL=politician.module.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/party/party.routing.ts":
+/***/ "../../../../../src/app/pages/politician/politician.routing.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__party_component__ = __webpack_require__("../../../../../src/app/pages/party/party.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__politician_component__ = __webpack_require__("../../../../../src/app/pages/politician/politician.component.ts");
 
 
 // noinspection TypeScriptValidateTypes
 const routes = [
-    { path: ':id', component: __WEBPACK_IMPORTED_MODULE_1__party_component__["a" /* Party */] },
+    {
+        path: ':id',
+        component: __WEBPACK_IMPORTED_MODULE_1__politician_component__["a" /* Politician */],
+        children: [],
+    },
 ];
-/* unused harmony export routes */
-
 const routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forChild(routes);
 /* harmony export (immutable) */ __webpack_exports__["a"] = routing;
 
-//# sourceMappingURL=party.routing.js.map
+//# sourceMappingURL=politician.routing.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/party/party.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "@media screen and (min-width: 1620px) {\n  .row.shift-up > * {\n    margin-top: -573px; } }\n\n@media screen and (max-width: 1620px) {\n  .card.feed-panel.large-card {\n    height: 824px; } }\n\n.user-stats-card .card-title {\n  padding: 0 0 15px; }\n\n.blurCalendar {\n  height: 475px; }\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/pages/party/responsiveTable/politician-table.component.ts":
+/***/ "../../../../../src/app/pages/politician/profil/profil.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("../../../../rxjs/Observable.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoliticianTable; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_politician_model__ = __webpack_require__("../../../../../src/app/pages/model/politician.model.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__util_helper_service__ = __webpack_require__("../../../../../src/app/pages/util/helper.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profil; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -217,44 +176,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-let PoliticianTable = class PoliticianTable {
-    constructor() {
-        this.onNavigateToProfile = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* EventEmitter */]();
+
+let Profil = class Profil {
+    constructor(_helper) {
+        this._helper = _helper;
     }
-    navigateToProfile(id) {
-        this.onNavigateToProfile.emit(id);
+    // hacky lifecycle hook to load twitter feed
+    ngAfterViewInit() {
+        this._helper.initTwitterWidget();
     }
 };
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Input */])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"]) === "function" && _a || Object)
-], PoliticianTable.prototype, "politicians", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
-    __metadata("design:type", Object)
-], PoliticianTable.prototype, "onNavigateToProfile", void 0);
-PoliticianTable = __decorate([
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__model_politician_model__["a" /* PoliticianModel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__model_politician_model__["a" /* PoliticianModel */]) === "function" && _a || Object)
+], Profil.prototype, "politicanModel", void 0);
+Profil = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
-        selector: 'politician-table',
-        template: __webpack_require__("../../../../../src/app/pages/party/responsiveTable/politician-table.html"),
-        styles: [__webpack_require__("../../../../../src/app/pages/party/responsiveTable/politician-table.scss")],
+        selector: 'profil',
+        styles: [__webpack_require__("../../../../../src/app/pages/politician/profil/profil.scss")],
+        template: __webpack_require__("../../../../../src/app/pages/politician/profil/profil.html"),
     }),
-    __metadata("design:paramtypes", [])
-], PoliticianTable);
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__util_helper_service__["a" /* Helper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__util_helper_service__["a" /* Helper */]) === "function" && _b || Object])
+], Profil);
 
-var _a;
-//# sourceMappingURL=politician-table.component.js.map
+var _a, _b;
+//# sourceMappingURL=profil.component.js.map
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/party/responsiveTable/politician-table.html":
+/***/ "../../../../../src/app/pages/politician/profil/profil.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"vertical-scroll\">\r\n  <table class=\"table\">\r\n    <tr>\r\n      <th width=\"200px\">Vorname</th>\r\n      <th width=\"200px\">Nachname</th>\r\n      <th width=\"200px\">Kanton</th>\r\n      <th width=\"auto\">Bild</th>      \r\n    </tr>\r\n    <tr *ngFor=\"let p of politicians | async\" (click)=\"navigateToProfile(p.id)\">\r\n      <td class=\"table-id\">{{ p.firstName }}</td>\r\n      <td>{{ p.lastName }}</td>\r\n      <td>{{ p.cantonName }}</td>\r\n      <td><img class=\"imageProfil\" src=\"https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{p.number}}.jpg\"/></td>\r\n    </tr>\r\n  </table>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n\r\n  <div class=\"col-md-4 profile-picture\">\r\n      <img src=\"{{politicanModel?.imageUrl}}\" />\r\n  </div>\r\n\r\n  <div class=\"col-md-8\">\r\n    <div class=\"row\">\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputCouncil\">Rat</label>\r\n          <label for=\"inputCouncil\" class=\"form-control\">{{politicanModel?.council}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputDateOfBirth\">Geboren</label>\r\n          <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.dateOfBirth}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputCanton\">Kanton</label>\r\n          <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.canton}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputJob\">Beruf</label>\r\n          <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.job}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputParty\">Partei</label>\r\n          <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.party}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputAddress\">Wohnadresse</label>\r\n          <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.address}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputMail\">Email</label>\r\n          <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.email}}</label>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"col-sm-6\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputWebpage\">Webseite</label>\r\n\r\n          <div *ngIf=\"politicanModel?.webpage == '-'\">\r\n            <label for=\"inputDateOfBirth\" class=\"form-control\">{{politicanModel?.webpage}}</label>\r\n          </div>\r\n\r\n          <div *ngIf=\"politicanModel?.webpage != '-'\">\r\n            <label class=\"form-control\">\r\n                  <a class=\"aform-control\" href=\"{{politicanModel?.webpageUrl}}\" target=\"_blank\">{{politicanModel?.webpage}}</a>\r\n            </label>\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
-/***/ "../../../../../src/app/pages/party/responsiveTable/politician-table.scss":
+/***/ "../../../../../src/app/pages/politician/profil/profil.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -262,7 +219,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".vertical-scroll {\n  max-height: none; }\n\n.table > tbody > tr:not(:first-child):hover {\n  background-color: rgba(0, 0, 0, 0.1); }\n\n.imageProfil {\n  height: 75px;\n  width: 75px;\n  padding: 5px; }\n", ""]);
+exports.push([module.i, ".form-control {\n  border: none; }\n\n.profile-picture {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\nimg {\n  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.15);\n  border-radius: 7px;\n  margin: 15px;\n  display: block;\n  vertical-align: middle;\n  max-width: 200px;\n  height: auto;\n  width: 100%; }\n", ""]);
 
 // exports
 

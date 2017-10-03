@@ -22,12 +22,12 @@ var map = {
 	"./party/party.module": [
 		"../../../../../src/app/pages/party/party.module.ts",
 		0,
-		3
+		2
 	],
 	"./politician/politician.module": [
 		"../../../../../src/app/pages/politician/politician.module.ts",
 		0,
-		2
+		3
 	]
 };
 function webpackAsyncContext(req) {
@@ -749,7 +749,7 @@ const MAPPING = [
         'name': 'Hans-Ulrich Bigler',
         'number': 3110,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -757,7 +757,7 @@ const MAPPING = [
         'personId': 4215,
         'name': 'Hansjörg Brunner',
         'number': 3116,
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -811,7 +811,7 @@ const MAPPING = [
         'name': 'Philippe Nantermod',
         'number': 3088,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '385293664',
@@ -927,7 +927,7 @@ const MAPPING = [
         'name': 'Philippe Bauer',
         'number': 3059,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -954,7 +954,7 @@ const MAPPING = [
         'name': 'Martin Bäumle',
         'number': 2585,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': null,
@@ -972,7 +972,7 @@ const MAPPING = [
         'name': 'Kathrin Bertschy',
         'number': 3016,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': '743779500341792768',
@@ -1250,7 +1250,7 @@ const MAPPING = [
         'name': 'Regine Sauter',
         'number': 3103,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1286,7 +1286,7 @@ const MAPPING = [
         'name': 'Thierry Burkart',
         'number': 3065,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1313,7 +1313,7 @@ const MAPPING = [
         'name': 'Beat Walti',
         'number': 3044,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1340,7 +1340,7 @@ const MAPPING = [
         'name': 'Beat Flach',
         'number': 2765,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': '353662120',
@@ -1376,7 +1376,7 @@ const MAPPING = [
         'name': 'Benoît Genecand',
         'number': 3073,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1403,7 +1403,7 @@ const MAPPING = [
         'name': 'Giovanni Merlini',
         'number': 3042,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '603431624',
@@ -1412,7 +1412,7 @@ const MAPPING = [
         'name': 'Damian Müller',
         'number': 3108,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '2991955251',
@@ -1448,7 +1448,7 @@ const MAPPING = [
         'name': 'Walter Müller',
         'number': 2617,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1466,7 +1466,7 @@ const MAPPING = [
         'name': 'Bruno Pezzatti',
         'number': 2784,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1484,7 +1484,7 @@ const MAPPING = [
         'name': 'Christian Wasserfallen',
         'number': 2715,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '485885985',
@@ -1547,7 +1547,7 @@ const MAPPING = [
         'name': 'Albert Vitali',
         'number': 2761,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '2536865558',
@@ -1610,7 +1610,7 @@ const MAPPING = [
         'name': 'Matthias Samuel Jauslin',
         'number': 3109,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1637,7 +1637,7 @@ const MAPPING = [
         'name': 'Philipp Müller',
         'number': 2616,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '780565772',
@@ -1664,7 +1664,7 @@ const MAPPING = [
         'name': 'Frédéric Borloz',
         'number': 3061,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1673,7 +1673,7 @@ const MAPPING = [
         'name': 'Jacques Bourgeois',
         'number': 2675,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '244437560',
@@ -1718,7 +1718,7 @@ const MAPPING = [
         'name': 'Marcel Dobler',
         'number': 3070,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1745,7 +1745,7 @@ const MAPPING = [
         'name': 'Josef Dittli',
         'number': 3052,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '888380018673545216',
@@ -1772,7 +1772,7 @@ const MAPPING = [
         'name': 'Olivier Feller',
         'number': 2789,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1817,7 +1817,7 @@ const MAPPING = [
         'name': 'Hermann Hess',
         'number': 3079,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '21436172',
@@ -1880,7 +1880,7 @@ const MAPPING = [
         'name': 'Hans Wicki',
         'number': 3054,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1889,7 +1889,7 @@ const MAPPING = [
         'name': 'Verena Diener Lenz',
         'number': 2044,
         'council': 'SR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': null,
@@ -1907,7 +1907,7 @@ const MAPPING = [
         'name': 'Hans-Peter Portmann',
         'number': 3043,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '3070292500',
@@ -1916,7 +1916,7 @@ const MAPPING = [
         'name': 'Doris Fiala',
         'number': 2680,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '3290133496',
@@ -1943,7 +1943,7 @@ const MAPPING = [
         'name': 'Hugues Hiltpold',
         'number': 2691,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -1979,7 +1979,7 @@ const MAPPING = [
         'name': 'Karin Keller-Sutter',
         'number': 2769,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '546752881',
@@ -2006,7 +2006,7 @@ const MAPPING = [
         'name': 'Thomas Hefti',
         'number': 3041,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '2860664668',
@@ -2087,7 +2087,7 @@ const MAPPING = [
         'name': 'Olivier Français',
         'number': 2682,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '3133285757',
@@ -2114,7 +2114,7 @@ const MAPPING = [
         'name': 'Fabio Abate',
         'number': 2565,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2141,7 +2141,7 @@ const MAPPING = [
         'name': 'Isabelle Moret',
         'number': 2660,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '2881577681',
@@ -2258,7 +2258,7 @@ const MAPPING = [
         'name': 'Laurent Wehrli',
         'number': 3100,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '121068845',
@@ -2384,7 +2384,7 @@ const MAPPING = [
         'name': 'Fathi Derder',
         'number': 2788,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '45513818',
@@ -2411,7 +2411,7 @@ const MAPPING = [
         'name': 'Petra Gössi',
         'number': 3023,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2473,7 +2473,7 @@ const MAPPING = [
         'personId': 4217,
         'name': 'Rocco Cattaneo',
         'number': 3118,
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2509,7 +2509,7 @@ const MAPPING = [
         'name': 'Jürg Grossen',
         'number': 2786,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': null,
@@ -2536,7 +2536,7 @@ const MAPPING = [
         'name': 'Christian Lüscher',
         'number': 2698,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2563,7 +2563,7 @@ const MAPPING = [
         'name': 'Daniela Schneeberger',
         'number': 2766,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2572,7 +2572,7 @@ const MAPPING = [
         'name': 'Tiana Angelina Moser',
         'number': 2700,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': null,
@@ -2599,7 +2599,7 @@ const MAPPING = [
         'name': 'Felix Gutzwiller',
         'number': 2495,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2671,7 +2671,7 @@ const MAPPING = [
         'name': 'Peter Schilliger',
         'number': 3029,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '3295223895',
@@ -2680,7 +2680,7 @@ const MAPPING = [
         'name': 'Raphaël Comte',
         'number': 2741,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '93878848',
@@ -2698,7 +2698,7 @@ const MAPPING = [
         'name': 'Ruedi Noser',
         'number': 2619,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2725,7 +2725,7 @@ const MAPPING = [
         'name': 'Thomas Weibel',
         'number': 2728,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': null,
@@ -2761,7 +2761,7 @@ const MAPPING = [
         'name': 'Isabelle Chevalley',
         'number': 3604,
         'council': 'NR',
-        'party': 'glp',
+        'party': 'GLP',
     },
     {
         'id': null,
@@ -2770,7 +2770,7 @@ const MAPPING = [
         'name': 'Kurt Fluri',
         'number': 2594,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2806,7 +2806,7 @@ const MAPPING = [
         'name': 'Ignazio Cassis',
         'number': 2664,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2833,7 +2833,7 @@ const MAPPING = [
         'name': 'Martin Schmid',
         'number': 2783,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '226922317',
@@ -2842,7 +2842,7 @@ const MAPPING = [
         'name': 'Christa Markwalder',
         'number': 2614,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '40872955',
@@ -2941,7 +2941,7 @@ const MAPPING = [
         'name': 'Joachim Eder',
         'number': 2780,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': null,
@@ -2959,7 +2959,7 @@ const MAPPING = [
         'name': 'Corina Eichenberger-Walther',
         'number': 2678,
         'council': 'NR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '350243582',
@@ -2977,7 +2977,7 @@ const MAPPING = [
         'name': 'Andrea Caroni',
         'number': 2775,
         'council': 'SR',
-        'party': 'FDP-Liberale',
+        'party': 'FDP',
     },
     {
         'id': '332184640',
@@ -3025,11 +3025,7 @@ const MAPPING = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_amcharts3_amcharts_plugins_responsive_responsive_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_amcharts3_amcharts_plugins_responsive_responsive_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_amcharts3_amcharts_serial_js__ = __webpack_require__("../../../../amcharts3/amcharts/serial.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_amcharts3_amcharts_serial_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_amcharts3_amcharts_serial_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ammap3__ = __webpack_require__("../../../../ammap3/ammap/ammap.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ammap3___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ammap3__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ammap3_ammap_maps_js_worldLow__ = __webpack_require__("../../../../ammap3/ammap/maps/js/worldLow.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ammap3_ammap_maps_js_worldLow___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ammap3_ammap_maps_js_worldLow__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__baAmChartTheme_service__ = __webpack_require__("../../../../../src/app/theme/components/baAmChart/baAmChartTheme.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__baAmChartTheme_service__ = __webpack_require__("../../../../../src/app/theme/components/baAmChart/baAmChartTheme.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaAmChart; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3040,8 +3036,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
-
 
 
 
@@ -3084,7 +3078,7 @@ __decorate([
     __metadata("design:type", String)
 ], BaAmChart.prototype, "baAmChartClass", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", Object)
 ], BaAmChart.prototype, "onChartReady", void 0);
 __decorate([
@@ -3096,9 +3090,9 @@ BaAmChart = __decorate([
         selector: 'ba-am-chart',
         template: __webpack_require__("../../../../../src/app/theme/components/baAmChart/baAmChart.html"),
         styles: [__webpack_require__("../../../../../src/app/theme/components/baAmChart/baAmChart.scss")],
-        providers: [__WEBPACK_IMPORTED_MODULE_7__baAmChartTheme_service__["a" /* BaAmChartThemeService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_5__baAmChartTheme_service__["a" /* BaAmChartThemeService */]],
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__baAmChartTheme_service__["a" /* BaAmChartThemeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__baAmChartTheme_service__["a" /* BaAmChartThemeService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__baAmChartTheme_service__["a" /* BaAmChartThemeService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__baAmChartTheme_service__["a" /* BaAmChartThemeService */]) === "function" && _b || Object])
 ], BaAmChart);
 
 var _a, _b;
@@ -3121,7 +3115,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".ammapAlert {\n  display: table-cell;\n  vertical-align: middle;\n  text-align: center;\n  font-family: verdana,helvetica,arial,sans-serif;\n  font-size: 12px;\n  color: #CC0000; }\n\n.ammapDescriptionWindow {\n  font-size: 11px;\n  font-family: verdana,helvetica,arial,sans-serif;\n  background-color: #FFFFFF;\n  border-style: solid;\n  border-color: #DADADA;\n  border-width: 1px;\n  color: #000000;\n  padding: 8px;\n  box-sizing: border-box; }\n\n.ammapDescriptionTitle {\n  font-size: 12px;\n  font-weight: bold;\n  font-family: verdana,helvetica,arial,sans-serif;\n  padding-bottom: 5px; }\n\n.ammapObjectList ul {\n  padding-left: 20px;\n  list-style: square outside;\n  color: #999999;\n  font-family: verdana,helvetica,arial,sans-serif;\n  font-size: 12px; }\n\n.ammapObjectList ul ul {\n  padding-left: 14px; }\n\n.ammapObjectList a {\n  color: #000000; }\n\n.ammapObjectList a {\n  color: #000000;\n  text-decoration: none;\n  display: block;\n  padding: 2px; }\n\n.ammapObjectList a:hover {\n  color: #CC0000;\n  text-decoration: none;\n  background: #FFFFFF;\n  cursor: pointer;\n  display: block; }\n\n.ammapDescriptionText {\n  overflow: auto; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -3336,7 +3330,7 @@ let BaAmChartThemeService = class BaAmChartThemeService {
 };
 BaAmChartThemeService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__theme__["d" /* BaThemeConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__theme__["d" /* BaThemeConfigProvider */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__theme__["c" /* BaThemeConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__theme__["c" /* BaThemeConfigProvider */]) === "function" && _a || Object])
 ], BaAmChartThemeService);
 
 var _a;
@@ -3406,13 +3400,13 @@ __decorate([
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ElementRef */]) === "function" && _a || Object)
 ], BaBackTop.prototype, "_selector", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('click'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* HostListener */])('click'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Boolean)
 ], BaBackTop.prototype, "_onClick", null);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('window:scroll'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* HostListener */])('window:scroll'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -3572,11 +3566,11 @@ let BaCardBlur = class BaCardBlur {
     }
 };
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* HostBinding */])('class.card-blur'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* HostBinding */])('class.card-blur'),
     __metadata("design:type", Boolean)
 ], BaCardBlur.prototype, "isEnabled", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('window:resize'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* HostListener */])('window:resize'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -3586,7 +3580,7 @@ BaCardBlur = __decorate([
         selector: '[baCardBlur]',
         providers: [__WEBPACK_IMPORTED_MODULE_2__baCardBlurHelper_service__["a" /* BaCardBlurHelper */]],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__theme__["d" /* BaThemeConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__theme__["d" /* BaThemeConfigProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__baCardBlurHelper_service__["a" /* BaCardBlurHelper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__baCardBlurHelper_service__["a" /* BaCardBlurHelper */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ElementRef */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__theme__["c" /* BaThemeConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__theme__["c" /* BaThemeConfigProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__baCardBlurHelper_service__["a" /* BaCardBlurHelper */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__baCardBlurHelper_service__["a" /* BaCardBlurHelper */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* ElementRef */]) === "function" && _c || Object])
 ], BaCardBlur);
 
 var _a, _b, _c;
@@ -3741,7 +3735,7 @@ BaCheckbox = __decorate([
         template: __webpack_require__("../../../../../src/app/theme/components/baCheckbox/baCheckbox.html"),
         providers: [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* NgModel */]],
     }),
-    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Self */])()),
+    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Self */])()),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* NgModel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* NgModel */]) === "function" && _a || Object])
 ], BaCheckbox);
 
@@ -3954,7 +3948,7 @@ __decorate([
     __metadata("design:type", Number)
 ], BaMenu.prototype, "menuHeight", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", Object)
 ], BaMenu.prototype, "expandMenu", void 0);
 BaMenu = __decorate([
@@ -3963,7 +3957,7 @@ BaMenu = __decorate([
         template: __webpack_require__("../../../../../src/app/theme/components/baMenu/baMenu.html"),
         styles: [__webpack_require__("../../../../../src/app/theme/components/baMenu/baMenu.scss")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services__["a" /* BaMenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services__["a" /* BaMenuService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__global_state__["a" /* GlobalState */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__global_state__["a" /* GlobalState */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services__["a" /* BaMenuService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services__["a" /* BaMenuService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__global_state__["a" /* GlobalState */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__global_state__["a" /* GlobalState */]) === "function" && _c || Object])
 ], BaMenu);
 
 var _a, _b, _c;
@@ -4036,11 +4030,11 @@ __decorate([
     __metadata("design:type", Boolean)
 ], BaMenuItem.prototype, "child", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", Object)
 ], BaMenuItem.prototype, "itemHover", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", Object)
 ], BaMenuItem.prototype, "toggleSubMenu", void 0);
 BaMenuItem = __decorate([
@@ -4166,7 +4160,7 @@ BaMultiCheckbox = __decorate([
         styles: [__webpack_require__("../../../../../src/app/theme/components/baMultiCheckbox/baMultiCheckbox.scss")],
         providers: [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* NgModel */]],
     }),
-    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_15" /* Self */])()),
+    __param(0, __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Self */])()),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* NgModel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["e" /* NgModel */]) === "function" && _a || Object])
 ], BaMultiCheckbox);
 
@@ -4249,11 +4243,6 @@ let BaPageTop = class BaPageTop {
     startSearch() {
         this.navigateToTarget();
     }
-    onKeyup($event) {
-        if ($event.code === 'Enter') {
-            this.navigateToTarget();
-        }
-    }
     navigateToTarget() {
         if (this.parties.includes(this.searchObject)) {
             this.router.navigate(['/pages/party/' + this.searchObject]);
@@ -4280,7 +4269,7 @@ BaPageTop = __decorate([
         template: __webpack_require__("../../../../../src/app/theme/components/baPageTop/baPageTop.html"),
         styles: [__webpack_require__("../../../../../src/app/theme/components/baPageTop/baPageTop.scss")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__global_state__["a" /* GlobalState */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__global_state__["a" /* GlobalState */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__global_state__["a" /* GlobalState */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__global_state__["a" /* GlobalState */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _b || Object])
 ], BaPageTop);
 
 var _a, _b;
@@ -4291,7 +4280,7 @@ var _a, _b;
 /***/ "../../../../../src/app/theme/components/baPageTop/baPageTop.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-top clearfix\" baScrollPosition maxHeight=\"50\" (scrollChange)=\"scrolledChanged($event)\"\r\n     [ngClass]=\"{scrolled: isScrolled}\">\r\n  <a routerLink=\"/pages/dashboard\" class=\"al-logo clearfix\"><span>Swiss-</span>Polytics</a>\r\n  <a href (click)=\"toggleMenu()\" class=\"collapse-menu-link ion-navicon\"></a>\r\n\r\n  <div class=\"search\">\r\n    <i class=\"ion-ios-search-strong\" (click)=\"startSearch($event)\"></i>\r\n    <ng2-completer class=\"completer-input\"\r\n                   [(ngModel)]=\"searchObject\"\r\n                   [datasource]=\"searchData\"\r\n                   [minSearchLength]=\"0\"\r\n                   [placeholder]=\"'Suche Politiker oder Partei'\"\r\n                   [matchClass]=\"'match'\"\r\n                   [autofocus]=\"true\"\r\n                   (keyup)=\"onKeyup($event)\">\r\n    </ng2-completer>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"page-top clearfix\" baScrollPosition maxHeight=\"50\" (scrollChange)=\"scrolledChanged($event)\"\r\n     [ngClass]=\"{scrolled: isScrolled}\">\r\n  <a routerLink=\"/pages/dashboard\" class=\"al-logo clearfix\"><span>Swiss-</span>Polytics</a>\r\n  <a href (click)=\"toggleMenu()\" class=\"collapse-menu-link ion-navicon\"></a>\r\n\r\n  <div class=\"search\">\r\n    <i class=\"ion-ios-search-strong\" (click)=\"startSearch($event)\"></i>\r\n    <ng2-completer class=\"completer-input\"\r\n                   [(ngModel)]=\"searchObject\"\r\n                   [datasource]=\"searchData\"\r\n                   [minSearchLength]=\"0\"\r\n                   [placeholder]=\"'Suche Politiker oder Partei'\"\r\n                   [matchClass]=\"'match'\"\r\n                   [autofocus]=\"true\"\r\n                   (selected)=\"startSearch()\">\r\n    </ng2-completer>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -4385,11 +4374,11 @@ let BaSidebar = class BaSidebar {
         this.menuHeight = this._elementRef.nativeElement.childNodes[0].clientHeight - 84;
     }
     _shouldMenuCollapse() {
-        return window.innerWidth <= __WEBPACK_IMPORTED_MODULE_2__theme__["f" /* layoutSizes */].resWidthCollapseSidebar;
+        return window.innerWidth <= __WEBPACK_IMPORTED_MODULE_2__theme__["e" /* layoutSizes */].resWidthCollapseSidebar;
     }
 };
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('window:resize'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* HostListener */])('window:resize'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -4518,11 +4507,11 @@ __decorate([
     __metadata("design:type", Number)
 ], BaScrollPosition.prototype, "maxHeight", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Output */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* Output */])(),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* EventEmitter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* EventEmitter */]) === "function" && _a || Object)
 ], BaScrollPosition.prototype, "scrollChange", void 0);
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* HostListener */])('window:scroll'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* HostListener */])('window:scroll'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -4644,7 +4633,7 @@ let BaThemeRun = class BaThemeRun {
         this._addClass(this._baConfig.get().theme.name);
     }
     _assignMobile() {
-        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__theme__["e" /* isMobile */])()) {
+        if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__theme__["d" /* isMobile */])()) {
             this._addClass('mobile');
         }
     }
@@ -4654,14 +4643,14 @@ let BaThemeRun = class BaThemeRun {
     }
 };
 __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* HostBinding */])('class'),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* HostBinding */])('class'),
     __metadata("design:type", String)
 ], BaThemeRun.prototype, "classesString", void 0);
 BaThemeRun = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* Directive */])({
         selector: '[baThemeRun]',
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__theme__["d" /* BaThemeConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__theme__["d" /* BaThemeConfigProvider */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__theme__["c" /* BaThemeConfigProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__theme__["c" /* BaThemeConfigProvider */]) === "function" && _a || Object])
 ], BaThemeRun);
 
 var _a;
@@ -4705,11 +4694,10 @@ var _a;
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__services__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__theme_constants__ = __webpack_require__("../../../../../src/app/theme/theme.constants.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__theme_constants__["b"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_1__theme_constants__["a"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_1__theme_constants__["c"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_1__theme_constants__["d"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__theme_constants__["c"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_1__theme_constants__["d"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__theme_configProvider__ = __webpack_require__("../../../../../src/app/theme/theme.configProvider.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__theme_configProvider__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_2__theme_configProvider__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__theme_config__ = __webpack_require__("../../../../../src/app/theme/theme.config.ts");
 /* unused harmony namespace reexport */
 
@@ -5009,8 +4997,8 @@ BaImageLoaderService = __decorate([
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda__ = __webpack_require__("../../../../ramda/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ramda___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ramda__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__ = __webpack_require__("../../../../rxjs/BehaviorSubject.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_BehaviorSubject__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaMenuService; });
@@ -5039,7 +5027,7 @@ let BaMenuService = class BaMenuService {
      * @param {Routes} routes Type compatible with app.menu.ts
      */
     updateMenuByRoutes(routes) {
-        const convertedRoutes = this.convertRoutesToMenus(__WEBPACK_IMPORTED_MODULE_2_lodash__["cloneDeep"](routes));
+        const convertedRoutes = this.convertRoutesToMenus(__WEBPACK_IMPORTED_MODULE_2_ramda__["clone"](routes));
         this.menuItems.next(convertedRoutes);
     }
     convertRoutesToMenus(routes) {
@@ -5135,7 +5123,7 @@ let BaMenuService = class BaMenuService {
 };
 BaMenuService = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object])
 ], BaMenuService);
 
 var _a;
@@ -5498,7 +5486,6 @@ const layoutPaths = {
     images: {
         root: IMAGES_ROOT,
         profile: IMAGES_ROOT + 'app/profile/',
-        amMap: 'assets/img/theme/vendor/ammap/',
         amChart: 'assets/img/theme/vendor/amcharts/dist/amcharts/images/',
     },
 };
