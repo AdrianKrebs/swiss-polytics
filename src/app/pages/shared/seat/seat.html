@@ -1,5 +1,5 @@
 <ng-template #popContent>
-  <div class="container" *ngIf="selectedSeat.personId > 0">
+  <div class="container" *ngIf="selectedSeat?.personId > 0">
     <p>{{selectedSeat?.name}}</p>
     <div class="profile-img">
     <img src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg">
@@ -7,7 +7,7 @@
     <button class="btn btn-primary confirm-btn" (mousedown)="navigateToProfile()" >Profil</button>
   </div>
 
-  <div class="container" *ngIf="selectedSeat.personId === '#NV'">
+  <div class="container" *ngIf="selectedSeat?.personId === '#NV'">
       <p>Leerer Sitz</p>
     </div>
 

@@ -74,7 +74,7 @@ export class Helper {
 
   public reInitTwitterWidget(url) {
     this.destroyWidget();
-    jQuery('.feed').append('<a class="twitter-timeline" href="' + url + ' target="_blank""></a>');
+    jQuery('.feed').append('<a class="twitter-timeline" href="' + url + '"></a>');
     this.initTwitterWidget();
   }
 

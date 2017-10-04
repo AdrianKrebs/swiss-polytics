@@ -3,6 +3,9 @@
     <div *ngIf="politician?.twitterId">
       <tile [politicianId]="politician.twitterId"></tile>
     </div>
+    <div class="alert alert-info" role="alert" *ngIf="hasNoTwitterAccount">
+      Dieser Politiker besitzt keinen Twitter Account
+    </div>
     <div *ngIf="politician?.twitterId">
       <div class="row" *ngIf="politician">
         <div class="col-md-6"><app-sentiments [politicianId]="politician.twitterId"></app-sentiments></div>

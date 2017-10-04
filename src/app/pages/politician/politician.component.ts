@@ -15,6 +15,7 @@ export class Politician implements OnInit, AfterViewInit {
 
   politician$: Observable<PoliticianModel>;
   politician: PoliticianModel;
+  hasNoTwitterAccount: boolean;
   private selectedPoliticianId: Number;
 
   constructor(private service: ParlamentService, private helper: Helper, private route: ActivatedRoute) {
@@ -32,6 +33,7 @@ export class Politician implements OnInit, AfterViewInit {
         if (twitterData) {
           p.twitterName = twitterData['twitterName'];
           p.twitterId = twitterData['id'];
+          this.hasNoTwitterAccount = !p.twitterName && !p.twitterId;
         }
         this.helper.initTwitterWidget();
         return p;
