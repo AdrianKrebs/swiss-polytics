@@ -43,7 +43,8 @@ export class SentimentsComponent implements OnInit, OnChanges {
   }
 
   private loadData() {
-    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((sentiments: RawSentiment[]) => {
+    this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).
+    subscribe((sentiments: RawSentiment[]) => {
       if (this.chart) {
         this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
         this.chart.validateData();
@@ -57,9 +58,6 @@ export class SentimentsComponent implements OnInit, OnChanges {
 
   chartReady(chart) {
     this.chart = chart;
-    // let legend = new AmCharts.AmLegend();
-    // legend.useMarkerColorForLabels = true;
-    // this.chart.addLegend(legend);
   }
 
   private getData() {

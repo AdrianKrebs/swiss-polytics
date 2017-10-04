@@ -4,3 +4,8 @@
                [baAmChartConfiguration]="mentions"></ba-am-chart>
   </ba-card>
 </div>
+<div *ngIf="isChartEmpty">
+  <div class="alert alert-info" role="alert">
+    Keine Erwähnungen aufgezeichnet
+  </div>
+</div>
