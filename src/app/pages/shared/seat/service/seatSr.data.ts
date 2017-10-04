@@ -84,7 +84,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 11,
         'seatId' : 'SR001',
         'd' : 'M289.9,377.4h26v30h-26V377.4z',
-        'personId' : 466,
+        'personId' : 3831,
         'rat' : 'SR',
         },
         {
@@ -332,7 +332,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 1,
         'seatId' : 'SR032',
         'd' : 'M0,240.4c0.2-9.1,0.8-18.1,1.8-27.1l29.8,3.9c-0.8,7.7-1.3,15.4-1.5,23.2L0,240.4L0,240.4z',
-        'personId' : 0,
+        'personId' : 466,
         'rat' : 'SR',
         },
         {
