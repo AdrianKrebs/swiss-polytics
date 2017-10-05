@@ -33,7 +33,6 @@ export class Tile implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.loadTileData();
-
   }
 
   ngOnChanges(changes: SimpleChanges) {

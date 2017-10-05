@@ -26,7 +26,8 @@
       <div class="description trending">
         <div translate>Trending heute</div>
         <div *ngFor="let topic of trendingTopics">
-          <div class="description-stats"><a href="https://twitter.com/search?q=%23{{topic}}" target="_blank">#{{topic}}</a></div>
+            <div *ngIf="topic && topic.length < 13" class="description-stats"><a href="https://twitter.com/search?q=%23{{topic}}" target="_blank">#{{topic}}</a></div>
+            <div *ngIf="topic && topic.length > 13" class="description-stats-min"><a href="https://twitter.com/search?q=%23{{topic}}" target="_blank">#{{topic}}</a></div>
         </div>
       </div>
       <i class="chart-icon fa fa-arrow-up fa-5x"></i>
