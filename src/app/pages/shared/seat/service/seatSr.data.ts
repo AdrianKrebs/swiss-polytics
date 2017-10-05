@@ -4,7 +4,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 1,
         'seatId' : 'BR001',
         'd' : 'M130.5,341.5l-25.9-2.3l2.6-29.9l25.9,2.3L130.5,341.5z',
-        'personId' : 1,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -12,7 +12,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 2,
         'seatId' : 'BR002',
         'd' : 'M174.4,345.3l-25.9-2.3l2.6-29.9l25.9,2.3L174.4,345.3z',
-        'personId' : 2,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -20,7 +20,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 3,
         'seatId' : 'BR003',
         'd' : 'M195,317l25.9,2.3l-2.6,29.9l-25.9-2.3L195,317z',
-        'personId' : 3,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -44,7 +44,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 6,
         'seatId' : 'BR004',
         'd' : 'M415.9,346.9l-25.9,2.3l-2.6-29.9l25.9-2.3L415.9,346.9z',
-        'personId' : 0,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -52,7 +52,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 7,
         'seatId' : 'BR005',
         'd' : 'M431.2,315.5l25.9-2.3l2.6,29.9l-25.9,2.3L431.2,315.5z',
-        'personId' : 0,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -60,7 +60,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 8,
         'seatId' : 'BR006',
         'd' : 'M475,311.6l25.9-2.3l2.6,29.9l-25.9,2.3L475,311.6z',
-        'personId' : 0,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -68,7 +68,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 9,
         'seatId' : '-',
         'd' : 'M151.1,371.4l25.9,2.3l-2.6,29.9l-25.9-2.3L151.1,371.4z',
-        'personId' : 0,
+        'personId' : '#NV',
         'rat' : 'Protokollführer',
         },
         {
@@ -76,7 +76,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 10,
         'seatId' : '-',
         'd' : 'M195,375.3l25.9,2.3l-2.6,29.9l-25.9-2.3L195,375.3z',
-        'personId' : 0,
+        'personId' : '#NV',
         'rat' : 'Ratssekretariat',
         },
         {
@@ -100,7 +100,7 @@ export const SEATSSR: any[] = [
         'seatNumber' : 13,
         'seatId' : '-',
         'd' : 'M431.2,373.7l25.9-2.3l2.6,29.9l-25.9,2.3L431.2,373.7z',
-        'personId' : 0,
+        'personId' : '#NV',
         'rat' : 'Amtliches Bulletin',
         },
         {

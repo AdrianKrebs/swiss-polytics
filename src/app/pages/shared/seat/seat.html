@@ -1,5 +1,5 @@
 <ng-template #popContent>
-  <div class="container" *ngIf="selectedSeat?.personId > 0">
+  <div class="container" *ngIf="selectedSeat?.personId !== '#NV'">
     <p>{{selectedSeat?.name}}</p>
     <div class="profile-img">
     <img src="https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg">

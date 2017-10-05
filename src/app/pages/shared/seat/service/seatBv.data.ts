@@ -52,7 +52,7 @@ export const SEATSBV: any[] = [
         'seatNumber' : 7,
         'seatId' : 'BR001',
         'd' : 'M260.1,571.7l19.8,2.4l-2.7,21.8l-19.9-2.4L260.1,571.7z',
-        'personId' : 1,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -60,7 +60,7 @@ export const SEATSBV: any[] = [
         'seatNumber' : 8,
         'seatId' : 'BR002',
         'd' : 'M292.9,575.8l19.9,2.4l-2.7,21.8l-19.9-2.4L292.9,575.8z',
-        'personId' : 2,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
@@ -68,7 +68,7 @@ export const SEATSBV: any[] = [
         'seatNumber' : 9,
         'seatId' : 'BR003',
         'd' : 'M325.6,579.8l19.9,2.4l-2.7,21.8l-19.9-2.4L325.6,579.8z',
-        'personId' : 3,
+        'personId' : '#NV',
         'rat' : 'BR',
         },
         {
