@@ -44,6 +44,7 @@ let Politician = class Politician {
             if (twitterData) {
                 p.twitterName = twitterData['twitterName'];
                 p.twitterId = twitterData['id'];
+                this.hasNoTwitterAccount = !p.twitterName && !p.twitterId;
             }
             this.helper.initTwitterWidget();
             return p;
@@ -75,7 +76,7 @@ var _a, _b, _c;
 /***/ "../../../../../src/app/pages/politician/politician.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"politician?.twitterId\">\r\n      <tile [politicianId]=\"politician.twitterId\"></tile>\r\n    </div>\r\n    <div *ngIf=\"politician?.twitterId\">\r\n      <div class=\"row\" *ngIf=\"politician\">\r\n        <div class=\"col-md-6\"><app-sentiments [politicianId]=\"politician.twitterId\"></app-sentiments></div>\r\n        <div class=\"col-md-6\"><app-mentions [politicianId]=\"politician.twitterId\"></app-mentions></div>\r\n      </div>\r\n    </div>\r\n    <ba-card class=\"col-xlg-6 col-lg-6\" cardTitle=\"{{politician?.firstLastName}}\">\r\n      <profil [politicanModel]=\"politician\"></profil>\r\n    </ba-card>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div *ngIf=\"politician?.twitterName\">\r\n      <feed [twitterName]=\"politician.twitterName\"></feed>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"politician?.twitterId\">\r\n      <tile [politicianId]=\"politician.twitterId\"></tile>\r\n    </div>\r\n    <div class=\"alert alert-info\" role=\"alert\" *ngIf=\"hasNoTwitterAccount\">\r\n      Dieser Politiker besitzt keinen Twitter Account\r\n    </div>\r\n    <div *ngIf=\"politician?.twitterId\">\r\n      <div class=\"row\" *ngIf=\"politician\">\r\n        <div class=\"col-md-6\"><app-sentiments [politicianId]=\"politician.twitterId\"></app-sentiments></div>\r\n        <div class=\"col-md-6\"><app-mentions [politicianId]=\"politician.twitterId\"></app-mentions></div>\r\n      </div>\r\n    </div>\r\n    <ba-card class=\"col-xlg-6 col-lg-6\" cardTitle=\"{{politician?.firstLastName}}\">\r\n      <profil [politicanModel]=\"politician\"></profil>\r\n    </ba-card>\r\n  </div>\r\n  <div class=\"col-md-4\">\r\n    <div *ngIf=\"politician?.twitterName\">\r\n      <feed [twitterName]=\"politician.twitterName\"></feed>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 

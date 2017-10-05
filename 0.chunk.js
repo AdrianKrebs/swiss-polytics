@@ -194,7 +194,7 @@ MentionsTransformerService = __decorate([
 /***/ "../../../../../src/app/pages/shared/diagrams/mentions/mentions.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!isChartEmpty\">\r\n  <ba-card  class=\"col-md-6\" cardTitle=\"Erwähnungen\">\r\n  <ba-am-chart baAmChartClass=\"dashboard-line-chart\" (onChartReady)=\"chartReady($event)\"\r\n               [baAmChartConfiguration]=\"mentions\"></ba-am-chart>\r\n  </ba-card>\r\n</div>\r\n"
+module.exports = "<div *ngIf=\"!isChartEmpty\">\r\n  <ba-card  class=\"col-md-6\" cardTitle=\"Erwähnungen\">\r\n  <ba-am-chart baAmChartClass=\"dashboard-line-chart\" (onChartReady)=\"chartReady($event)\"\r\n               [baAmChartConfiguration]=\"mentions\"></ba-am-chart>\r\n  </ba-card>\r\n</div>\r\n<div *ngIf=\"isChartEmpty\">\r\n  <div class=\"alert alert-info\" role=\"alert\">\r\n    Keine Erwähnungen aufgezeichnet\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -503,7 +503,7 @@ SentimentsTransformerService = __decorate([
 /***/ "../../../../../src/app/pages/shared/diagrams/sentiments/sentiments.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!isChartEmpty\">\r\n  <ba-card class=\"col-md-6\" cardTitle=\"Stimmung\">\r\n    <ba-am-chart baAmChartClass=\"dashboard-line-chart\" (onChartReady)=\"chartReady($event)\"\r\n                 [baAmChartConfiguration]=\"sentiments\"></ba-am-chart>\r\n  </ba-card>\r\n</div>\r\n"
+module.exports = "<div *ngIf=\"!isChartEmpty\">\r\n  <ba-card class=\"col-md-6\" cardTitle=\"Stimmung\">\r\n    <ba-am-chart baAmChartClass=\"dashboard-line-chart\" (onChartReady)=\"chartReady($event)\"\r\n                 [baAmChartConfiguration]=\"sentiments\"></ba-am-chart>\r\n  </ba-card>\r\n</div>\r\n<div *ngIf=\"isChartEmpty\">\r\n<div class=\"alert alert-info\" role=\"alert\">\r\n  Keine Stimmungen aufgezeichnet\r\n</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -568,7 +568,8 @@ let SentimentsComponent = class SentimentsComponent {
         }
     }
     loadData() {
-        this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).subscribe((sentiments) => {
+        this.sentimentDataService.getSentiments(this.queryHelper.createQueryString(this.party, this.politicianId)).
+            subscribe((sentiments) => {
             if (this.chart) {
                 this.chart.dataProvider = this.sentimentTransformerService.orderedSumPerDay(sentiments);
                 this.chart.validateData();
@@ -581,9 +582,6 @@ let SentimentsComponent = class SentimentsComponent {
     }
     chartReady(chart) {
         this.chart = chart;
-        // let legend = new AmCharts.AmLegend();
-        // legend.useMarkerColorForLabels = true;
-        // this.chart.addLegend(legend);
     }
     getData() {
         const layoutColors = this.baConfig.get().colors;
@@ -959,7 +957,7 @@ var _a, _b, _c, _d, _e, _f;
 /***/ "../../../../../src/app/pages/shared/seat/seat.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #popContent>\r\n  <div class=\"container\">\r\n    <p>{{selectedSeat?.name}}</p>\r\n    <div class=\"profile-img\">\r\n    <img src=\"https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg\">\r\n    </div>\r\n    <button class=\"btn btn-primary confirm-btn\" (mousedown)=\"navigateToProfile()\" >Profil</button>\r\n  </div>\r\n</ng-template>\r\n<div class=\"svg-container\">\r\n  <svg id=\"svgId\" currentScale=\"1\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" [attr.viewBox]=\"viewbox\">\r\n    <g *ngFor=\"let seat of seats\">\r\n      <a tabindex=\"0\"  triggers=\"focus:blur\" container=\"body\"\r\n         [ngbPopover]=\"popContent\" (click)=\"onSeatChange(seat)\">\r\n      <path [attr.class]=\"'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party\" container=\"body\" [attr.d]=\"seat.d\" />\r\n      </a>\r\n    </g>\r\n  </svg>\r\n</div>\r\n\r\n"
+module.exports = "<ng-template #popContent>\r\n  <div class=\"container\" *ngIf=\"selectedSeat?.personId > 0\">\r\n    <p>{{selectedSeat?.name}}</p>\r\n    <div class=\"profile-img\">\r\n    <img src=\"https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg\">\r\n    </div>\r\n    <button class=\"btn btn-primary confirm-btn\" (mousedown)=\"navigateToProfile()\" >Profil</button>\r\n  </div>\r\n\r\n  <div class=\"container\" *ngIf=\"selectedSeat?.personId === '#NV'\">\r\n      <p>Leerer Sitz</p>\r\n    </div>\r\n\r\n</ng-template>\r\n<div class=\"svg-container\">\r\n  <svg id=\"svgId\" currentScale=\"1\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" [attr.viewBox]=\"viewbox\">\r\n    <g *ngFor=\"let seat of seats\">\r\n      <a tabindex=\"0\"  triggers=\"focus:blur\" container=\"body\"\r\n         [ngbPopover]=\"popContent\" (click)=\"onSeatChange(seat)\">\r\n      <path [attr.class]=\"'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party\" container=\"body\" [attr.d]=\"seat.d\" />\r\n      </a>\r\n    </g>\r\n  </svg>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1499,7 +1497,7 @@ const SEATSBV = [
         'seatNumber': 9,
         'seatId': 'NR055',
         'd': 'M352.4,304.1c8.6-4.3,17.4-8,26.4-11.2l8.1,23.7c-7.9,2.8-15.6,6-23.1,9.8L352.4,304.1z',
-        'personId': '#WERT!',
+        'personId': 4146,
         'rat': 'NR',
     },
     {
@@ -2363,7 +2361,7 @@ const SEATSBV = [
         'seatNumber': 29,
         'seatId': 'NR146',
         'd': 'M686.3,187.4c6.3,4.6,12.6,9.4,18.6,14.4l-16,19.2c-5.6-4.6-11.3-9-17.2-13.3L686.3,187.4z',
-        'personId': 1139,
+        'personId': 4084,
         'rat': 'NR',
     },
     {
@@ -2371,7 +2369,7 @@ const SEATSBV = [
         'seatNumber': 30,
         'seatId': 'NR148',
         'd': 'M709.1,205.3c6,5.1,11.8,10.3,17.5,15.7l-17.4,18c-5.2-5-10.6-9.8-16.2-14.5L709.1,205.3z',
-        'personId': 4144,
+        'personId': 1139,
         'rat': 'NR',
     },
     {
@@ -2379,7 +2377,7 @@ const SEATSBV = [
         'seatNumber': 31,
         'seatId': 'NR150',
         'd': 'M749.5,244.7c5.2,5.9,10.2,11.9,15.1,18.1l-19.8,15.3c-4.5-5.7-9.1-11.2-13.9-16.7L749.5,244.7z',
-        'personId': 4172,
+        'personId': 4144,
         'rat': 'NR',
     },
     {
@@ -2387,7 +2385,7 @@ const SEATSBV = [
         'seatNumber': 32,
         'seatId': 'NR152',
         'd': 'M767.9,267c4.8,6.2,9.3,12.6,13.7,19.1L760.8,300c-4-6-8.3-11.9-12.7-17.6L767.9,267z',
-        'personId': 4065,
+        'personId': 4172,
         'rat': 'NR',
     },
     {
@@ -2395,7 +2393,7 @@ const SEATSBV = [
         'seatNumber': 33,
         'seatId': 'NR154',
         'd': 'M784.6,290.7c4.3,6.6,8.4,13.3,12.3,20.1L775.2,323c-3.6-6.3-7.4-12.5-11.3-18.5L784.6,290.7z',
-        'personId': 3890,
+        'personId': 4065,
         'rat': 'NR',
     },
     {
@@ -2403,7 +2401,7 @@ const SEATSBV = [
         'seatNumber': 34,
         'seatId': 'NR156',
         'd': 'M799.6,315.4c3.8,6.9,7.4,13.8,10.8,20.9L787.8,347c-3.1-6.5-6.4-13-10-19.3L799.6,315.4z',
-        'personId': 4167,
+        'personId': 3890,
         'rat': 'NR',
     },
     {
@@ -2411,7 +2409,7 @@ const SEATSBV = [
         'seatNumber': 35,
         'seatId': 'NR158',
         'd': 'M812.7,341.3c3.3,7.1,6.4,14.3,9.2,21.7l-23.3,9c-2.6-6.7-5.5-13.4-8.5-20L812.7,341.3z',
-        'personId': 4053,
+        'personId': 4167,
         'rat': 'NR',
     },
     {
@@ -2419,7 +2417,7 @@ const SEATSBV = [
         'seatNumber': 36,
         'seatId': 'NR160',
         'd': 'M823.9,368c2.8,7.3,5.3,14.8,7.6,22.3l-23.9,7.2c-2.1-6.9-4.5-13.8-7-20.5L823.9,368z',
-        'personId': '#NV',
+        'personId': 4053,
         'rat': 'NR',
     },
     {
@@ -2427,7 +2425,7 @@ const SEATSBV = [
         'seatNumber': 37,
         'seatId': 'NR162',
         'd': 'M833.1,395.4c2.2,7.5,4.2,15.1,6,22.8l-24.4,5.5c-1.6-7.1-3.5-14.1-5.5-21L833.1,395.4z',
-        'personId': 519,
+        'personId': 3880,
         'rat': 'NR',
     },
     {
@@ -2435,7 +2433,7 @@ const SEATSBV = [
         'seatNumber': 38,
         'seatId': 'NR164',
         'd': 'M840.2,423.5c1.7,7.7,3.1,15.4,4.3,23.1l-24.7,3.7c-1.1-7.2-2.4-14.3-4-21.3L840.2,423.5z',
-        'personId': 3902,
+        'personId': 519,
         'rat': 'NR',
     },
     {
@@ -2443,7 +2441,7 @@ const SEATSBV = [
         'seatNumber': 39,
         'seatId': 'NR166',
         'd': 'M845.3,452c1.1,7.8,2,15.6,2.6,23.4l-24.9,1.8c-0.6-7.2-1.4-14.4-2.4-21.6L845.3,452z',
-        'personId': 91,
+        'personId': 3902,
         'rat': 'NR',
     },
     {
@@ -2451,7 +2449,7 @@ const SEATSBV = [
         'seatNumber': 40,
         'seatId': 'NR168',
         'd': 'M848.3,480.8c0.5,7.8,0.8,15.7,0.9,23.5h-25c-0.1-7.2-0.3-14.5-0.8-21.7L848.3,480.8z',
-        'personId': 3872,
+        'personId': 91,
         'rat': 'NR',
     },
     {
@@ -2515,7 +2513,7 @@ const SEATSBV = [
         'seatNumber': 8,
         'seatId': 'NR181',
         'd': 'M165.5,160.4c6.1-5.1,12.4-10,18.7-14.8l14.8,20.1c-5.9,4.4-11.7,9-17.4,13.7L165.5,160.4z',
-        'personId': 4079,
+        'personId': 4097,
         'rat': 'NR',
     },
     {
@@ -2955,7 +2953,7 @@ const SEATSBV = [
         'seatNumber': 29,
         'seatId': 'SR045',
         'd': 'M604.7,22.8c5.7,1.8,11.4,3.6,17,5.6L613.2,52c-5.2-1.8-10.5-3.6-15.8-5.2L604.7,22.8z',
-        'personId': 1162,
+        'personId': 4139,
         'rat': 'SR',
     },
     {
@@ -2963,7 +2961,7 @@ const SEATSBV = [
         'seatNumber': 30,
         'seatId': 'SR019',
         'd': 'M628.2,30.8c5.6,2,11.2,4.2,16.7,6.4l-9.6,23.1c-5.1-2.1-10.3-4.1-15.5-6L628.2,30.8z',
-        'personId': 4139,
+        'personId': 4145,
         'rat': 'SR',
     },
     {
@@ -2971,7 +2969,7 @@ const SEATSBV = [
         'seatNumber': 31,
         'seatId': 'SR007',
         'd': 'M651.4,39.9c5.5,2.3,10.9,4.7,16.4,7.3l-10.7,22.6c-5-2.3-10.1-4.6-15.2-6.8L651.4,39.9z',
-        'personId': 4145,
+        'personId': 4205,
         'rat': 'SR',
     },
     {
@@ -2979,7 +2977,7 @@ const SEATSBV = [
         'seatNumber': 32,
         'seatId': 'SR038',
         'd': 'M674.1,50.2c5.4,2.6,10.7,5.3,16,8l-11.8,22c-4.9-2.6-9.9-5.1-14.9-7.5L674.1,50.2z',
-        'personId': 4205,
+        'personId': 1150,
         'rat': 'SR',
     },
     {
@@ -2987,7 +2985,7 @@ const SEATSBV = [
         'seatNumber': 33,
         'seatId': 'SR018',
         'd': 'M696.2,61.5c5.2,2.8,10.4,5.8,15.6,8.8l-12.9,21.4c-4.8-2.8-9.6-5.6-14.5-8.2L696.2,61.5z',
-        'personId': 1150,
+        'personId': 466,
         'rat': 'SR',
     },
     {
@@ -2995,7 +2993,7 @@ const SEATSBV = [
         'seatNumber': 34,
         'seatId': 'SR001',
         'd': 'M717.8,73.9c5.1,3.1,10.1,6.3,15.1,9.6L719,104.3c-4.6-3.1-9.3-6-14.1-8.9L717.8,73.9z',
-        'personId': 466,
+        'personId': 477,
         'rat': 'SR',
     },
     {
@@ -3003,7 +3001,7 @@ const SEATSBV = [
         'seatNumber': 35,
         'seatId': 'SR030',
         'd': 'M738.7,87.4c4.9,3.3,9.8,6.8,14.6,10.3l-14.9,20.1c-4.5-3.3-9-6.5-13.6-9.6L738.7,87.4z',
-        'personId': 477,
+        'personId': 3831,
         'rat': 'SR',
     },
     {
@@ -3011,7 +3009,7 @@ const SEATSBV = [
         'seatNumber': 36,
         'seatId': 'SR047',
         'd': 'M759,101.9c4.8,3.6,9.5,7.3,14.1,11l-15.9,19.3c-4.3-3.5-8.7-6.9-13.1-10.3L759,101.9z',
-        'personId': 3831,
+        'personId': 4075,
         'rat': 'SR',
     },
     {
@@ -3019,7 +3017,7 @@ const SEATSBV = [
         'seatNumber': 37,
         'seatId': 'SR037',
         'd': 'M778.5,117.3c4.6,3.8,9.1,7.7,13.5,11.7l-16.8,18.5c-4.1-3.7-8.3-7.3-12.6-10.9L778.5,117.3z',
-        'personId': 4075,
+        'personId': 4078,
         'rat': 'SR',
     },
     {
@@ -3027,7 +3025,7 @@ const SEATSBV = [
         'seatNumber': 38,
         'seatId': 'SR021',
         'd': 'M797.2,133.7c4.4,4,8.7,8.1,13,12.3l-17.7,17.7c-4-3.9-8-7.7-12.1-11.5L797.2,133.7z',
-        'personId': 1106,
+        'personId': 4055,
         'rat': 'SR',
     },
     {
@@ -3035,7 +3033,7 @@ const SEATSBV = [
         'seatNumber': 39,
         'seatId': 'SR014',
         'd': 'M827.3,163.8c4.1,4.4,8.1,8.9,12,13.5l-19.1,16.1c-3.7-4.3-7.4-8.5-11.2-12.6L827.3,163.8z',
-        'personId': 4068,
+        'personId': 1106,
         'rat': 'SR',
     },
     {
@@ -3043,7 +3041,7 @@ const SEATSBV = [
         'seatNumber': 40,
         'seatId': 'SR002',
         'd': 'M843.8,182.6c3.9,4.6,7.6,9.3,11.3,14.1l-19.9,15.2c-3.4-4.4-7-8.8-10.5-13.1L843.8,182.6z',
-        'personId': 1148,
+        'personId': 4068,
         'rat': 'SR',
     },
     {
@@ -3051,7 +3049,7 @@ const SEATSBV = [
         'seatNumber': 41,
         'seatId': 'SR028',
         'd': 'M859.4,202.3c3.6,4.8,7.2,9.7,10.6,14.6l-20.6,14.2c-3.2-4.6-6.5-9.1-9.9-13.6L859.4,202.3z',
-        'personId': 3879,
+        'personId': 1148,
         'rat': 'SR',
     },
     {
@@ -3059,7 +3057,7 @@ const SEATSBV = [
         'seatNumber': 42,
         'seatId': 'SR042',
         'd': 'M873.9,222.7c3.4,5,6.7,10,9.9,15.1L862.5,251c-3-4.8-6-9.5-9.2-14.1L873.9,222.7z',
-        'personId': 4026,
+        'personId': 3879,
         'rat': 'SR',
     },
     {
@@ -3067,7 +3065,7 @@ const SEATSBV = [
         'seatNumber': 43,
         'seatId': 'SR036',
         'd': 'M887.5,243.8c3.1,5.2,6.2,10.4,9.1,15.6l-21.9,12.1c-2.7-4.9-5.6-9.7-8.5-14.5L887.5,243.8z',
-        'personId': 305,
+        'personId': 4026,
         'rat': 'SR',
     },
     {
@@ -3075,7 +3073,7 @@ const SEATSBV = [
         'seatNumber': 44,
         'seatId': 'SR040',
         'd': 'M900,265.6c2.9,5.3,5.6,10.6,8.3,16l-22.5,11c-2.5-5-5.1-10-7.8-14.9L900,265.6z',
-        'personId': 3916,
+        'personId': 305,
         'rat': 'SR',
     },
     {
@@ -3083,7 +3081,7 @@ const SEATSBV = [
         'seatNumber': 45,
         'seatId': 'SR044',
         'd': 'M915.1,295.9c2.1,4.6,4.1,9.2,6.1,13.8l-23.1,9.6c-1.8-4.3-3.7-8.6-5.7-12.8L915.1,295.9z',
-        'personId': 3920,
+        'personId': 3916,
         'rat': 'SR',
     },
     {
@@ -3091,7 +3089,7 @@ const SEATSBV = [
         'seatNumber': 46,
         'seatId': 'SR042',
         'd': 'M923.9,316.2c1.9,4.7,3.7,9.4,5.5,14.1l-23.5,8.6c-1.6-4.4-3.3-8.7-5.1-13.1L923.9,316.2z',
-        'personId': 4026,
+        'personId': 3920,
         'rat': 'SR',
     },
 ];
@@ -3575,7 +3573,7 @@ const SEATSNR = [
         'seatNumber': 9,
         'seatId': 'NR055',
         'd': 'M352.4,304.1c8.6-4.3,17.4-8,26.4-11.2l8.1,23.7c-7.9,2.8-15.6,6-23.1,9.8L352.4,304.1z',
-        'personId': '#WERT!',
+        'personId': 4146,
         'rat': 'NR',
     },
     {
@@ -4439,7 +4437,7 @@ const SEATSNR = [
         'seatNumber': 29,
         'seatId': 'NR146',
         'd': 'M686.3,187.4c6.3,4.6,12.6,9.4,18.6,14.4l-16,19.2c-5.6-4.6-11.3-9-17.2-13.3L686.3,187.4z',
-        'personId': 1139,
+        'personId': 4084,
         'rat': 'NR',
     },
     {
@@ -4447,7 +4445,7 @@ const SEATSNR = [
         'seatNumber': 30,
         'seatId': 'NR148',
         'd': 'M709.1,205.3c6,5.1,11.8,10.3,17.5,15.7l-17.4,18c-5.2-5-10.6-9.8-16.2-14.5L709.1,205.3z',
-        'personId': 4144,
+        'personId': 1139,
         'rat': 'NR',
     },
     {
@@ -4455,7 +4453,7 @@ const SEATSNR = [
         'seatNumber': 31,
         'seatId': 'NR150',
         'd': 'M749.5,244.7c5.2,5.9,10.2,11.9,15.1,18.1l-19.8,15.3c-4.5-5.7-9.1-11.2-13.9-16.7L749.5,244.7z',
-        'personId': 4172,
+        'personId': 4144,
         'rat': 'NR',
     },
     {
@@ -4463,7 +4461,7 @@ const SEATSNR = [
         'seatNumber': 32,
         'seatId': 'NR152',
         'd': 'M767.9,267c4.8,6.2,9.3,12.6,13.7,19.1L760.8,300c-4-6-8.3-11.9-12.7-17.6L767.9,267z',
-        'personId': 4065,
+        'personId': 4172,
         'rat': 'NR',
     },
     {
@@ -4471,7 +4469,7 @@ const SEATSNR = [
         'seatNumber': 33,
         'seatId': 'NR154',
         'd': 'M784.6,290.7c4.3,6.6,8.4,13.3,12.3,20.1L775.2,323c-3.6-6.3-7.4-12.5-11.3-18.5L784.6,290.7z',
-        'personId': 3890,
+        'personId': 4065,
         'rat': 'NR',
     },
     {
@@ -4479,7 +4477,7 @@ const SEATSNR = [
         'seatNumber': 34,
         'seatId': 'NR156',
         'd': 'M799.6,315.4c3.8,6.9,7.4,13.8,10.8,20.9L787.8,347c-3.1-6.5-6.4-13-10-19.3L799.6,315.4z',
-        'personId': 4167,
+        'personId': 3890,
         'rat': 'NR',
     },
     {
@@ -4487,7 +4485,7 @@ const SEATSNR = [
         'seatNumber': 35,
         'seatId': 'NR158',
         'd': 'M812.7,341.3c3.3,7.1,6.4,14.3,9.2,21.7l-23.3,9c-2.6-6.7-5.5-13.4-8.5-20L812.7,341.3z',
-        'personId': 4053,
+        'personId': 4167,
         'rat': 'NR',
     },
     {
@@ -4495,7 +4493,7 @@ const SEATSNR = [
         'seatNumber': 36,
         'seatId': 'NR160',
         'd': 'M823.9,368c2.8,7.3,5.3,14.8,7.6,22.3l-23.9,7.2c-2.1-6.9-4.5-13.8-7-20.5L823.9,368z',
-        'personId': '#NV',
+        'personId': 4053,
         'rat': 'NR',
     },
     {
@@ -4503,7 +4501,7 @@ const SEATSNR = [
         'seatNumber': 37,
         'seatId': 'NR162',
         'd': 'M833.1,395.4c2.2,7.5,4.2,15.1,6,22.8l-24.4,5.5c-1.6-7.1-3.5-14.1-5.5-21L833.1,395.4z',
-        'personId': 519,
+        'personId': 3880,
         'rat': 'NR',
     },
     {
@@ -4511,7 +4509,7 @@ const SEATSNR = [
         'seatNumber': 38,
         'seatId': 'NR164',
         'd': 'M840.2,423.5c1.7,7.7,3.1,15.4,4.3,23.1l-24.7,3.7c-1.1-7.2-2.4-14.3-4-21.3L840.2,423.5z',
-        'personId': 3902,
+        'personId': 519,
         'rat': 'NR',
     },
     {
@@ -4519,7 +4517,7 @@ const SEATSNR = [
         'seatNumber': 39,
         'seatId': 'NR166',
         'd': 'M845.3,452c1.1,7.8,2,15.6,2.6,23.4l-24.9,1.8c-0.6-7.2-1.4-14.4-2.4-21.6L845.3,452z',
-        'personId': 91,
+        'personId': 3902,
         'rat': 'NR',
     },
     {
@@ -4527,7 +4525,7 @@ const SEATSNR = [
         'seatNumber': 40,
         'seatId': 'NR168',
         'd': 'M848.3,480.8c0.5,7.8,0.8,15.7,0.9,23.5h-25c-0.1-7.2-0.3-14.5-0.8-21.7L848.3,480.8z',
-        'personId': 3872,
+        'personId': 91,
         'rat': 'NR',
     },
     {
@@ -4591,7 +4589,7 @@ const SEATSNR = [
         'seatNumber': 8,
         'seatId': 'NR181',
         'd': 'M165.5,160.4c6.1-5.1,12.4-10,18.7-14.8l14.8,20.1c-5.9,4.4-11.7,9-17.4,13.7L165.5,160.4z',
-        'personId': 4079,
+        'personId': 4097,
         'rat': 'NR',
     },
     {
@@ -4899,7 +4897,7 @@ const SEATSSR = [
         'seatNumber': 11,
         'seatId': 'SR001',
         'd': 'M289.9,377.4h26v30h-26V377.4z',
-        'personId': 466,
+        'personId': 3831,
         'rat': 'SR',
     },
     {
@@ -4979,7 +4977,7 @@ const SEATSSR = [
         'seatNumber': 8,
         'seatId': 'SR019',
         'd': 'M308.1,76.6c9,0.4,18,1.6,26.8,3.4l-6.5,29.3c-7-1.5-14.1-2.4-21.3-2.7L308.1,76.6z',
-        'personId': 4139,
+        'personId': 4145,
         'rat': 'SR',
     },
     {
@@ -5027,7 +5025,7 @@ const SEATSSR = [
         'seatNumber': 14,
         'seatId': 'SR007',
         'd': 'M465.7,208.8c2.3,10.2,3.7,20.5,4.1,31h-30c-0.4-7.8-1.4-15.6-3.1-23.2L465.7,208.8z',
-        'personId': 4145,
+        'personId': 4205,
         'rat': 'SR',
     },
     {
@@ -5035,7 +5033,7 @@ const SEATSSR = [
         'seatNumber': 1,
         'seatId': 'SR018',
         'd': 'M65,241.8c0.2-10.6,1.1-21.1,2.8-31.5l29.6,5.2c-1.3,8.7-2.1,17.5-2.3,26.3H65z',
-        'personId': 1150,
+        'personId': 477,
         'rat': 'SR',
     },
     {
@@ -5083,7 +5081,7 @@ const SEATSSR = [
         'seatNumber': 7,
         'seatId': 'SR030',
         'd': 'M189.7,38.9c8.7-4.6,17.7-8.7,27-12.2L227,54.9c-7.8,3-15.4,6.4-22.8,10.3L189.7,38.9z',
-        'personId': 477,
+        'personId': 4075,
         'rat': 'SR',
     },
     {
@@ -5147,7 +5145,7 @@ const SEATSSR = [
         'seatNumber': 1,
         'seatId': 'SR032',
         'd': 'M0,240.4c0.2-9.1,0.8-18.1,1.8-27.1l29.8,3.9c-0.8,7.7-1.3,15.4-1.5,23.2L0,240.4L0,240.4z',
-        'personId': 0,
+        'personId': 466,
         'rat': 'SR',
     },
     {
@@ -5171,7 +5169,7 @@ const SEATSSR = [
         'seatNumber': 4,
         'seatId': 'SR038',
         'd': 'M25.1,126.1c3.6-8.3,7.6-16.4,12-24.4l26,15c-3.7,6.8-7.1,13.7-10.3,20.8L25.1,126.1z',
-        'personId': 4205,
+        'personId': 1150,
         'rat': 'SR',
     },
     {
@@ -5203,7 +5201,7 @@ const SEATSSR = [
         'seatNumber': 8,
         'seatId': 'SR047',
         'd': 'M471,0c7.8,5.4,15.4,11.2,22.7,17.4L474,40c-6.3-5.4-12.9-10.4-19.8-15.2L471,0z',
-        'personId': 3831,
+        'personId': 4078,
         'rat': 'SR',
     },
     {
@@ -5211,7 +5209,7 @@ const SEATSSR = [
         'seatNumber': 9,
         'seatId': 'SR045',
         'd': 'M499.8,22.7c7.1,6.3,13.9,13,20.4,20l-22.3,20.1c-5.6-6.1-11.6-11.9-17.8-17.5L499.8,22.7z',
-        'personId': 1162,
+        'personId': 4139,
         'rat': 'SR',
     },
     {
@@ -5243,7 +5241,7 @@ const SEATSSR = [
         'seatNumber': 13,
         'seatId': 'SR037',
         'd': 'M591.2,174.6c2.2,8.8,3.9,17.7,5.3,26.6l-29.8,3.9c-1.2-7.7-2.7-15.3-4.5-22.8L591.2,174.6z',
-        'personId': 4075,
+        'personId': 4055,
         'rat': 'SR',
     },
     {
@@ -5686,7 +5684,7 @@ var _a, _b;
 /***/ "../../../../../src/app/pages/shared/tile/tile.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row tiles\">\r\n\r\n  <ba-card *ngIf=\"!politicianId\" class=\"tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12\">\r\n    <div class=\"tile-item\">\r\n      <div class=\"description\">\r\n        <div translate>Tweeters heute</div>\r\n        <div class=\"description-stats\">{{ usersToday }}</div>\r\n      </div>\r\n      <i class=\"chart-icon fa fa-user fa-5x\"></i>\r\n    </div>\r\n\r\n  </ba-card>\r\n  <ba-card class=\"tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12\">\r\n    <div class=\"tile-item\">\r\n      <div class=\"description\">\r\n        <div translate>Tweets heute</div>\r\n        <div class=\"description-stats\">{{tweetsToday }}</div>\r\n      </div>\r\n      <i class=\"chart-icon fa fa-twitter fa-5x\"></i>\r\n    </div>\r\n\r\n  </ba-card>\r\n\r\n  <ba-card  *ngIf=\"trendingTopics && trendingTopics.length > 0\" class=\"tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12\">\r\n    <div class=\"tile-item\">\r\n      <div class=\"description trending\">\r\n        <div translate>Trending heute</div>\r\n        <div *ngFor=\"let topic of trendingTopics\">\r\n          <div class=\"description-stats\"><a href=\"https://twitter.com/search?q=%23{{topic}}\">#{{topic}}</a></div>\r\n        </div>\r\n      </div>\r\n      <i class=\"chart-icon fa fa-arrow-up fa-5x\"></i>\r\n    </div>\r\n  </ba-card>\r\n</div>\r\n"
+module.exports = "<div class=\"row tiles\">\r\n\r\n  <ba-card *ngIf=\"!politicianId\" class=\"tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12\">\r\n    <div class=\"tile-item\">\r\n      <div class=\"description\">\r\n        <div translate>Tweeters heute</div>\r\n        <div class=\"description-stats\">{{ usersToday }}</div>\r\n      </div>\r\n      <i class=\"chart-icon fa fa-user fa-5x\"></i>\r\n    </div>\r\n\r\n  </ba-card>\r\n  <ba-card class=\"tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12\">\r\n    <div class=\"tile-item\">\r\n      <div class=\"description\">\r\n        <div translate>Tweets heute</div>\r\n        <div class=\"description-stats\">{{tweetsToday }}</div>\r\n      </div>\r\n      <i class=\"chart-icon fa fa-twitter fa-5x\"></i>\r\n    </div>\r\n\r\n  </ba-card>\r\n\r\n  <ba-card  *ngIf=\"trendingTopics && trendingTopics.length > 0\" class=\"tile-item-container col-xlg-4 col-lg-4 col-md-4 col-sm-12 col-12\">\r\n    <div class=\"tile-item\">\r\n      <div class=\"description trending\">\r\n        <div translate>Trending heute</div>\r\n        <div *ngFor=\"let topic of trendingTopics\">\r\n          <div class=\"description-stats\"><a href=\"https://twitter.com/search?q=%23{{topic}}\" target=\"_blank\">#{{topic}}</a></div>\r\n        </div>\r\n      </div>\r\n      <i class=\"chart-icon fa fa-arrow-up fa-5x\"></i>\r\n    </div>\r\n  </ba-card>\r\n</div>\r\n"
 
 /***/ }),
 
