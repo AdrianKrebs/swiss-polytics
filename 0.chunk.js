@@ -957,7 +957,7 @@ var _a, _b, _c, _d, _e, _f;
 /***/ "../../../../../src/app/pages/shared/seat/seat.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ng-template #popContent>\r\n  <div class=\"container\" *ngIf=\"selectedSeat?.personId > 0\">\r\n    <p>{{selectedSeat?.name}}</p>\r\n    <div class=\"profile-img\">\r\n    <img src=\"https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg\">\r\n    </div>\r\n    <button class=\"btn btn-primary confirm-btn\" (mousedown)=\"navigateToProfile()\" >Profil</button>\r\n  </div>\r\n\r\n  <div class=\"container\" *ngIf=\"selectedSeat?.personId === '#NV'\">\r\n      <p>Leerer Sitz</p>\r\n    </div>\r\n\r\n</ng-template>\r\n<div class=\"svg-container\">\r\n  <svg id=\"svgId\" currentScale=\"1\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" [attr.viewBox]=\"viewbox\">\r\n    <g *ngFor=\"let seat of seats\">\r\n      <a tabindex=\"0\"  triggers=\"focus:blur\" container=\"body\"\r\n         [ngbPopover]=\"popContent\" (click)=\"onSeatChange(seat)\">\r\n      <path [attr.class]=\"'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party\" container=\"body\" [attr.d]=\"seat.d\" />\r\n      </a>\r\n    </g>\r\n  </svg>\r\n</div>\r\n\r\n"
+module.exports = "<ng-template #popContent>\r\n  <div class=\"container\" *ngIf=\"selectedSeat?.personId !== '#NV'\">\r\n    <p>{{selectedSeat?.name}}</p>\r\n    <div class=\"profile-img\">\r\n    <img src=\"https://www.parlament.ch/sitecollectionimages/profil/portrait-260/{{selectedSeat?.number}}.jpg\">\r\n    </div>\r\n    <button class=\"btn btn-primary confirm-btn\" (mousedown)=\"navigateToProfile()\" >Profil</button>\r\n  </div>\r\n\r\n  <div class=\"container\" *ngIf=\"selectedSeat?.personId === '#NV'\">\r\n      <p>Leerer Sitz</p>\r\n    </div>\r\n\r\n</ng-template>\r\n<div class=\"svg-container\">\r\n  <svg id=\"svgId\" currentScale=\"1\" x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" [attr.viewBox]=\"viewbox\">\r\n    <g *ngFor=\"let seat of seats\">\r\n      <a tabindex=\"0\"  triggers=\"focus:blur\" container=\"body\"\r\n         [ngbPopover]=\"popContent\" (click)=\"onSeatChange(seat)\">\r\n      <path [attr.class]=\"'margin' + ' ' + seat.twitterClass + ' ' + seat.activityClass + ' ' + seat.party\" container=\"body\" [attr.d]=\"seat.d\" />\r\n      </a>\r\n    </g>\r\n  </svg>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1081,7 +1081,7 @@ const SEATSBV = [
         'seatNumber': 7,
         'seatId': 'BR001',
         'd': 'M260.1,571.7l19.8,2.4l-2.7,21.8l-19.9-2.4L260.1,571.7z',
-        'personId': 1,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -1089,7 +1089,7 @@ const SEATSBV = [
         'seatNumber': 8,
         'seatId': 'BR002',
         'd': 'M292.9,575.8l19.9,2.4l-2.7,21.8l-19.9-2.4L292.9,575.8z',
-        'personId': 2,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -1097,7 +1097,7 @@ const SEATSBV = [
         'seatNumber': 9,
         'seatId': 'BR003',
         'd': 'M325.6,579.8l19.9,2.4l-2.7,21.8l-19.9-2.4L325.6,579.8z',
-        'personId': 3,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -3157,7 +3157,7 @@ const SEATSNR = [
         'seatNumber': 7,
         'seatId': 'BR001',
         'd': 'M260.1,571.7l19.8,2.4l-2.7,21.8l-19.9-2.4L260.1,571.7z',
-        'personId': 1,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -3165,7 +3165,7 @@ const SEATSNR = [
         'seatNumber': 8,
         'seatId': 'BR002',
         'd': 'M292.9,575.8l19.9,2.4l-2.7,21.8l-19.9-2.4L292.9,575.8z',
-        'personId': 2,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -3173,7 +3173,7 @@ const SEATSNR = [
         'seatNumber': 9,
         'seatId': 'BR003',
         'd': 'M325.6,579.8l19.9,2.4l-2.7,21.8l-19.9-2.4L325.6,579.8z',
-        'personId': 3,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4817,7 +4817,7 @@ const SEATSSR = [
         'seatNumber': 1,
         'seatId': 'BR001',
         'd': 'M130.5,341.5l-25.9-2.3l2.6-29.9l25.9,2.3L130.5,341.5z',
-        'personId': 1,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4825,7 +4825,7 @@ const SEATSSR = [
         'seatNumber': 2,
         'seatId': 'BR002',
         'd': 'M174.4,345.3l-25.9-2.3l2.6-29.9l25.9,2.3L174.4,345.3z',
-        'personId': 2,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4833,7 +4833,7 @@ const SEATSSR = [
         'seatNumber': 3,
         'seatId': 'BR003',
         'd': 'M195,317l25.9,2.3l-2.6,29.9l-25.9-2.3L195,317z',
-        'personId': 3,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4857,7 +4857,7 @@ const SEATSSR = [
         'seatNumber': 6,
         'seatId': 'BR004',
         'd': 'M415.9,346.9l-25.9,2.3l-2.6-29.9l25.9-2.3L415.9,346.9z',
-        'personId': 0,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4865,7 +4865,7 @@ const SEATSSR = [
         'seatNumber': 7,
         'seatId': 'BR005',
         'd': 'M431.2,315.5l25.9-2.3l2.6,29.9l-25.9,2.3L431.2,315.5z',
-        'personId': 0,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4873,7 +4873,7 @@ const SEATSSR = [
         'seatNumber': 8,
         'seatId': 'BR006',
         'd': 'M475,311.6l25.9-2.3l2.6,29.9l-25.9,2.3L475,311.6z',
-        'personId': 0,
+        'personId': '#NV',
         'rat': 'BR',
     },
     {
@@ -4881,7 +4881,7 @@ const SEATSSR = [
         'seatNumber': 9,
         'seatId': '-',
         'd': 'M151.1,371.4l25.9,2.3l-2.6,29.9l-25.9-2.3L151.1,371.4z',
-        'personId': 0,
+        'personId': '#NV',
         'rat': 'Protokollführer',
     },
     {
@@ -4889,7 +4889,7 @@ const SEATSSR = [
         'seatNumber': 10,
         'seatId': '-',
         'd': 'M195,375.3l25.9,2.3l-2.6,29.9l-25.9-2.3L195,375.3z',
-        'personId': 0,
+        'personId': '#NV',
         'rat': 'Ratssekretariat',
     },
     {
@@ -4913,7 +4913,7 @@ const SEATSSR = [
         'seatNumber': 13,
         'seatId': '-',
         'd': 'M431.2,373.7l25.9-2.3l2.6,29.9l-25.9,2.3L431.2,373.7z',
-        'personId': 0,
+        'personId': '#NV',
         'rat': 'Amtliches Bulletin',
     },
     {
